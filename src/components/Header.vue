@@ -1,5 +1,5 @@
 <template>
-    <nav class="bg-white dark:bg-gray-950 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+    <nav class="bg-white dark:bg-gray-950 sticky top-0 z-50 w-full start-0 border-b border-gray-200 dark:border-gray-600">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="https://bitpulse.dev/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="../assets/bitpulse logo_transparent.png" class="h-12" alt="Flowbite Logo">
@@ -33,3 +33,15 @@
     </nav>
 </template>
   
+<script setup lang="ts">
+import { onMounted } from 'vue';
+
+onMounted(() => {
+    const toggleBtn = document.querySelector('[data-collapse-toggle="navbar-sticky"]');
+    const menu = document.getElementById("navbar-sticky");
+
+    toggleBtn?.addEventListener("click", () => {
+      menu?.classList.toggle("hidden");
+    });
+});
+</script>

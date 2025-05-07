@@ -12,7 +12,7 @@
 <script setup lang="ts">
 import SiteHeader from '../components/Header.vue'
 import HeroSection from '../components/HeroSection.vue'
-import ProductPreview from '../components/ProductPreview.vue'
+import ProductPreview from '../components/productPreview.vue'
 import SiteFooter from '../components/SiteFooter.vue'
 </script>
   
