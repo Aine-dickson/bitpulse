@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 import HeroSection from '../components/HeroSection.vue'
-import productPreview from '../components/productPreview.vue'
+import productPreview from '../components/ProductPreview.vue'
 
 </script>
   
