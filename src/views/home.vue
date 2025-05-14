@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-1">
+    <div class="flex-1 relative">
         <HeroSection />
         <productPreview />
     </div>
@@ -8,5 +8,6 @@
 <script setup lang="ts">
 import HeroSection from '../components/HeroSection.vue'
 import productPreview from '../components/productPreview.vue'
+
 </script>
   

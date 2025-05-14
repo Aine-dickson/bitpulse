@@ -1,5 +1,5 @@
 <template>
-    <div class="md:h-full h-screen flex justify-center items-center p-8 bg-[url('../assets/under_construction.svg')] bg-cover md:bg-none bg-no-repeat bg-center py-8 md:py-0">
+    <div class="md:h-full h-screen flex justify-center items-center p-8 bg-[url('../assets/under_construction.svg')] md:bg-none bg-no-repeat bg-center py-8 md:py-0">
         <div class="bg-black/60 md:bg-transparent backdrop-blur-sm rounded-lg md:rounded-none p-8 md:p-0 flex flex-col justify-center md:block">
             <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Under construction:</h2>
             <ul class="max-w-md space-y-2 text-gray-400 md:text-gray-500 list-inside dark:text-gray-300 md:dark:text-gray-400">

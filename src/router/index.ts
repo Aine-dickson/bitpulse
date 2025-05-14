@@ -21,9 +21,45 @@ const router = createRouter({
           requiresAuth: false,
         },
     },
+    {
+        path: '/partner',
+        name: 'partnership',
+        component: () => import('@/views/partnership.vue'),
+        meta: {
+          title: 'Partnership',
+          requiresAuth: false,
+        },
+    },
     { path: '/services',
         name: 'services',
         component: () => import('@/views/services.vue'),
+        children: [
+            {
+                path: "embedded-&-iot-devt",
+                name: 'embedded_iot_devt',
+                component: () => import('@/components/services/embedded_iot_devt.vue'),
+            },
+            {
+                path: "backend-&-systems",
+                name: 'backend_systems',
+                component: () => import('@/components/services/backend.vue'),
+            },
+            {
+                path: "custom-R&D-prototyping",
+                name: 'prototyping',
+                component: () => import('@/components/services/prototyping.vue'),
+            },
+            {
+                path: "technical-mentorship-&-training",
+                name: 'training',
+                component: () => import('@/components/services/training.vue'),
+            },
+            {
+                path: "developer-tools-&-open-source-solutions",
+                name: 'dev_tools',
+                component: () => import('@/components/services/dev_tools.vue'),
+            }
+        ],
         meta: {
             title: 'Services',
             requiresAuth: false,
