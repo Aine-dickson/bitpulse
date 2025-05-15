@@ -7,7 +7,7 @@
             <customPrototypeForm @click.stop v-if="uiStore.modal == 'customPrototypeForm'"/>
             <bookSession @click.stop v-if="uiStore.modal == 'bookSessionForm'"/>
             <requestDevTool @click.stop v-if="uiStore.modal == 'devSolutionRequestForm'"/>
-            <embeddeQuoteForm @click.stop v-if="uiStore.modal == 'embeddedQuoteForm'"/>
+            <embeddedQuoteForm @click.stop v-if="uiStore.modal == 'embeddedQuoteForm'"/>
         </div>
         <header>
             <SiteHeader />
@@ -36,7 +36,6 @@ import requestDevTool from './components/requestDevTool.vue';
 import embeddedQuoteForm from './components/embeddedQuoteForm.vue';
 
 import { useUiStore } from '@/stores/ui';
-import EmbeddeQuoteForm from './components/embeddedQuoteForm.vue';
 
 const uiStore = useUiStore();
 </script>
