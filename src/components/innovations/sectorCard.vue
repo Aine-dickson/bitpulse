@@ -1,5 +1,5 @@
 <template>
-    <figure class="flex flex-col items-center justify-center p-8 text-center w-full h-full">
+    <figure class="flex flex-col items-center p-8 text-center w-full h-full">
         <figcaption class="flex items-center justify-center">
             <img class="rounded-full w-15 h-15" :src="image" alt="profile picture">
         </figcaption>

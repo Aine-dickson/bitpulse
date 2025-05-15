@@ -1,5 +1,5 @@
 <template>
-    <figure class="flex flex-col relative items-start p-4 px-6 w-full h-full border border-yellow-500 rounded-lg">
+    <figure class="flex flex-col relative items-start pt-4 pb-8 sm:p-4 px-6 w-full h-full border border-yellow-500 rounded-lg">
         <div class="flex justify-center items-center w-24 h-24 rounded-lg lg:h-12 lg:w-12 bg-yellow-100 dark:bg-yellow-900">
             <img :src="image" :alt="title">
         </div>

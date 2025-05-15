@@ -69,12 +69,9 @@
                     We don’t just teach — we walk with you through real-world development challenges. From student to senior, we adapt to your pace and purpose.
                 </p>
                 <div class="flex flex-col md:flex-row justify-center gap-4">
-                    <RouterLink
-                        to="/contacts"
-                        class="bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
-                    >
+                    <div @click="uiStore.showModal('bookSessionForm')" class="bg-white cursor-pointer text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
                         Book a Session
-                    </RouterLink>
+                    </div>
                     <RouterLink
                         to="/services"
                         class="border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-orange-600 transition"
@@ -86,3 +83,9 @@
         </section>
     </div>
 </template>
+
+<script setup lang="ts">
+import { useUiStore } from '@/stores/ui';
+
+let uiStore = useUiStore();
+</script>

@@ -61,12 +61,9 @@
                 <h2 class="text-3xl font-bold">Let's Build Something Brilliant</h2>
                 <p class="text-lg">Ready to take your product or idea to the next level? Talk to our team about building your next embedded system.</p>
                 <div class="flex flex-col md:flex-row justify-center gap-4">
-                    <RouterLink
-                        to="/contacts"
-                        class="bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
-                    >
-                        Book a Consultation
-                    </RouterLink>
+                    <div @click="uiStore.showModal('embeddedQuoteForm')" class="bg-white cursor-pointer text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+                        Request a Quote
+                    </div>
                     <RouterLink
                         to="/services"
                         class="border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-orange-600 transition"
@@ -78,3 +75,9 @@
         </section>
     </div>
 </template>
+
+<script setup lang="ts">
+import { useUiStore } from '@/stores/ui';
+
+let uiStore = useUiStore();
+</script>

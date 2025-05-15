@@ -23,12 +23,12 @@
                 <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
                     Let’s chat and figure out how BitPulse can help you build, scale, or solve a challenge you're facing.
                 </p>
-                <RouterLink
-                    to="/contact"
-                    class="inline-block bg-orange-600 hover:bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold transition"
+                <div
+                    @click="uiStore.showModal('consultationForm')"
+                    class="inline-block cursor-pointer bg-orange-600 hover:bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold transition"
                 >
                     📅 Book a Free Consultation
-                </RouterLink>
+                </div>
             </section>
 
         </div>
@@ -38,12 +38,15 @@
 
 <script setup lang="ts">
 import serviceCard from '@/components/services/serviceCard.vue';
+import { useUiStore } from '@/stores/ui';
+
+let uiStore = useUiStore();
 
 let childRoutes = ["embedded_iot_devt", "backend_systems", "prototyping", "training", "dev_tools"];
 
 let services = [
   {
-    image: "docs.svg",
+    image: "backend.svg",
     name: "backend_systems",
     cta: "Discover how we build powerful systems together",
     category: "Backend & Systems Programming",
@@ -56,7 +59,7 @@ let services = [
     ]
   },
   {
-    image: "docs.svg",
+    image: "prototype.svg",
     name: "prototyping",
     cta: "Explore how your next idea can take shape with us",
     category: "Custom R&D Prototyping",
@@ -69,7 +72,7 @@ let services = [
     ]
   },
   {
-    image: "docs.svg",
+    image: "training.svg",
     name: "training",
     cta: "Let’s shape your learning journey together",
     category: "Technical Mentorship & Training",
@@ -82,7 +85,7 @@ let services = [
     ]
   },
   {
-    image: "docs.svg",
+    image: "dev_tools.svg",
     name: "dev_tools",
     cta: "Join us in building tools that empower developers",
     category: "Developer Tools & Open Source Solutions",
@@ -95,7 +98,7 @@ let services = [
     ]
   },
   {
-    image: "docs.svg",
+    image: "embedded_iot.svg",
     cta: "See how we can bring your devices to life",
     name: "embedded_iot_devt",
     category: "Embedded Systems & IoT Development",

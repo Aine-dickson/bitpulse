@@ -76,12 +76,9 @@
                     Whether you need a custom SDK, CI utility, documentation engine, or dev dashboard — we’re ready to craft it with you or help maintain what you already have.
                 </p>
                 <div class="flex flex-col md:flex-row justify-center gap-4">
-                    <RouterLink
-                        to="/contacts"
-                        class="bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
-                    >
+                    <div @click="uiStore.showModal('devSolutionRequestForm')" class="bg-white cursor-pointer text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
                         Request a Solution
-                    </RouterLink>
+                    </div>
                     <RouterLink
                         to="/services"
                         class="border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-orange-600 transition"
@@ -93,3 +90,9 @@
         </section>
     </div>
 </template>
+
+<script setup lang="ts">
+import { useUiStore } from '@/stores/ui';
+
+let uiStore = useUiStore();
+</script>

@@ -67,16 +67,10 @@
                 <h2 class="text-3xl font-bold">Let’s Build Your Next Big Idea</h2>
                 <p class="text-lg">We’re excited to hear what you're thinking. Let’s turn that idea into a working reality — fast and fearlessly.</p>
                     <div class="flex flex-col md:flex-row justify-center gap-4">
-                        <RouterLink
-                            to="/contacts"
-                            class="bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
-                        >
+                        <div @click="uiStore.showModal('customPrototypeForm')" class="cursor-pointer bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
                             Start a Conversation
-                        </RouterLink>
-                        <RouterLink
-                            to="/services"
-                            class="border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-orange-600 transition"
-                        >
+                        </div>
+                        <RouterLink to="/services" class="border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-orange-600 transition">
                             Browse More Services
                         </RouterLink>
                     </div>
@@ -84,3 +78,9 @@
         </section>
     </div>
 </template>
+
+<script setup lang="ts">
+import { useUiStore } from '@/stores/ui';
+
+let uiStore = useUiStore();
+</script>

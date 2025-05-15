@@ -37,7 +37,7 @@
                     @click="uiStore.showModal('partnershipForm')"
                     class="bg-primary cursor-pointer text-white px-6 py-3 rounded-xl font-medium hover:bg-orange-600 transition"
                 >
-                    Propose a Partnership
+                    Submit Proposal
                 </span>
 
                 <!-- TODO: Implement call scheduling -->
