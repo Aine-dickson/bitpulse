@@ -13,7 +13,7 @@
                 <p class="text-orange-500 text-lg font-medium uppercase mb-2">Featured</p>
                 <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">{{ featured.title }}</h2>
                 <p class="text-gray-600 mb-4 dark:text-gray-400">{{ featured.excerpt }}</p>
-                <router-link :to="`/blog/${featured.slug}`" class="inline-block text-orange-600 font-semibold hover:underline">Read More →</router-link>
+                <router-link :to="{name: 'blog_post', params: {slug: 'featured'}}" class="inline-block text-orange-600 font-semibold hover:underline">Read More →</router-link>
             </div>
         </section>
 
@@ -47,7 +47,7 @@
             </form>
 
             <div class="flex space-x-2 overflow-x-auto w-full h-fit">
-                <button class="bg-gray-200 w-fit whitespace-nowrap dark:bg-slate-700 px-4 py-1 rounded-full text-sm text-gray-700 dark:text-gray-300 hover:bg-orange-100 dark:hover:bg-orange-900 cursor-pointer" v-for="tag in tags" :key="tag">{{ tag }}</button>
+                <button class="bg-gray-200 w-fit whitespace-nowrap dark:bg-slate-800 px-4 py-1 rounded-full text-sm text-gray-700 dark:text-gray-300 hover:bg-orange-100 dark:hover:bg-orange-900 cursor-pointer" v-for="tag in tags" :key="tag">{{ tag }}</button>
             </div>
         </div>
     
