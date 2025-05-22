@@ -13,7 +13,7 @@
                 <p class="text-orange-500 text-lg font-medium uppercase mb-2">Featured</p>
                 <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">{{ featured.title }}</h2>
                 <p class="text-gray-600 mb-4 dark:text-gray-400">{{ featured.excerpt }}</p>
-                <router-link :to="{name: 'blog_post', params: {slug: 'featured'}}" class="inline-block text-orange-600 font-semibold hover:underline">Read More →</router-link>
+                <router-link :to="{name: 'blog_post', params: {slug: 'what-africa-truly-needs-from-its-tech-revolution'}}" class="inline-block text-orange-600 font-semibold hover:underline">Read More →</router-link>
             </div>
         </section>
 
@@ -60,7 +60,7 @@
                     <p class="text-sm text-gray-500 dark:text-gray-300 mb-1">{{ formatDate(post.date) }}</p>
                     <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2">{{ post.title }}</h3>
                     <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">{{ post.excerpt }}</p>
-                    <router-link :to="`/blog/${post.slug}`" class="text-orange-600 font-medium hover:underline text-sm">Continue Reading →</router-link>
+                    <router-link :to="{name: 'blog_post', params: {slug: post.slug}}" class="text-orange-600 font-medium hover:underline text-sm">Continue Reading →</router-link>
                 </div>
             </div>
         </div>
@@ -108,7 +108,7 @@
         },
         {
           title: "Rust vs C++ for Embedded Systems",
-          slug: "rust-vs-cpp-embedded",
+          slug: "rust-vs-c-for-embedded-systems-the-battle-for-the-bare-metal",
           excerpt: "We compare two powerful languages and how they stack up in embedded development.",
           image: "/blog/rust-vs-cpp.jpg",
           date: "2025-05-06",

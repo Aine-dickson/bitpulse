@@ -1,14 +1,5 @@
 <template>
-    <div class="text-white max-w-6xl mx-auto px-4 py-10">
-        <h1 class="text-4xl font-black mb-8">
-            Beyond the Code: What Africa Truly Needs from Its Tech Revolution
-        </h1>
-
-        <blockquote class="pl-4 my-4 border-s-4 border-gray-300 dark:border-gray-500">
-            <p class="text-lg italic font-medium leading-relaxed text-gray-900 dark:text-white">By BitPulse</p>
-        </blockquote>
-
-        <hr class="text-gray-300 dark:text-gray-800 my-12" />
+    <div class="text-white py-10">
 
         <h2 class="text-2xl font-semibold mb-4">
             🌍 The Rise of African Tech — A Surface-Level View
@@ -187,7 +178,7 @@
 
         <ul class="list-disc pl-10 space-y-2 mb-6 text-lg">
             <li>
-                Follow [@bitpulse\_dev](https://x.com/bitpulse_dev) for more behind-the-scenes innovations
+                Follow <a href="https://x.com/BitCraft_handle" class="cursor-pointer underline text-orange-500">BitCraft</a> for more behind-the-scenes innovations
             </li>
             <li>
                 Drop a comment: <span class="font-bold">What tech solution does your region actually need?</span>
@@ -201,6 +192,6 @@
         <p class="italic font-bold text-lg">
             Written by the BitPulse Team — Innovating for Real Impact.
         </p>
-        <hr class="text-gray-300 dark:text-gray-800 my-12" />
+        <hr class="text-gray-300 dark:text-gray-800 mt-12 mb-4" />
     </div>
 </template>
