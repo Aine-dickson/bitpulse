@@ -13,7 +13,7 @@
                 <p class="text-orange-500 text-lg font-medium uppercase mb-2">Featured</p>
                 <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">{{ featured.title }}</h2>
                 <p class="text-gray-600 mb-4 dark:text-gray-400">{{ featured.excerpt }}</p>
-                <router-link :to="{name: 'blog_post', params: {slug: 'what-africa-truly-needs-from-its-tech-revolution'}}" @click="blogStore.previewPost(featured.id)" class="inline-block text-orange-600 font-semibold hover:underline">Read More →</router-link>
+                <router-link :to="{name: 'blog_post', params: {slug: featured.slug}}" @click="blogStore.previewPost(featured.id)" class="inline-block text-orange-600 font-semibold hover:underline">Read More →</router-link>
             </div>
         </section>
 
@@ -55,7 +55,7 @@
         <!-- Blog List -->
         <div class="grid md:grid-cols-3 sm:grid-cols-2 gap-8">
             <div v-if="posts.length == 0" class="col-span-3 text-center p-8 bg-gray-100 dark:bg-slate-800 rounded-lg">
-                <p class="text-gray-600 dark:text-gray-400">No blog posts found. Please check back later.</p>
+                <p class="text-gray-600 dark:text-gray-400">No matching blog posts found. Please check back later.</p>
             </div>
             <div v-for="post in posts" :key="post.slug" class="bg-white dark:bg-gray-900 border rounded-lg shadow-sm hover:shadow-md transition">
                 <img src="../assets/profile.png" alt="Blog Thumbnail" class="w-full h-48 object-cover rounded-t-lg" />
@@ -79,24 +79,21 @@
 
 <script setup lang="ts">
     import { computed, ref } from 'vue';
-    import { useUiStore } from '@/stores/ui';
     import { useBlogStore } from '@/stores/blog';
 
     let blogStore = useBlogStore();
-    let uiStore = useUiStore();
     let isSearch = ref(false);
     let searchTarget = ref("");
 
-    // TODO: Implement search functionality
     let searchWord = () => {
-        uiStore.showInfoModal("Search functionality is not implemented yet.", "warning");
+        blogStore.toggleFilterBySearch(searchTarget.value.trim().length > 0);
     }
 
     let switchFilter = (tag: string) => {
         let search = blogStore.tags.find(item => item == tag);
         if(search) {
             blogStore.rmTagFilter(tag);
-            return
+            return;
         }
         blogStore.addTagFilter(tag)
     }
@@ -114,10 +111,18 @@
     })
 
     let posts = computed(() => {
-        if(blogStore.tags.length == 0) {
-            return blogStore.posts;
+        const hasSearch = blogStore.filterBySearch && searchTarget.value.trim().length > 0;
+        const hasTags = blogStore.tags.length > 0;
+
+        if (hasSearch) {
+            return blogStore.getPostsBySearch(searchTarget.value);
         }
-        return blogStore.getPostsByTags();
+
+        if (hasTags) {
+            return blogStore.getPostsByTags();
+        }
+
+        return blogStore.posts;
     });
 
     let formatDate = (dateStr: string) => {

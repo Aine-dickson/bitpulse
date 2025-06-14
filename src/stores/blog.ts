@@ -12,13 +12,21 @@ export interface Blog {
     author?: string,  
 }
 
+export interface Comment {
+    id: string,
+    post_id: string,
+    username: string,
+    content: string,
+    inserted_at: string
+}
+
 export const useBlogStore = defineStore('blog', () => {
     let posts: Blog[] = [
         {
             id: "e3okrmlk",
             title: "How Embedded Systems are Powering Smart Infrastructure",
             excerpt: "A dive into real-world use cases where embedded tech and IoT are transforming industries…",
-            slug: "smart-infrastructure-embedded-systems",
+            slug: "what-africa-truly-needs-from-its-tech-revolution",
             image: "/blog/featured-smart-infrastructure.jpg",
             date: "2025-05-15",
             tags: ["IoT", "Embedded Systems"]
@@ -52,6 +60,7 @@ export const useBlogStore = defineStore('blog', () => {
         },
     ]
 
+    const filterBySearch = ref(false);
     const tags: Ref<string[]> = ref([]);
     const featuredBlogPost: Ref<null | string> = ref("e3okrmlk");
     const postInPreview: Ref<string> = ref("");
@@ -62,6 +71,18 @@ export const useBlogStore = defineStore('blog', () => {
     
     let getPostsByTags = (): Blog[] => {
         return posts.filter(post => post.tags.some(tag => tags.value.includes(tag)));
+    }
+
+    let getPostsBySearch = (searchTerm: string): Blog[] => {
+        if (!filterBySearch.value || !searchTerm) {
+            return posts;
+        }
+        const lowerSearchTerm = searchTerm.toLowerCase();
+        return posts.filter(post =>
+            post.title.toLowerCase().includes(lowerSearchTerm) ||
+            post.excerpt.toLowerCase().includes(lowerSearchTerm) ||
+            post.tags.some(tag => tag.toLowerCase().includes(lowerSearchTerm))
+        );
     }
 
     const addTagFilter = (filter: string) => {
@@ -79,9 +100,24 @@ export const useBlogStore = defineStore('blog', () => {
         postInPreview.value = postId;
     }
 
+    const toggleFilterBySearch = (state?: boolean) => {
+        if (state !== undefined) {
+            filterBySearch.value = state;
+            return;
+        }
+        filterBySearch.value = !filterBySearch.value;
+    }
+
     return {
         posts, getPostById, getPostsByTags, postInPreview,
         tags, addTagFilter, rmTagFilter, previewPost,
-        featuredBlogPost
+        featuredBlogPost, filterBySearch, toggleFilterBySearch,
+        getPostsBySearch
     }
-})
+},
+{
+    persist: {
+        pick: ['tags', 'featuredBlogPost', 'postInPreview', 'filterBySearch'],
+    }
+}
+)
