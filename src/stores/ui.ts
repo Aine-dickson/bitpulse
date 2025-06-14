@@ -4,6 +4,7 @@ import { ref, type Ref } from 'vue'
 export const useUiStore = defineStore('ui', () => {
 
     const modal: Ref<null | string> = ref(null);
+    
     const infoModal: Ref<null | {message: string, state: 'error' | 'warning' | 'success'}> = ref(null);
 
     const showModal = (modalName: string) => {
@@ -22,5 +23,8 @@ export const useUiStore = defineStore('ui', () => {
         infoModal.value = null
     }
     
-  return { modal, showModal, hideModal, infoModal, showInfoModal, hideInfoModal }
+    return { 
+        modal, showModal, hideModal, 
+        infoModal, showInfoModal, hideInfoModal, 
+    }
 })

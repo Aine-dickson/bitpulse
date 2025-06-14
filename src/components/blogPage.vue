@@ -2,19 +2,21 @@
     <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
         <!-- Blog Content -->
         <article class="md:col-span-2">
-            <h1 class="text-3xl md:text-4xl font-bold md:font-black text-gray-800 dark:text-gray-200 mb-4 md:mb-8">{{ blog.title }}</h1>
+            <h1 class="text-3xl md:text-4xl font-bold md:font-black text-gray-800 dark:text-gray-200 mb-4 md:mb-8">{{ blog?.title }}</h1>
             
             <blockquote class="pl-4 my-4 border-s-4 border-gray-300 dark:border-gray-500">
-                <p class="text-md italic leading-relaxed text-gray-900 dark:text-gray-500">{{ formatDate(blog.date) }} · {{ blog.author }}</p>
+                <p class="text-md italic leading-relaxed text-gray-900 dark:text-gray-500">{{ formatDate(blog?.date || '') }} · {{ blog?.author }}</p>
             </blockquote>
             <hr class="text-gray-300 dark:text-gray-800 my-12" />
 
-            <img :src="blog.image" class="w-full rounded mb-6" alt="Blog cover" />
+            <img :src="blog?.image" class="w-full rounded mb-6" alt="Blog cover" />
 
             <blog1 v-if="slug == 'what-africa-truly-needs-from-its-tech-revolution'"/>
             <blog2 v-else-if="slug == 'rust-vs-c-for-embedded-systems-the-battle-for-the-bare-metal'"/>
 
-            <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Tags: <span class="text-orange-600 font-semibold">#EmbeddedSystems</span>, <span class="text-orange-600 font-semibold">#IoT</span></p>
+            <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Tags: 
+                <span v-for="(tag, index) in blog?.tags" :key="tag" class="text-orange-600 font-semibold">#{{ index+1 == blog?.tags.length ? tag : `${tag}, ` }} </span>
+            </p>
 
             <!-- TODO: Include articles -->
         </article>
@@ -43,17 +45,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, onMounted, ref, type Ref } from 'vue'
 import blog1 from './blog1.vue';
 import blog2 from './blog2.vue';
+import { useBlogStore, type Blog } from '@/stores/blog';
 
-    defineProps<{slug: string}>()
-    let blog = ref({
-        title: "How Embedded Systems are Powering Smart Infrastructure",
-        content: "<p>A dive into real-world use cases where embedded tech and IoT are transforming industries…</p>",
-        image: "/blog/featured-smart-infrastructure.jpg",
-        date: "2025-05-15",
-        author: "John Doe",
+    let blogStore = useBlogStore();
+    defineProps<{slug: string, id: string}>();
+
+    let blog = computed(() => {
+        return blogStore.getPostById(blogStore.postInPreview);
     });
 
     let newComment = ''
@@ -65,7 +66,7 @@ import blog2 from './blog2.vue';
             timestamp: "2025-05-16T12:34:56Z",
         }
     ]
-    let socket = null
+
     let formatDate = (dateStr: string) => {
       const date = new Date(dateStr);
       return date.toLocaleString();
