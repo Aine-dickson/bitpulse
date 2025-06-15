@@ -9,7 +9,7 @@
         </div>
 
         <div class="flex items-center justify-center mt-3 space-x-2 rtl:space-x-reverse">
-            <span class="text-orange-400 font-medium hover:underline hover:text-orange-500 cursor-pointer">
+            <span @click="$router.push({name: 'why_bitpulse'})" class="text-orange-400 font-medium hover:underline hover:text-orange-500 cursor-pointer">
                 Learn what makes BitPulse different
             </span>
             <svg class="w-4 h-4 text-gray-800 dark:text-orange-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
