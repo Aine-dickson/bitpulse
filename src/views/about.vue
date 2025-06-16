@@ -1,37 +1,129 @@
 <template>
-    <div class="md:h-full h-screen flex justify-center items-center p-8 bg-[url('../assets/under_construction.svg')] md:bg-none bg-no-repeat bg-center py-8 md:py-0">
-        <div class="bg-black/60 md:bg-transparent backdrop-blur-sm rounded-lg md:rounded-none p-8 md:p-0 flex flex-col justify-center md:block">
-            <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Under construction:</h2>
-            <ul class="max-w-md space-y-2 text-gray-400 md:text-gray-500 list-inside dark:text-gray-300 md:dark:text-gray-400">
-                <li class="flex items-center">
-                    <svg class="w-4 h-4 me-2 text-orange-500 dark:text-orange-400 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
-                    </svg>
-                    Introduction to BitPulse mission and values
-                </li>
-                <li class="flex items-center">
-                    <svg class="w-4 h-4 me-2 text-orange-500 dark:text-orange-400 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
-                    </svg>
-                    Overview of BitCraft and open-source culture
-                </li>
-                <li class="flex items-center">
-                    <div role="status">
-                        <svg aria-hidden="true" class="w-4 h-4 me-2 text-gray-200 animate-spin dark:text-gray-600 fill-orange-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/><path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/></svg>
-                        <span class="sr-only">Loading...</span>
-                    </div>
-                    Team bios and origin story
-                </li>
-                <!-- <li class="flex items-center">
-                    <div role="status">
-                        <svg aria-hidden="true" class="w-4 h-4 me-2 text-gray-200 animate-spin dark:text-gray-600 fill-orange-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/><path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/></svg>
-                        <span class="sr-only">Loading...</span>
-                    </div>
-                    Interactive timeline of our evolution
-                </li> -->
-            </ul>
-        </div>
+    <div class="min-h-screen bg-gray-950 text-gray-200 py-16 px-4 md:px-12 lg:px-24">
+        <!-- Hero -->
+        <section class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">About BitPulse</h1>
+            <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                Because ideas deserve to be built — beautifully and boldly.
+            </p>
+        </section>
 
-        <img src="../assets/under_construction.svg" alt="" class="hidden md:block">
+        <!-- Founding Story -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-semibold mb-4">Our Origin</h2>
+            <p class="text-gray-300 max-w-4xl">
+                BitPulse was born out of the desire to craft practical, transformative tech solutions that create tangible impact — from smart cities to next-gen developer tools. We began with a vision to not just build products, but to empower industries and communities.
+            </p>
+        </section>
+
+        <!-- Mission and Vision -->
+        <section class="mb-16">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Our Mission</h3>
+                    <p class="text-gray-300">
+                        To engineer purposeful technology that solves real-world problems and uplifts people and industries.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Our Vision</h3>
+                    <p class="text-gray-300">
+                        A world where tech works in harmony with human potential — building smarter cities, better health systems, and inclusive digital futures.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-200">What Drives Us</h2>
+            <ul class="grid md:grid-cols-3 gap-6">
+                <li class="bg-orange-800 p-6 rounded shadow">
+                    <h4 class="font-bold mb-2">Driven by Innovation</h4>
+                    <p>We don’t just follow trends — we engineer tomorrow’s breakthroughs from the ground up.</p>
+                </li>
+                <li class="bg-orange-800 p-6 rounded shadow">
+                    <h4 class="font-bold mb-2">Full-Stack Expertise</h4>
+                    <p>From hardware schematics to scalable cloud systems, we craft seamless end-to-end solutions.</p>
+                </li>
+                <li class="bg-orange-800 p-6 rounded shadow">
+                    <h4 class="font-bold mb-2">Community-Focused</h4>
+                    <p>We build with and for people. Our open approach invites collaboration, learning, and shared success.</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- How We Work -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-semibold mb-4">How We Work</h2>
+            <p class="max-w-4xl text-gray-300">
+                Our process is lean, agile, and deeply collaborative. We begin by understanding your vision, then build a strategic roadmap to bring it to life — with full-stack development, prototyping, and ongoing support that scales with your needs.
+            </p>
+        </section>
+
+        <!-- BitPulse in Numbers (optional) -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-semibold mb-4">BitPulse in Numbers</h2>
+            <div class="grid sm:grid-cols-3 gap-6 text-center">
+                <div>
+                    <p class="text-4xl font-bold">0+</p>
+                    <p class="text-gray-400">Projects Deployed</p>
+                </div>
+                <div>
+                    <p class="text-4xl font-bold">0+</p>
+                    <p class="text-gray-400">Developers Empowered</p>
+                </div>
+                <div>
+                    <p class="text-4xl font-bold">0+</p>
+                    <p class="text-gray-400">Hours of R&D</p>
+                </div>
+            </div>
+        
+            <!-- Note: Replace 0+ with actual values when available -->
+        </section>
+
+        <!-- Founder Quote (optional) -->
+        <section class="mb-16 text-center">
+            <blockquote class="italic text-lg text-gray-300 max-w-2xl mx-auto">
+                “We’re not just coding solutions — we’re building bridges between what’s possible and what’s needed.”
+            </blockquote>
+            <p class="mt-2 text-sm text-gray-500">— BitPulse Founder</p>
+        </section>
+
+        <!-- Timeline (optional) -->
+        <section class="mb-16">
+        <h2 class="text-2xl font-semibold mb-4">Milestones</h2>
+            <ul class="border-l-2 border-orange-600 pl-6 space-y-6">
+                <li>
+                    <div class="text-orange-600 font-bold">2023</div>
+                    <p class="text-gray-300">BitPulse vision conceived and research started.</p>
+                </li>
+                <li>
+                    <div class="text-orange-600 font-bold">2024</div>
+                    <p class="text-gray-300">BitCraft launched as the open innovation community arm.</p>
+                </li>
+                <li>
+                    <div class="text-orange-600 font-bold">2025</div>
+                    <p class="text-gray-300">Public launch and pilot projects underway.</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Manifesto (optional) -->
+        <section class="mb-16 bg-orange-800 p-8 rounded">
+            <h2 class="text-2xl font-semibold mb-4 text-center text-gray-100">The BitPulse Manifesto</h2>
+            <p class="max-w-3xl mx-auto text-gray-300 text-center">
+                We believe in purposeful technology. In small teams that build big things. In local ideas with global impact. In tech that respects people, that educates, that amplifies what makes us human.
+            </p>
+        </section>
+
+        <!-- CTA -->
+        <section class="text-center mt-16">
+            <h2 class="text-2xl font-bold mb-4">Let’s Build Something That Matters</h2>
+            <p class="text-gray-400 mb-6">Ready to bring your vision to life or explore how we can work together?</p>
+            <router-link to="/contacts" class="inline-block bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded">
+                Connect with Us
+            </router-link>
+        </section>
     </div>
 </template>
