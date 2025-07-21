@@ -17,8 +17,8 @@ const router = createRouter({
             name: 'about',
             component: () => import('@/views/about.vue'),
             meta: {
-            title: 'About',
-            requiresAuth: false,
+                title: 'About',
+                requiresAuth: false,
             },
         },
         {
@@ -26,8 +26,8 @@ const router = createRouter({
             name: 'partnership',
             component: () => import('@/views/partnership.vue'),
             meta: {
-            title: 'Partnership',
-            requiresAuth: false,
+                title: 'Partnership',
+                requiresAuth: false,
             },
         },
         { 
