@@ -7,7 +7,7 @@
             <h3 class="text-xl font-bold text-gray-900 dark:text-white my-2">{{ title }}</h3>
             <p class="">{{ description }}</p>
         </blockquote>
-        <div class="flex items-center justify-center mt-3 space-x-2 rtl:space-x-reverse">
+        <div @click="$router.push({name: path})" class="flex items-center justify-center mt-3 space-x-2 rtl:space-x-reverse">
             <span class="text-orange-400 font-medium hover:underline hover:text-orange-500 cursor-pointer">
                 {{ cta }}
             </span>
@@ -19,5 +19,5 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{title: string, description: string, image: string, cta: string}>()
+defineProps<{title: string, description: string, image: string, cta: string, path: string}>()
 </script>

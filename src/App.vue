@@ -12,7 +12,7 @@
         <header>
             <SiteHeader />
         </header>
-        <div class="h-full overflow-y-scroll">
+        <div class="h-full overflow-y-scroll thin-scroll">
             <main>
                 <RouterView />
             </main>

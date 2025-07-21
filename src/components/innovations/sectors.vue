@@ -9,7 +9,7 @@
 
         <!-- Innovation Sectors -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-            <sectorCard v-for="sector in sectors" :title="sector.title" :description="sector.description" :image="sector.image" :cta="sector.cta" />
+            <sectorCard v-for="sector in sectors" :title="sector.title" :description="sector.description" :image="sector.image" :cta="sector.cta" :path="sector.path"/>
         </div>
     </div>
 </template>
@@ -20,37 +20,43 @@ const sectors = [
         image: "wifi.svg",
         title: "Smarter Cities, Smarter Living",
         description: "From intelligent traffic lights to connected homes, we’re engineering infrastructures that adapt and respond in real time.",
-        cta: "Explore how we build smart systems"
+        cta: "Explore how we build smart systems",
+        path: "smarter_cities"
     },
     {
         image: "health_tech.svg",
         title: "Revolutionizing Health Tech",
         description: "Bridging medicine and microcontrollers to deliver accurate, fast, and connected health solutions.",
-        cta: "See how we improve patient care"
+        cta: "See how we improve patient care",
+        path: "health_tech"
     },
     {
         image: "fintech.svg",
         title: "Securing Digital Economies",
         description: "We build safe and efficient financial systems that protect assets and simplify digital transactions.",
-        cta: "Learn how we secure financial tech"
+        cta: "Learn how we secure financial tech",
+        path: "fintech"
     },
     {
         image: "educ.svg",
         title: "Empowering Learners Through Tech",
         description: "We design platforms and tools that make knowledge accessible, interactive, and personalized for all.",
-        cta: "See how we enhance education"
+        cta: "See how we enhance education",
+        path: "education"
     },
     {
         image: "dev.svg",
         title: "Boosting Developer Productivity",
         description: "Our open tools are made for speed, clarity, and power—built by devs, for devs.",
-        cta: "Discover our developer stack"
+        cta: "Discover our developer stack",
+        path: "developer_tools"
     },
     {
         image: "embed.svg",
         title: "Hardware Meets Intelligence",
         description: "From MCUs to robots, we fuse embedded code with real-world impact across industries.",
-        cta: "Uncover our embedded solutions"
+        cta: "Uncover our embedded solutions",
+        path: "embedded_systems"
     },
 ];
 </script>
