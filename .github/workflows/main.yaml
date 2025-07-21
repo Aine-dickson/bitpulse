@@ -2,8 +2,12 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+
+# Add this to prevent concurrent deployments
+concurrency:
+  group: 'pages-deploy'
+  cancel-in-progress: true  # Cancels older runs if a new one starts
 
 permissions:
   contents: write
