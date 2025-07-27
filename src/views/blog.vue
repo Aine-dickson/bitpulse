@@ -1,5 +1,5 @@
 <template>
-    <div class="max-w-6xl mx-auto px-4 py-10">
+    <div class="max-w-6xl mx-auto px-4 py-10" id="blog-section">
         <!-- Page Header -->
         <header class="mb-10 text-center">
             <h1 class="text-4xl font-bold text-gray-800 mb-2 dark:text-white">Insights & Resources</h1>
@@ -78,7 +78,7 @@
 </template>
 
 <script setup lang="ts">
-    import { computed, ref } from 'vue';
+    import { computed, onMounted, ref } from 'vue';
     import { useBlogStore } from '@/stores/blog';
 
     let blogStore = useBlogStore();
@@ -144,6 +144,13 @@
         "Case Studies",
         "Tech Insights"
     ]
+
+    onMounted(() => {
+        const categoryElement = document.getElementById('blog-section');
+        if (categoryElement) {
+            categoryElement.scrollIntoView({ behavior: 'smooth'});
+        }
+    });
 </script>
 
 <style scoped>

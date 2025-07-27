@@ -1,0 +1,36 @@
+
+1. 💼 Business & Project Inquiries
+
+Subtypes:
+Request a Quote
+Custom Solution Inquiry
+Schedule a Discovery Call
+R&D or Technical Consultation
+
+2. 🛒 Product/Service Purchase & Support
+
+Subtypes:
+Request a Product Demo
+Order/Delivery Inquiry
+Technical Support
+Request Documentation / Datasheets
+
+3. 👨‍💻 Careers & Collaboration
+
+Subtypes:
+Job Application
+Freelance/Partner Collaboration
+Mentorship or Internship Opportunities
+
+4. 💬 General Questions & Press
+
+Subtypes:
+Ask a Question
+Media/Press Inquiry
+Feedback & Suggestions
+
+5. 🧠 Training & Events
+Subtypes:
+Book a Training Session
+Request a Speaker
+Education Partnership

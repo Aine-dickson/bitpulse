@@ -1,5 +1,5 @@
 <template>
-    <div class="px-6 py-12 max-w-6xl mx-auto space-y-16">
+    <div class="px-6 py-12 max-w-6xl mx-auto space-y-16" id="devTools-section">
         <!-- Hero Section -->
         <section class="text-center">
             <h1 class="text-4xl font-bold text-gray-200 mb-4">Boosting Developer Productivity</h1>
@@ -40,20 +40,20 @@
         <section>
             <h2 class="text-2xl font-semibold text-gray-200 mb-4">Where We Focus</h2>
             <div class="grid md:grid-cols-2 gap-6 text-gray-300">
-                <div class="bg-slate-800 p-6 rounded shadow">
-                    <h3 class="font-semibold text-lg">🚀 Workflow Automation</h3>
+                <div class="border border-slate-800 p-4 rounded shadow">
+                    <h3 class="font-semibold mb-2 text-orange-700 text-lg">🚀 Workflow Automation</h3>
                     <p>From repo setup to deployment — we automate repetitive tasks with smart, version-aware templates and triggers.</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded shadow">
-                    <h3 class="font-semibold text-lg">🧰 Toolkits for Embedded Developers</h3>
+                <div class="border border-slate-800 p-4 rounded shadow">
+                    <h3 class="font-semibold mb-2 text-orange-700 text-lg">🧰 Toolkits for Embedded Developers</h3>
                     <p>MCU-focused utilities, template bootloaders, and peripheral abstractions that shorten prototyping cycles.</p>
                 </div>
-                    <div class="bg-slate-800 p-6 rounded shadow">
-                    <h3 class="font-semibold text-lg">🧠 Cognitive Load Reduction</h3>
+                    <div class="border border-slate-800 p-4 rounded shadow">
+                    <h3 class="font-semibold mb-2 text-orange-700 text-lg">🧠 Cognitive Load Reduction</h3>
                     <p>Clean interfaces, clear feedback, and tooling that matches how developers actually think and work.</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded shadow">
-                    <h3 class="font-semibold text-lg">🌐 Web & Systems Builders</h3>
+                <div class="border border-slate-800 p-4 rounded shadow">
+                    <h3 class="font-semibold mb-2 text-orange-700 text-lg">🌐 Web & Systems Builders</h3>
                     <p>Integrated toolchains for Rust+WASM, Node.js, and low-level systems — with speed and composability at the core.</p>
                 </div>
             </div>
@@ -84,3 +84,14 @@
         </section>
     </div>
 </template>
+
+<script setup lang="ts">
+import { onMounted } from 'vue';
+
+onMounted(() => {
+    const categoryElement = document.getElementById('devTools-section');
+    if (categoryElement) {
+        categoryElement.scrollIntoView({ behavior: 'smooth'});
+    }
+});
+</script>

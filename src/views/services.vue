@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div class="" id="services-section">
         <div v-if="childRoutes.includes(($route.name?.toString() ?? ''))">
             <RouterView/>
         </div>
@@ -39,6 +39,7 @@
 <script setup lang="ts">
 import serviceCard from '@/components/services/serviceCard.vue';
 import { useUiStore } from '@/stores/ui';
+import { onMounted } from 'vue';
 
 let uiStore = useUiStore();
 
@@ -112,5 +113,12 @@ let services = [
   },
   
 ]
+
+onMounted(() => {
+    const categoryElement = document.getElementById('services-section');
+    if (categoryElement) {
+        categoryElement.scrollIntoView({ behavior: 'smooth'});
+    }
+});
 
 </script>

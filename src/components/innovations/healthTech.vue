@@ -1,5 +1,5 @@
 <template>
-    <div class="px-6 py-12 max-w-6xl mx-auto space-y-16">
+    <div class="px-6 py-12 max-w-6xl mx-auto space-y-16" id="health-section">
         <!-- Hero Section -->
         <section class="text-center">
             <h1 class="text-4xl font-bold text-gray-200 mb-4">Revolutionizing Health Tech</h1>
@@ -43,24 +43,24 @@
         <section>
             <h2 class="text-2xl font-semibold text-gray-200 mb-4">Our Focus</h2>
             <div class="grid md:grid-cols-2 gap-6 text-gray-300">
-                <div class="bg-slate-800 p-6 rounded shadow">
-                    <h3 class="font-semibold text-lg">👩‍⚕️ Remote Patient Monitoring</h3>
+                <div class="border border-slate-800 p-4 rounded shadow">
+                    <h3 class="font-semibold mb-2 text-orange-700 text-lg">👩‍⚕️ Remote Patient Monitoring</h3>
                     <p>Wearables and home kits for ongoing vitals and chronic condition tracking</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded shadow">
-                    <h3 class="font-semibold text-lg">📡 Community Health Devices</h3>
+                <div class="border border-slate-800 p-4 rounded shadow">
+                    <h3 class="font-semibold mb-2 text-orange-700 text-lg">📡 Community Health Devices</h3>
                     <p>Field-ready diagnostics for blood pressure, oxygen, glucose, etc. with mobile sync</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded shadow">
-                    <h3 class="font-semibold text-lg">📈 Health Intelligence</h3>
+                <div class="border border-slate-800 p-4 rounded shadow">
+                    <h3 class="font-semibold mb-2 text-orange-700 text-lg">📈 Health Intelligence</h3>
                     <p>Predictive analytics to guide public health decisions and early interventions</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded shadow">
-                    <h3 class="font-semibold text-lg">🧬 Specialized Prototyping</h3>
+                <div class="border border-slate-800 p-4 rounded shadow">
+                    <h3 class="font-semibold mb-2 text-orange-700 text-lg">🧬 Specialized Prototyping</h3>
                     <p>Custom hardware/software R&D for clinical or NGO health needs</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded shadow md:col-span-2">
-                    <h3 class="font-semibold text-lg">🔐 Privacy-First Health Data</h3>
+                <div class="border border-slate-800 p-4 rounded shadow md:col-span-2">
+                    <h3 class="font-semibold mb-2 text-orange-700 text-lg">🔐 Privacy-First Health Data</h3>
                     <p>Encrypted transmission and localized storage options that respect patient privacy and compliance</p>
                 </div>
             </div>
@@ -92,4 +92,15 @@
         </section>
     </div>
 </template>
+
+<script setup lang="ts">
+import { onMounted } from 'vue';
+
+onMounted(() => {
+    const categoryElement = document.getElementById('health-section');
+    if (categoryElement) {
+        categoryElement.scrollIntoView({ behavior: 'smooth'});
+    }
+});
+</script>
 

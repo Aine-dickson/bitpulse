@@ -14,3 +14,7 @@
 .thin-scroll::-webkit-scrollbar-thumb:hover{
     background: #030303;
 }
+
+@theme {
+    --breakpoint-xs: 446px;
+}
