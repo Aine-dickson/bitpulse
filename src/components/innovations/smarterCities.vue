@@ -1,5 +1,5 @@
 <template>
-    <div class="px-6 py-12 max-w-6xl mx-auto space-y-16">
+    <div class="px-6 py-12 max-w-6xl mx-auto space-y-16" id="smarterCities-section">
         <!-- Hero Section -->
         <section class="text-center">
             <h1 class="text-4xl font-bold text-gray-200 mb-4">Smarter Cities, Smarter Living</h1>
@@ -44,24 +44,24 @@
         <section>
             <h2 class="text-2xl font-semibold text-gray-200 mb-4">Focus Areas</h2>
             <div class="grid md:grid-cols-2 gap-6 text-gray-300">
-                <div class="bg-slate-800 p-6 rounded shadow">
-                    <h3 class="font-semibold text-lg">🚦 Smart Mobility</h3>
+                <div class="border border-slate-800 p-4 rounded shadow">
+                    <h3 class="font-semibold mb-2 text-lg text-orange-600">🚦 Smart Mobility</h3>
                     <p>Dynamic control of traffic flow, public transport tracking, and integrated route optimization</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded shadow">
-                    <h3 class="font-semibold text-lg">⚡ Energy Efficiency</h3>
+                <div class="border border-slate-800 p-4 rounded shadow">
+                    <h3 class="font-semibold mb-2 text-lg text-orange-600">⚡ Energy Efficiency</h3>
                     <p>Load balancing systems, street lighting automation, and solar/grid hybrid monitoring</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded shadow">
-                    <h3 class="font-semibold text-lg">🧭 Emergency Awareness</h3>
+                <div class="border border-slate-800 p-4 rounded shadow">
+                    <h3 class="font-semibold mb-2 text-lg text-orange-600">🧭 Emergency Awareness</h3>
                     <p>Sensor-based alerts for fire, flooding, or security breaches — routed to the right agencies instantly</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded shadow">
-                    <h3 class="font-semibold text-lg">🏘️ Community Interaction</h3>
+                <div class="border border-slate-800 p-4 rounded shadow">
+                    <h3 class="font-semibold mb-2 text-lg text-orange-600">🏘️ Community Interaction</h3>
                     <p>Open platforms for local feedback, service reporting, and location-based insights</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded shadow md:col-span-2">
-                    <h3 class="font-semibold text-lg">📊 Urban Intelligence Dashboards</h3>
+                <div class="border border-slate-800 p-4 rounded shadow md:col-span-2">
+                    <h3 class="font-semibold mb-2 text-lg text-orange-600">📊 Urban Intelligence Dashboards</h3>
                     <p>All city data in one place — interactive dashboards for city planners and leaders</p>
                 </div>
             </div>
@@ -93,3 +93,13 @@
     </div>
 </template>
 
+<script setup lang="ts">
+import { onMounted } from 'vue';
+
+onMounted(() => {
+    const categoryElement = document.getElementById('smarterCities-section');
+    if (categoryElement) {
+        categoryElement.scrollIntoView({ behavior: 'smooth'});
+    }
+});
+</script>

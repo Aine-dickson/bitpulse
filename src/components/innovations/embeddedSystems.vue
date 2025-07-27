@@ -1,5 +1,5 @@
 <template>
-    <div class="px-6 py-12 max-w-6xl mx-auto space-y-16">
+    <div class="px-6 py-12 max-w-6xl mx-auto space-y-16" id="embedded-section">
         <!-- Hero Section -->
         <section class="text-center">
             <h1 class="text-4xl font-bold text-gray-200 mb-4">Hardware Meets Intelligence</h1>
@@ -39,20 +39,20 @@
         <section>
             <h2 class="text-2xl font-semibold text-gray-200 mb-4">Where We're Applying It</h2>
             <div class="grid md:grid-cols-2 gap-6 text-gray-300">
-                <div class="bg-slate-800 p-6 rounded shadow">
-                    <h3 class="font-semibold text-lg">🏘️ Smart Access Systems</h3>
+                <div class="border border-slate-800 p-4 rounded shadow">
+                    <h3 class="font-semibold mb-2 text-orange-700 text-lg">🏘️ Smart Access Systems</h3>
                     <p>Automated gates and doors with secure motor control, identity verification, and sensor-based responsiveness.</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded shadow">
-                    <h3 class="font-semibold text-lg">🚚 Micro-Mobility Devices</h3>
+                <div class="border border-slate-800 p-4 rounded shadow">
+                    <h3 class="font-semibold mb-2 text-orange-700 text-lg">🚚 Micro-Mobility Devices</h3>
                     <p>Battery-aware, GPS-enabled devices for smart, last-mile transportation and delivery.</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded shadow">
-                    <h3 class="font-semibold text-lg">🏥 Medical IoT Tools</h3>
+                <div class="border border-slate-800 p-4 rounded shadow">
+                    <h3 class="font-semibold mb-2 text-orange-700 text-lg">🏥 Medical IoT Tools</h3>
                     <p>Wearables and diagnostic devices that collect, process, and transmit vital data in real-time.</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded shadow">
-                    <h3 class="font-semibold text-lg">🏭 Industrial Automation Units</h3>
+                <div class="border border-slate-800 p-4 rounded shadow">
+                    <h3 class="font-semibold mb-2 text-orange-700 text-lg">🏭 Industrial Automation Units</h3>
                     <p>Real-time monitoring and actuation systems that adapt to load, heat, and throughput dynamics.</p>
                 </div>
             </div>
@@ -83,3 +83,14 @@
         </section>
     </div>
 </template>
+
+<script setup lang="ts">
+import { onMounted } from 'vue';
+
+onMounted(() => {
+    const categoryElement = document.getElementById('embedded-section');
+    if (categoryElement) {
+        categoryElement.scrollIntoView({ behavior: 'smooth'});
+    }
+});
+</script>

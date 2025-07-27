@@ -1,5 +1,5 @@
 <template>
-    <div class="px-6 py-12 max-w-6xl mx-auto space-y-16">
+    <div class="px-6 py-12 max-w-6xl mx-auto space-y-16" id="digitalEconomies-section">
         <!-- Hero Section -->
         <section class="text-center">
             <h1 class="text-4xl font-bold text-gray-200 mb-4">Securing Digital Economies</h1>
@@ -39,20 +39,20 @@
         <section>
             <h2 class="text-2xl font-semibold text-gray-200 mb-4">Our Focus</h2>
             <div class="grid md:grid-cols-2 gap-6 text-gray-300">
-                <div class="bg-slate-800 p-6 rounded shadow">
-                    <h3 class="font-semibold text-lg">🛡️ Resilient Infrastructure</h3>
+                <div class="border border-slate-800 p-4 rounded shadow">
+                    <h3 class="font-semibold mb-2 text-orange-700 text-lg">🛡️ Resilient Infrastructure</h3>
                     <p>Offline-ready systems for mobile money, transaction verification, and data syncing in low-connectivity environments.</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded shadow">
-                    <h3 class="font-semibold text-lg">🔐 Digital Identity & Consent</h3>
+                <div class="border border-slate-800 p-4 rounded shadow">
+                    <h3 class="font-semibold mb-2 text-orange-700 text-lg">🔐 Digital Identity & Consent</h3>
                     <p>Lightweight cryptographic identity systems for user verification and consent logging without central servers.</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded shadow">
-                    <h3 class="font-semibold text-lg">💳 Custom Transaction Engines</h3>
+                <div class="border border-slate-800 p-4 rounded shadow">
+                    <h3 class="font-semibold mb-2 text-orange-700 text-lg">💳 Custom Transaction Engines</h3>
                     <p>Build embedded or server-based digital transaction layers for financial or logistic systems.</p>
                 </div>
-                    <div class="bg-slate-800 p-6 rounded shadow">
-                    <h3 class="font-semibold text-lg">📊 Open Financial APIs</h3>
+                    <div class="border border-slate-800 p-4 rounded shadow">
+                    <h3 class="font-semibold mb-2 text-orange-700 text-lg">📊 Open Financial APIs</h3>
                     <p>Offer secure integration points for banking, remittance, savings groups, and digital cooperatives.</p>
                 </div>
             </div>
@@ -84,3 +84,13 @@
     </div>
 </template>
 
+<script setup lang="ts">
+import { onMounted } from 'vue';
+
+onMounted(() => {
+    const categoryElement = document.getElementById('digitalEconomies-section');
+    if (categoryElement) {
+        categoryElement.scrollIntoView({ behavior: 'smooth'});
+    }
+});
+</script>

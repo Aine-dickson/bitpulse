@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <div class="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200" id="prototyping-section">
         <!-- Hero Section -->
         <section class="px-6 md:px-16 py-16 bg-gradient-to-b from-gray-100 to-white dark:from-orange-900 via-gray-900 dark:to-gray-900">
             <div class="max-w-5xl mx-auto text-center">
@@ -81,6 +81,13 @@
 
 <script setup lang="ts">
 import { useUiStore } from '@/stores/ui';
+import { onMounted } from 'vue';
 
 let uiStore = useUiStore();
+onMounted(() => {
+    const sectionElement = document.getElementById('prototyping-section');
+    if (sectionElement) {
+        sectionElement.scrollIntoView({ behavior: 'smooth' });
+    }
+});
 </script>

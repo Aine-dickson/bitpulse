@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-gray-950 text-gray-200 py-16 px-4 md:px-12 lg:px-24">
+    <div class="min-h-screen bg-gray-950 text-gray-200 py-16 px-4 md:px-12 lg:px-24" id="about-section">
         <!-- Hero -->
         <section class="text-center mb-16">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">About BitPulse</h1>
@@ -127,3 +127,14 @@
         </section>
     </div>
 </template>
+
+<script setup lang="ts">
+import { onMounted } from 'vue';
+
+onMounted(() => {
+    const categoryElement = document.getElementById('about-section');
+    if (categoryElement) {
+        categoryElement.scrollIntoView({ behavior: 'smooth'});
+    }
+});
+</script>
