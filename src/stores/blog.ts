@@ -28,8 +28,9 @@ export const useBlogStore = defineStore('blog', () => {
             excerpt: "A dive into real-world use cases where embedded tech and IoT are transforming industries…",
             slug: "what-africa-truly-needs-from-its-tech-revolution",
             image: "/blog/featured-smart-infrastructure.jpg",
-            date: "2025-05-15",
-            tags: ["IoT", "Embedded Systems"]
+            date: "2025-05-15T10:00",
+            tags: ["IoT", "Embedded Systems"],
+            author: "Aine Dixon"
         },
         {
             id: "d3f4o-erjt",
@@ -37,8 +38,9 @@ export const useBlogStore = defineStore('blog', () => {
             slug: "prototyping-101",
             excerpt: "What to consider before starting your hardware or embedded software prototype.",
             image: "/blog/prototyping.jpg",
-            date: "2025-05-10",
-            tags: ["Prototyping"]
+            date: "2025-05-10T14:00",
+            tags: ["Prototyping"],
+            author: "Aine Dixon"
         },
         {
             id: "vo95irf3-erjt",
@@ -46,8 +48,9 @@ export const useBlogStore = defineStore('blog', () => {
             slug: "rust-vs-c-for-embedded-systems-the-battle-for-the-bare-metal",
             excerpt: "We compare two powerful languages and how they stack up in embedded development.",
             image: "/blog/rust-vs-cpp.jpg",
-            date: "2025-05-06",
-            tags: ["Embedded Systems"]
+            date: "2025-05-06T09:00",
+            tags: ["Embedded Systems"],
+            author: "Aine Dixon"
         },
         {
             id: "e4t3pi-erjt",
@@ -55,8 +58,9 @@ export const useBlogStore = defineStore('blog', () => {
             slug: "open-source-hardware",
             excerpt: "Tips for publishing and managing open-source embedded or tooling projects.",
             image: "/blog/open-source-hardware.jpg",
-            date: "2025-04-28",
-            tags: ["Hardware Design", "Open Source"]
+            date: "2025-04-28T16:00",
+            tags: ["Hardware Design", "Open Source"],
+            author: "Aine Dixon"
         },
     ]
 
