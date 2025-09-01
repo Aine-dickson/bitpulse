@@ -1,0 +1,1 @@
+import{_ as o,c as n,f as t,k as c,o as r}from"./index-pan9X8ln.js";const s={};function a(_,i){const e=c("RouterView");return r(),n("div",null,[t(e)])}const l=o(s,[["render",a]]);export{l as default};
