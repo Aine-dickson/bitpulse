@@ -1,0 +1,1 @@
+import{_ as e,c as t,j as n,p as c,o as s}from"./index-CQZA9JeE.js";const r={},a={class:"h-full overflow-y-auto no-scroll"};function _(l,i){const o=c("RouterView");return s(),t("div",a,[n(o)])}const p=e(r,[["render",_]]);export{p as default};
