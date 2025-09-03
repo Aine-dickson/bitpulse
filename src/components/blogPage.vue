@@ -20,7 +20,7 @@
   </section>
 
   <!-- Existing blog preview section -->
-  <div v-else class="max-w-6xl h-full mx-auto px-4 grid md:grid-cols-3 gap-8">
+  <div v-else class="max-w-6xl h-full overflow-y-auto no-scroll mx-auto px-4 grid md:grid-cols-3 gap-8">
     <!-- Blog Content -->
     <article class="md:col-span-2 md:h-full pt-10 md:overflow-y-auto no-scroll">
       <h1

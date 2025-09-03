@@ -26,13 +26,8 @@
                     <tr
                         class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-950 border-b dark:border-gray-700 border-gray-200"
                     >
-                        <th
-                            scope="row"
-                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                        >
-                            Memory Safety
-                        </th>
-                        <td class="px-6 py-4">Manual, error-prone</td>
+                        <td>Memory Safety</td>
+                        <td>Manual, error-prone</td>
                         <td>Enforced at compile time</td>
                     </tr>
                     <tr
