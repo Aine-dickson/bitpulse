@@ -1,5 +1,5 @@
 <template>
-    <section class="max-w-6xl mx-auto px-4 py-16 space-y-16 text-white">
+    <section class="max-w-6xl h-full overflow-y-auto no-scroll mx-auto px-4 py-16 space-y-16 text-white">
         <!-- Header -->
         <div class="text-center">
             <h1 class="text-4xl font-bold mb-4">Partner with BitPulse</h1>

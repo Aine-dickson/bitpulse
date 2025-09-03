@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-1 relative" id="home-section">
+    <div class="flex-1 relative h-full overflow-y-auto no-scroll" id="home-section">
         <HeroSection />
         <productPreview />
     </div>

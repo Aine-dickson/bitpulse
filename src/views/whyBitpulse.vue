@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-gray-950 text-gray-200" id="why-bitpulse">
+    <div class="h-full overflow-y-auto no-scroll bg-gray-950 text-gray-200" id="why-bitpulse">
         <!-- Hero Section -->
         <section class="bg-gradient-to-b from-orange-900 to-gray-950 py-16 px-6 text-center">
             <h1 class="text-4xl sm:text-5xl font-bold mb-4">Why BitPulse?</h1>

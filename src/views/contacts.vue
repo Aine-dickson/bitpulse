@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gray-950 px-6 md:pl-6 py-12" id="contacts-section">
+    <div class="bg-gray-950 px-6 md:pl-6 py-12 h-full overflow-y-auto no-scroll" id="contacts-section">
         <!-- Page title and intro -->
         <div class="space-y-2 text-center md:w-2xl mx-auto mb-12 px-4">
             <h1 class="text-3xl font-bold text-gray-200">Get in Touch</h1>
@@ -131,15 +131,15 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div class="bg-slate-950 border border-gray-700 rounded p-4 text-center cursor-pointer">
                     <p class="font-bold text-orange-800">Email</p>
-                    <p class="text-xs text-gray-400">hello@bitpulse.dev</p>
+                    <p class="text-xs text-gray-400">contact@bitpulse.dev</p>
                 </div>
                 <div class="bg-slate-950 border border-gray-700 rounded p-4 text-center cursor-pointer">
                     <p class="font-bold text-orange-800">WhatsApp</p>
-                    <p class="text-xs text-gray-400">+256 700 000000</p>
+                    <p class="text-xs text-gray-400">+256 777 532858</p>
                 </div>
                 <div class="bg-slate-950 border border-gray-700 rounded p-4 text-center cursor-pointer">
                     <p class="font-bold text-orange-800">Phone</p>
-                    <p class="text-xs text-gray-400">+256 414 000000</p>
+                    <p class="text-xs text-gray-400">+256 706 337924</p>
                 </div>
                 <div class="bg-slate-950 border border-gray-700 rounded p-4 text-center cursor-pointer">
                     <p class="font-bold text-orange-800">Location</p>

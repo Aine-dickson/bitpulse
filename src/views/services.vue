@@ -1,5 +1,5 @@
 <template>
-    <div class="" id="services-section">
+    <div class="h-full overflow-y-auto no-scroll" id="services-section">
         <div v-if="childRoutes.includes(($route.name?.toString() ?? ''))">
             <RouterView/>
         </div>

@@ -13,15 +13,16 @@
       <span
         @click="$router.push({ name: 'blog' })"
         class="text-orange-600 cursor-pointer hover:underline"
-        >See all here</span
       >
+        See all here
+      </span>
     </p>
   </section>
 
   <!-- Existing blog preview section -->
-  <div v-else class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
+  <div v-else class="max-w-6xl md:h-full mx-auto px-4 grid md:grid-cols-3 gap-8">
     <!-- Blog Content -->
-    <article class="md:col-span-2">
+    <article class="md:col-span-2 md:h-full pt-10 md:overflow-y-auto no-scroll">
       <h1
         class="text-3xl md:text-4xl font-bold md:font-black text-gray-800 dark:text-gray-200 mb-4 md:mb-8"
       >
@@ -35,15 +36,15 @@
       </blockquote>
       <hr class="text-gray-300 dark:text-gray-800 my-12" />
 
-      <img :src="blog?.image" class="w-full rounded mb-6" alt="Blog cover" />
+      <img :src="`/${blog?.image}`" class="w-full rounded mb-6" alt="Blog cover" />
 
       <blog1 v-if="blog?.slug == 'what-africa-truly-needs-from-its-tech-revolution'" />
       <blog2 v-if="blog?.slug == 'rust-vs-c-for-embedded-systems-the-battle-for-the-bare-metal'" />
 
       <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">
         Tags:
-        <span v-for="(tag, index) in blog?.tags" :key="tag" class="text-orange-600 font-semibold"
-          >#{{ index + 1 == blog?.tags.length ? tag : `${tag}, ` }}
+        <span v-for="(tag, index) in blog?.tags" :key="tag" class="text-orange-600 font-semibold">
+          #{{ index + 1 == blog?.tags.length ? tag : `${tag}, ` }}
         </span>
       </p>
 
@@ -51,7 +52,7 @@
     </article>
 
     <!-- Comment Section -->
-    <aside class="md:col-span-1 dark:text-white">
+    <aside class="md:col-span-1 pt-10 dark:text-white md:h-full no-scroll md:overflow-y-auto">
       <h2 class="text-xl font-semibold mb-4">Comments</h2>
 
       <!-- New Comment Input -->
@@ -69,9 +70,9 @@
           >
             Post
           </button>
-          <span v-if="accountStore.username" class="ml-4 text-sm text-gray-500"
-            >Comment as: {{ accountStore.username }}</span
-          >
+          <span v-if="accountStore.username" class="ml-4 text-sm text-gray-500">
+            Comment as: {{ accountStore.username }}
+          </span>
           <input
             v-else
             v-model="username"
@@ -92,10 +93,10 @@
           :key="comment.id"
           class="bg-gray-50 dark:bg-slate-900 border rounded-lg p-3 shadow-sm relative"
         >
-          <p class="absolute top-2 right-2 text-xs text-gray-400">
+          <p class="absolute top-0.5 right-2 text-xs text-gray-400">
             {{ formatDate(comment.inserted_at, '') }}
           </p>
-          <p class="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap">
+          <p class="text-sm text-gray-700 mt-1 dark:text-gray-300 whitespace-pre-wrap">
             {{ comment.content }}
           </p>
           <p class="text-xs text-gray-500 mt-1 capitalize">— {{ comment.username }}</p>
@@ -113,6 +114,7 @@ import { useBlogStore, type Comment } from '@/stores/blog'
 import { supabase } from '@/utils/supabase'
 import { useAccountStore } from '@/stores/account'
 import { useRoute } from 'vue-router'
+import { setMeta } from '@/utils/meta'
 
 const route = useRoute()
 let blogStore = useBlogStore()
@@ -218,6 +220,12 @@ const formatDate = (dateStr: string, source: 'title' | '') => {
     return 'Yesterday at ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
   }
 
+  // This week
+  const diffDays = Math.floor(diff / 86400000)
+  if (diffDays < 7) {
+    return date.toLocaleDateString([], { weekday: 'long', hour: '2-digit', minute: '2-digit' })
+  }
+
   // Else, show full date with hour and minute
   return date.toLocaleDateString([], {
     year: 'numeric',
@@ -290,6 +298,25 @@ onMounted(async () => {
       },
     )
     .subscribe()
+
+  // Set social meta tags for this blog post (client-side only)
+  if (blog.value) {
+    const absoluteUrl = window.location.origin + '/blog/' + blog.value.slug
+    // Resolve image path (if relative, prefix with base / )
+    let image = blog.value.image
+    if (image && !/^https?:\/\//.test(image)) {
+      // Assume assets served from /public or built assets; adjust if needed
+      image = window.location.origin + '/' + image.replace(/^\//, '')
+    }
+    setMeta({
+      title: blog.value.title + ' | Bitpulse',
+      description: blog.value.excerpt,
+      image,
+      url: absoluteUrl,
+      type: 'article',
+      siteName: 'Bitpulse',
+    })
+  }
 })
 
 onUnmounted(() => {

@@ -1,5 +1,5 @@
 <template>
-    <div class="max-w-6xl mx-auto px-4 py-10" id="blog-section">
+    <div class="h-full overflow-y-auto no-scroll max-w-6xl mx-auto px-4 py-10" id="blog-section">
         <!-- Page Header -->
         <header class="mb-10 text-center">
             <h1 class="text-4xl font-bold text-gray-800 mb-2 dark:text-white">Insights & Resources</h1>

@@ -156,7 +156,7 @@
                 🛠️ Final Thoughts
             </h2>
             <p>
-                Africa is not behind. Africa is **different**. And that’s our strength.
+                Africa is not behind. Africa is <span class="font-bold">different</span>. And that’s our strength.
             </p>
             <p>
                 We’re a continent of complexity and creativity. If we build systems that honor that — systems that go beyond code — we won’t just catch up to the world’s tech scene…

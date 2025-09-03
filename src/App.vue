@@ -12,8 +12,8 @@
         <header>
             <SiteHeader />
         </header>
-        <div class="h-full overflow-y-scroll thin-scroll">
-            <main>
+        <div class="h-full overflow-auto no-scroll">
+            <main class="h-full">
                 <RouterView />
             </main>
             <footer>
