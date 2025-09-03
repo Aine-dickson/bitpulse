@@ -61,6 +61,8 @@ async function buildBlogHtml(post) {
     PAGE_TITLE: `${post.title} | BitPulse`,
   }
   let html = applyMeta(rawTemplate, map)
+  // Remove the placeholder comment line if still present
+  html = html.replace(/<!--\s*Dynamic meta placeholders[^>]*-->/i, '')
   if (!/rel="canonical"/.test(html)) {
     html = html.replace('<head>', `<head>\n<link rel="canonical" href="${url}">`)
   }
@@ -108,6 +110,7 @@ const rootHtml = applyMeta(rawTemplate, {
   PAGE_TITLE: defaultValues.PAGE_TITLE || 'BitPulse',
 })
 let finalRoot = rootHtml
+finalRoot = finalRoot.replace(/<!--\s*Dynamic meta placeholders[^>]*-->/i, '')
 if (!/name="description"/i.test(finalRoot)) {
   const rootDescMatch = /content="([^"]+)"\s*\/>/i.exec(
     finalRoot.match(/property="og:description"[^"]+content="[^"]+"/i) || '',
@@ -141,3 +144,15 @@ if (!/twitter:image:alt/.test(finalRoot)) {
 await writeFile(templatePath, finalRoot, 'utf8')
 
 console.log('Prerender complete (blogs + root meta applied).')
+
+// Post-run: warn about any unresolved/missing images (for author awareness)
+for (const post of posts) {
+  let candidate = (post.image || '').replace(/^\//, '')
+  if (!candidate) continue
+  if (candidate.startsWith('http')) continue
+  try {
+    await stat(join(__dirname, '..', 'public', candidate))
+  } catch {
+    console.warn('[prerender] WARNING: image missing for post', post.slug, '->', candidate)
+  }
+}

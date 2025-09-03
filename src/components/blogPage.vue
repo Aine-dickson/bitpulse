@@ -40,6 +40,8 @@
 
       <blog1 v-if="blog?.slug == 'what-africa-truly-needs-from-its-tech-revolution'" />
       <blog2 v-if="blog?.slug == 'rust-vs-c-for-embedded-systems-the-battle-for-the-bare-metal'" />
+      <blog3 v-if="blog?.slug == 'prototyping-101'" />
+      <blog4 v-if="blog?.slug == 'open-source-hardware'" />
 
       <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">
         Tags:
@@ -110,6 +112,8 @@
 import { computed, onMounted, onUnmounted, ref, type Ref } from 'vue'
 import blog1 from './blog1.vue'
 import blog2 from './blog2.vue'
+import blog3 from './blog3.vue'
+import blog4 from './blog4.vue'
 import { useBlogStore, type Comment } from '@/stores/blog'
 import { supabase } from '@/utils/supabase'
 import { useAccountStore } from '@/stores/account'

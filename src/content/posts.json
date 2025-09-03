@@ -14,8 +14,8 @@
     "title": "Prototyping 101: From Idea to Physical MVP",
     "slug": "prototyping-101",
     "excerpt": "What to consider before starting your hardware or embedded software prototype.",
-    "image": "prototyping.jpg",
-    "date": "2025-05-10T14:00",
+    "image": "prototyping.png",
+    "date": "2025-05-26T14:00",
     "tags": ["Prototyping"],
     "author": "Aine Dixon"
   },
@@ -24,8 +24,8 @@
     "title": "Rust vs C++ for Embedded Systems",
     "slug": "rust-vs-c-for-embedded-systems-the-battle-for-the-bare-metal",
     "excerpt": "We compare two powerful languages and how they stack up in embedded development.",
-    "image": "rust-vs-cpp.jpg",
-    "date": "2025-05-06T09:00",
+    "image": "rust_vs_cpp.png",
+    "date": "2025-06-06T09:00",
     "tags": ["Embedded Systems"],
     "author": "Aine Dixon"
   },
@@ -34,8 +34,8 @@
     "title": "Launching Open Source Hardware Projects with the Community",
     "slug": "open-source-hardware",
     "excerpt": "Tips for publishing and managing open-source embedded or tooling projects.",
-    "image": "/blog/open-source-hardware.jpg",
-    "date": "2025-04-28T16:00",
+    "image": "opensource.png",
+    "date": "2025-08-04T16:00",
     "tags": ["Hardware Design", "Open Source"],
     "author": "Aine Dixon"
   }
