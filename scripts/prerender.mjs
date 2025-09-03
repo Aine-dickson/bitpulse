@@ -2,7 +2,7 @@
 // Simple prerender script to generate static HTML pages for blog posts at /blogs/<slug>/
 // Reads the built dist/index.html as a template and injects per-post meta tags.
 
-import { readFile, writeFile, mkdir } from 'node:fs/promises'
+import { readFile, writeFile, mkdir, stat } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -35,11 +35,21 @@ function applyMeta(baseHtml, map) {
   return html
 }
 
-function buildBlogHtml(post) {
-  const imageAbsolute =
-    post.image && post.image.startsWith('http')
-      ? post.image
-      : `${baseUrl}/${post.image.replace(/^\//, '')}`
+async function buildBlogHtml(post) {
+  // Resolve & validate image; fallback if missing
+  let candidate = post.image || ''
+  if (candidate.startsWith('http')) {
+    // assume remote valid
+  } else {
+    candidate = candidate.replace(/^\//, '')
+    const publicPath = join(__dirname, '..', 'public', candidate)
+    try {
+      await stat(publicPath)
+    } catch {
+      candidate = 'social-preview.png'
+    }
+  }
+  const imageAbsolute = candidate.startsWith('http') ? candidate : `${baseUrl}/${candidate}`
   const url = `${baseUrl}/blogs/${post.slug}/`
   const map = {
     ...defaultValues,
@@ -54,6 +64,27 @@ function buildBlogHtml(post) {
   if (!/rel="canonical"/.test(html)) {
     html = html.replace('<head>', `<head>\n<link rel="canonical" href="${url}">`)
   }
+  // Insert additional helpful OG/Twitter tags if not present
+  if (!/og:site_name/.test(html)) {
+    html = html.replace('<head>', `<head>\n<meta property="og:site_name" content="BitPulse">`)
+  }
+  if (!/twitter:image:alt/.test(html)) {
+    html = html.replace(
+      '<head>',
+      `<head>\n<meta name="twitter:image:alt" content="${map.OG_TITLE.replace(/"/g, '&quot;')}">`,
+    )
+  }
+  if (!/og:image:width/.test(html)) {
+    html = html.replace(
+      '<head>',
+      '<head>\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">',
+    )
+  }
+  // Ensure a standard meta description tag (some scrapers look for this specifically)
+  if (!/name="description"/i.test(html)) {
+    const desc = map.OG_DESC.replace(/"/g, '&quot;')
+    html = html.replace('<head>', `<head>\n<meta name="description" content="${desc}">`)
+  }
   return html
 }
 
@@ -61,7 +92,7 @@ function buildBlogHtml(post) {
 for (const post of posts) {
   const outDir = join(distDir, 'blogs', post.slug)
   await mkdir(outDir, { recursive: true })
-  const html = buildBlogHtml(post)
+  const html = await buildBlogHtml(post)
   await writeFile(join(outDir, 'index.html'), html, 'utf8')
   console.log('Prerendered', outDir)
 }
@@ -76,6 +107,37 @@ const rootHtml = applyMeta(rawTemplate, {
   OG_TYPE: defaultValues.OG_TYPE || 'website',
   PAGE_TITLE: defaultValues.PAGE_TITLE || 'BitPulse',
 })
-await writeFile(templatePath, rootHtml, 'utf8')
+let finalRoot = rootHtml
+if (!/name="description"/i.test(finalRoot)) {
+  const rootDescMatch = /content="([^"]+)"\s*\/>/i.exec(
+    finalRoot.match(/property="og:description"[^"]+content="[^"]+"/i) || '',
+  )
+  const rootDesc =
+    rootDescMatch?.[1] || 'Driving innovation through technology — one solution at a time.'
+  finalRoot = finalRoot.replace(
+    '<head>',
+    `<head>\n<meta name="description" content="${rootDesc.replace(/"/g, '&quot;')}">`,
+  )
+}
+// Add site level supplemental tags
+if (!/og:site_name/.test(finalRoot)) {
+  finalRoot = finalRoot.replace(
+    '<head>',
+    '<head>\n<meta property="og:site_name" content="BitPulse">',
+  )
+}
+if (!/og:image:width/.test(finalRoot)) {
+  finalRoot = finalRoot.replace(
+    '<head>',
+    '<head>\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">',
+  )
+}
+if (!/twitter:image:alt/.test(finalRoot)) {
+  finalRoot = finalRoot.replace(
+    '<head>',
+    '<head>\n<meta name="twitter:image:alt" content="BitPulse">',
+  )
+}
+await writeFile(templatePath, finalRoot, 'utf8')
 
 console.log('Prerender complete (blogs + root meta applied).')
