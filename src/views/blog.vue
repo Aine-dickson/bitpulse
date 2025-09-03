@@ -8,7 +8,7 @@
 
         <!-- Featured Blog Post -->
         <section v-if="featured" class="mb-12 bg-gray-100 dark:bg-slate-800 rounded-lg p-6 md:flex gap-6 items-center">
-            <img src="../assets/profile.png" alt="Featured Blog" class="w-full md:w-1/2 h-64 object-cover rounded-lg mb-4 md:mb-0" />
+            <img src="/African_tech_evolution.png" alt="Featured Blog" class="w-full md:w-1/2 h-64 object-cover rounded-lg mb-4 md:mb-0" />
             <div class="md:w-1/2">
                 <p class="text-orange-500 text-lg font-medium uppercase mb-2">Featured</p>
                 <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">{{ featured.title }}</h2>
@@ -58,7 +58,7 @@
                 <p class="text-gray-600 dark:text-gray-400">No matching blog posts found. Please check back later.</p>
             </div>
             <div v-for="post in posts" :key="post.slug" class="bg-white dark:bg-gray-900 border rounded-lg shadow-sm hover:shadow-md transition">
-                <img src="../assets/profile.png" alt="Blog Thumbnail" class="w-full h-48 object-cover rounded-t-lg" />
+                <img :src="post.image" alt="Blog Thumbnail" class="w-full h-48 object-cover rounded-t-lg" />
                 <div class="p-4">
                     <p class="text-sm text-gray-500 dark:text-gray-300 mb-1">{{ formatDate(post.date) }}</p>
                     <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2">{{ post.title }}</h3>
