@@ -5,16 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" -- && bun scripts/prerender.mjs",
+    "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
-    "build-only": "vite build",
+    "build-only": "vite-ssg build",
     "type-check": "vue-tsc --build",
     "format": "prettier --write src/"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.4",
     "@tailwindcss/vite": "^4.1.5",
-    "add": "^2.0.6",
+    "@unhead/vue": "^2.0.0",
     "axios": "^1.9.0",
     "pinia": "^3.0.1",
     "pinia-plugin-persistedstate": "^4.3.0",
@@ -32,6 +32,7 @@
     "typescript": "~5.8.0",
     "vite": "^6.2.4",
     "vite-plugin-vue-devtools": "^7.7.2",
+    "vite-ssg": "^28.3.0",
     "vue-tsc": "^2.2.8"
   },
   "trustedDependencies": [

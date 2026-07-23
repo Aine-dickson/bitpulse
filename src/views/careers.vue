@@ -1,53 +1,58 @@
-<template>
-    <div class="md:h-full h-screen flex justify-center items-center p-8 bg-[url('../assets/under_construction.svg')] md:bg-none bg-no-repeat bg-center py-8 md:py-0" id="careers-section">
-        <div class="bg-black/60 md:bg-transparent backdrop-blur-sm rounded-lg md:rounded-none p-8 md:p-0 flex flex-col justify-center md:block">
-            <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Under construction:</h2>
-            <ul class="max-w-md space-y-2 text-gray-400 md:text-gray-500 list-inside dark:text-gray-300 md:dark:text-gray-400">
-                <li class="flex items-center">
-                    <svg class="w-4 h-4 me-2 text-orange-500 dark:text-orange-400 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
-                    </svg>
-                    Career philosophy and team culture section
-                </li>
-
-                <li class="flex items-center">
-                    <div role="status">
-                        <svg aria-hidden="true" class="w-4 h-4 me-2 text-gray-200 animate-spin dark:text-gray-600 fill-orange-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/><path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/></svg>
-                        <span class="sr-only">Loading...</span>
-                    </div>
-                    Open roles listing with filtering
-                </li>
-
-                <li class="flex items-center">
-                    <svg class="w-4 h-4 me-2 text-orange-500 dark:text-orange-400 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
-                    </svg>
-                    Application form with resume upload
-                </li>
-                
-                <li class="flex items-center">
-                    <div role="status">
-                        <svg aria-hidden="true" class="w-4 h-4 me-2 text-gray-200 animate-spin dark:text-gray-600 fill-orange-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/><path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/></svg>
-                        <span class="sr-only">Loading...</span>
-                    </div>
-                    Life at BitPulse – benefits and values
-                </li>
-
-            </ul>
-        </div>
-
-        <img src="../assets/under_construction.svg" alt="hidden md:block" class="hidden md:block">
-    </div>
-</template>
-
-
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { RouterLink } from 'vue-router'
+import { site } from '@/data/site'
+import { useSeoMeta } from '@/composables/useSeoMeta'
+import NetLabel from '@/components/ui/NetLabel.vue'
 
-    onMounted(() => {
-        const categoryElement = document.getElementById('careers-section');
-        if (categoryElement) {
-            categoryElement.scrollIntoView({ behavior: 'smooth'});
-        }
-    });
+useSeoMeta({
+  title: 'Careers',
+  description:
+    'Careers at BitPulse — the full roles board is on its way. In the meantime, tell us how you want to build with us.',
+  canonical: '/careers',
+})
+
+const roadmap = [
+  'Career philosophy & team culture',
+  'Open roles listing with filtering',
+  'Application form with resume upload',
+  'Life at BitPulse — benefits and values',
+]
 </script>
+
+<template>
+  <section class="bg-plate-0">
+    <div class="mx-auto max-w-[1120px] px-6 pb-14 pt-20">
+      <NetLabel text="Careers" />
+      <h1 class="mt-6 max-w-[18ch] text-[clamp(2.3rem,5.5vw,3.8rem)] leading-[0.98] text-ink">
+        Come build the hard stuff with us.
+      </h1>
+      <p class="mt-6 max-w-[54ch] text-[1.1rem] text-ink-2">
+        Our full roles board is still on the bench. If you love firmware, systems software or
+        turning research into working hardware, we'd still like to hear from you now.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <RouterLink to="/contacts" class="btn btn-primary">Introduce yourself</RouterLink>
+        <a :href="`mailto:${site.email}`" class="btn btn-line">{{ site.email }}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-plate-1 py-16">
+    <div class="mx-auto max-w-[1120px] px-6">
+      <div class="mb-8 max-w-[640px]">
+        <NetLabel text="On the way" run />
+        <h2 class="mt-4 text-[clamp(1.7rem,3.6vw,2.4rem)] text-ink">What's coming to this page.</h2>
+      </div>
+      <ul class="grid gap-3 sm:grid-cols-2">
+        <li
+          v-for="item in roadmap"
+          :key="item"
+          class="flex items-center gap-3 rounded-lg border border-line bg-surface px-5 py-4 text-[0.98rem] text-ink-2"
+        >
+          <span class="h-2.5 w-2.5 shrink-0 rounded-full border-2 border-accent" />
+          {{ item }}
+        </li>
+      </ul>
+    </div>
+  </section>
+</template>

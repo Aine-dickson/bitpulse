@@ -1,124 +1,100 @@
-<template>
-    <div class="h-full overflow-y-auto no-scroll" id="services-section">
-        <div v-if="childRoutes.includes(($route.name?.toString() ?? ''))">
-            <RouterView/>
-        </div>
-        <div v-else>
-            <section class="w-full py-16 px-6 md:px-20 bg-white dark:bg-gray-950 text-center">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">
-                Explore what we can do together
-                </h1>
-                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                From backend systems to embedded innovation, we’re here to transform your ideas into real-world solutions.
-                </p>
-            </section>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-                <serviceCard v-for="service in services" :description="service.description" :image="service.image" :services="service.services" :title="service.category" :name="service.name" :cta="service.cta"/>
-            </div>
-            
-            <section class="mt-8 px-6 md:px-16 py-12 text-center rounded-xl shadow-lg">
-                <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">
-                    Not Sure Which Service Fits Your Needs?
-                </h2>
-                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
-                    Let’s chat and figure out how BitPulse can help you build, scale, or solve a challenge you're facing.
-                </p>
-                <div
-                    @click="uiStore.showModal('consultationForm')"
-                    class="inline-block cursor-pointer bg-orange-600 hover:bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold transition"
-                >
-                    📅 Book a Free Consultation
-                </div>
-            </section>
-
-        </div>
-
-    </div>
-</template>
-
 <script setup lang="ts">
-import serviceCard from '@/components/services/serviceCard.vue';
-import { useUiStore } from '@/stores/ui';
-import { onMounted } from 'vue';
+import { services } from '@/data/services'
+import { process } from '@/data/process'
+import { useUiStore } from '@/stores/ui'
+import { useSeoMeta } from '@/composables/useSeoMeta'
+import NetLabel from '@/components/ui/NetLabel.vue'
+import CapIcon from '@/components/ui/CapIcon.vue'
 
-let uiStore = useUiStore();
+const uiStore = useUiStore()
 
-let childRoutes = ["embedded_iot_devt", "backend_systems", "prototyping", "training", "dev_tools"];
-
-let services = [
-  {
-    image: "backend.svg",
-    name: "backend_systems",
-    cta: "Discover how we build powerful systems together",
-    category: "Backend & Systems Programming",
-    description: "Build reliable, blazing-fast backends and system-level tools using Rust.",
-    services: [
-      "Rust-based backend APIs (Actix, Shuttle)",
-      "Custom CLI tools for automation and productivity",
-      "System-level integrations for edge computing",
-      "WebAssembly-based modules for frontend/backend use"
-    ]
-  },
-  {
-    image: "prototype.svg",
-    name: "prototyping",
-    cta: "Explore how your next idea can take shape with us",
-    category: "Custom R&D Prototyping",
-    description: "Turn ideas into reality with research-driven hardware/software prototypes.",
-    services: [
-      "Hardware-software co-design and integration",
-      "Smart infrastructure prototyping (e.g. traffic, sensing)",
-      "Custom data acquisition systems",
-      "Grant-ready technical documentation and research"
-    ]
-  },
-  {
-    image: "training.svg",
-    name: "training",
-    cta: "Let’s shape your learning journey together",
-    category: "Technical Mentorship & Training",
-    description: "Offer personalized mentorship and educational programs in modern technologies.",
-    services: [
-      "Rust and embedded programming training",
-      "Workshops and bootcamps for institutions",
-      "Technical curriculum planning and guidance",
-      "Remote/onsite mentorship on project implementation"
-    ]
-  },
-  {
-    image: "dev_tools.svg",
-    name: "dev_tools",
-    cta: "Join us in building tools that empower developers",
-    category: "Developer Tools & Open Source Solutions",
-    description: "Empower developers through tailored tools and community-driven platforms.",
-    services: [
-      "Custom Markdown parser and formatting engines",
-      "Tooling for Rust-based development workflows",
-      "Open-source embedded libraries and contributions",
-      "Developer community platform integrations (BitCraft)"
-    ]
-  },
-  {
-    image: "embedded_iot.svg",
-    cta: "See how we can bring your devices to life",
-    name: "embedded_iot_devt",
-    category: "Embedded Systems & IoT Development",
-    description: "Design and deploy intelligent embedded systems for automation, sensing, and control.",
-    services: [
-      "Custom IoT solutions (e.g. smart agriculture, health monitors)",
-      "Embedded firmware development in Rust",
-      "Hardware simulation using Wokwi",
-      "Low-power and performance-optimized designs"
-    ]
-  },
-  
-]
-
-onMounted(() => {
-    const categoryElement = document.getElementById('services-section');
-    if (categoryElement) {
-        categoryElement.scrollIntoView({ behavior: 'smooth'});
-    }
-});
-
+useSeoMeta({
+  title: 'Services',
+  description:
+    'From embedded firmware and backend systems to R&D prototyping, developer tools, training and firmware audits — the full signal path, one team.',
+  canonical: '/services',
+})
 </script>
+
+<template>
+  <!-- HERO -->
+  <section class="bg-plate-0">
+    <div class="mx-auto max-w-[1120px] px-6 pb-16 pt-20">
+      <NetLabel text="Capabilities" />
+      <h1 class="mt-6 max-w-[18ch] text-[clamp(2.3rem,5.5vw,4rem)] leading-[0.98] text-ink">
+        Explore what we can build together.
+      </h1>
+      <p class="mt-6 max-w-[52ch] text-[1.1rem] text-ink-2">
+        From backend systems to embedded innovation, we work the full signal path — turning ideas
+        into real-world hardware, firmware and software.
+      </p>
+    </div>
+  </section>
+
+  <!-- CAPABILITY DETAIL -->
+  <section class="bg-plate-1 py-16">
+    <div class="mx-auto grid max-w-[1120px] gap-5 px-6 md:grid-cols-2">
+      <RouterLink
+        v-for="s in services"
+        :key="s.slug"
+        :to="`/services/${s.slug}`"
+        class="group relative flex flex-col rounded-lg border border-line bg-surface p-7 shadow-[0_1px_2px_rgba(27,36,31,0.04),0_14px_34px_-22px_rgba(27,36,31,0.30)] transition-colors hover:border-accent"
+      >
+        <div class="flex items-center gap-4">
+          <span class="grid h-[46px] w-[46px] place-items-center rounded-md bg-accent-soft text-accent-deep">
+            <CapIcon :name="s.icon" class="h-6 w-6" />
+          </span>
+          <div>
+            <span class="font-mono text-[0.62rem] uppercase tracking-[0.1em] text-ink-3">{{ s.ref }} · {{ s.tag }}</span>
+            <h2 class="text-[1.4rem] text-ink">{{ s.name }}</h2>
+          </div>
+        </div>
+        <p class="mt-4 text-[0.98rem] text-ink-2">{{ s.detail }}</p>
+        <ul class="mt-5 flex list-none flex-col gap-2.5 p-0">
+          <li v-for="d in s.deliverables" :key="d" class="relative pl-5 text-[0.9rem] text-ink-2">
+            <span class="absolute left-0 top-[8px] h-2 w-2 rounded-full border-2 border-accent" />
+            {{ d }}
+          </li>
+        </ul>
+        <span class="mt-5 font-mono text-[0.72rem] text-accent-deep opacity-0 transition-opacity group-hover:opacity-100">
+          View details →
+        </span>
+      </RouterLink>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK -->
+  <section class="bg-plate-0 py-20">
+    <div class="mx-auto max-w-[1120px] px-6">
+      <div class="mb-12 max-w-[640px]">
+        <NetLabel text="How an engagement runs" run />
+        <h2 class="mt-4 text-[clamp(1.8rem,4vw,2.6rem)] text-ink">Four stages, each one gating the next.</h2>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div v-for="step in process" :key="step.n">
+          <div class="mb-5 h-4 w-4 rounded-full border-2 border-accent bg-plate-0" />
+          <span class="font-mono text-[0.7rem] tracking-[0.08em] text-accent-deep">{{ step.n }} · {{ step.stage }}</span>
+          <h3 class="mb-2 mt-1.5 text-[1.15rem] text-ink">{{ step.title }}</h3>
+          <p class="text-[0.9rem] text-ink-3">{{ step.body }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-plate-1 py-20">
+    <div class="mx-auto max-w-[1120px] px-6">
+      <div class="flex flex-wrap items-center justify-between gap-8 rounded-xl border border-accent bg-accent-soft px-10 py-12">
+        <div>
+          <h2 class="max-w-[20ch] text-[clamp(1.6rem,3.4vw,2.3rem)] text-ink">
+            Not sure which track fits your needs?
+          </h2>
+          <p class="mt-3 text-[1rem] text-ink-2">
+            Let's figure out how BitPulse can help you build, scale, or solve the challenge in front of you.
+          </p>
+        </div>
+        <button class="btn btn-primary" @click="uiStore.showModal('consultationForm')">Book a free consultation</button>
+      </div>
+    </div>
+  </section>
+</template>

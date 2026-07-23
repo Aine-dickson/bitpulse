@@ -1,5 +1,5 @@
 <template>
-    <div class="text-white py-10">
+    <div class="py-10">
 
         <h2 class="text-2xl font-semibold mb-4">
             🌍 The Rise of African Tech — A Surface-Level View

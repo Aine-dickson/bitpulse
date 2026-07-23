@@ -1,254 +1,81 @@
-<template>
-  <!-- Preview section when blog is null -->
-  <section v-if="!blog" class="blog-preview-empty">
-    <div class="blog-preview-empty__icon">
-      <svg width="48" height="48" fill="none" viewBox="0 0 48 48">
-        <circle cx="24" cy="24" r="22" stroke="#e0e0e0" stroke-width="4" />
-        <path d="M16 24h16M16 30h10" stroke="#bdbdbd" stroke-width="2" stroke-linecap="round" />
-      </svg>
-    </div>
-    <h2 class="blog-preview-empty__title">Blog not Found</h2>
-    <p class="blog-preview-empty__desc">
-      This was either deleted or never exited.
-      <span
-        @click="$router.push({ name: 'blog' })"
-        class="text-orange-600 cursor-pointer hover:underline"
-      >
-        See all here
-      </span>
-    </p>
-  </section>
-
-  <!-- Existing blog preview section -->
-  <div v-else class="max-w-6xl h-full overflow-y-auto no-scroll mx-auto px-4 grid md:grid-cols-3 gap-8">
-    <!-- Blog Content -->
-    <article class="md:col-span-2 md:h-full pt-10 md:overflow-y-auto no-scroll">
-      <h1
-        class="text-3xl md:text-4xl font-bold md:font-black text-gray-800 dark:text-gray-200 mb-4 md:mb-8"
-      >
-        {{ blog?.title }}
-      </h1>
-      <p class="text-white">{{ slugBuilder(slug) }}</p>
-      <blockquote class="pl-4 my-4 border-s-4 border-gray-300 dark:border-gray-500">
-        <p class="text-md italic leading-relaxed text-gray-900 dark:text-gray-500">
-          {{ formatDate(blog?.date || '', 'title') }} · {{ blog?.author }}
-        </p>
-      </blockquote>
-      <hr class="text-gray-300 dark:text-gray-800 my-12" />
-
-      <img :src="`/${blog?.image}`" class="w-full rounded mb-6" alt="Blog cover" />
-
-      <blog1 v-if="blog?.slug == 'what-africa-truly-needs-from-its-tech-revolution'" />
-      <blog2 v-if="blog?.slug == 'rust-vs-c-for-embedded-systems-the-battle-for-the-bare-metal'" />
-      <blog3 v-if="blog?.slug == 'prototyping-101'" />
-      <blog4 v-if="blog?.slug == 'open-source-hardware'" />
-
-      <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">
-        Tags:
-        <span v-for="(tag, index) in blog?.tags" :key="tag" class="text-orange-600 font-semibold">
-          #{{ index + 1 == blog?.tags.length ? tag : `${tag}, ` }}
-        </span>
-      </p>
-
-      <!-- TODO: Include articles -->
-    </article>
-
-    <!-- Comment Section -->
-    <aside class="md:col-span-1 pt-10 dark:text-white md:h-full no-scroll md:overflow-y-auto">
-      <h2 class="text-xl font-semibold mb-4">Comments</h2>
-
-      <!-- New Comment Input -->
-      <form @submit.prevent="submitComment" class="mb-6">
-        <textarea
-          v-model="content"
-          rows="4"
-          class="w-full p-3 border rounded resize-none"
-          placeholder="Write your comment..."
-        ></textarea>
-        <div class="flex items-center mt-2 justify-between">
-          <button
-            type="submit"
-            class="cursor-pointer bg-orange-600 hover:bg-orange-700 text-white font-semibold px-4 py-2 rounded"
-          >
-            Post
-          </button>
-          <span v-if="accountStore.username" class="ml-4 text-sm text-gray-500">
-            Comment as: {{ accountStore.username }}
-          </span>
-          <input
-            v-else
-            v-model="username"
-            type="text"
-            class="w-1/2 p-2 border rounded"
-            placeholder="Username to attach on comment"
-            required
-          />
-        </div>
-      </form>
-
-      <!-- Real-time Comment List -->
-      <div class="space-y-4">
-        <div
-          v-for="comment in comments.sort(
-            (a, b) => new Date(b.inserted_at).getTime() - new Date(a.inserted_at).getTime(),
-          )"
-          :key="comment.id"
-          class="bg-gray-50 dark:bg-slate-900 border rounded-lg p-3 shadow-sm relative"
-        >
-          <p class="absolute top-0.5 right-2 text-xs text-gray-400">
-            {{ formatDate(comment.inserted_at, '') }}
-          </p>
-          <p class="text-sm text-gray-700 mt-1 dark:text-gray-300 whitespace-pre-wrap">
-            {{ comment.content }}
-          </p>
-          <p class="text-xs text-gray-500 mt-1 capitalize">— {{ comment.username }}</p>
-        </div>
-      </div>
-    </aside>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref, type Ref } from 'vue'
+import { useRoute } from 'vue-router'
+import { useHead } from '@unhead/vue'
 import blog1 from './blog1.vue'
 import blog2 from './blog2.vue'
 import blog3 from './blog3.vue'
 import blog4 from './blog4.vue'
 import { useBlogStore, type Comment } from '@/stores/blog'
-import { supabase } from '@/utils/supabase'
 import { useAccountStore } from '@/stores/account'
-import { useRoute } from 'vue-router'
-import { setMeta } from '@/utils/meta'
+import { supabase, isSupabaseConfigured } from '@/utils/supabase'
+import { SITE_URL } from '@/config/seo'
 
 const route = useRoute()
-let blogStore = useBlogStore()
-let accountStore = useAccountStore()
+const blogStore = useBlogStore()
+const accountStore = useAccountStore()
 defineProps<{ slug: string }>()
 
-let postId = computed(() => blogStore.postInPreview)
+const postId = computed(() => blogStore.postInPreview)
 const blog = computed(() => {
   const slug = route.params.slug as string
-  if (slug) {
-    let post = blogStore.posts.find((post) => post.slug === slug)
-    if (post) {
-      blogStore.previewPost(post.id)
-      return post
-    }
+  const post = blogStore.posts.find((p) => p.slug === slug)
+  if (post) {
+    blogStore.previewPost(post.id)
+    return post
   }
-
   return null
 })
 
-let comments: Ref<Comment[]> = ref([])
+// Reactive SEO (updates if the user navigates between posts).
+useHead({
+  title: () => (blog.value ? `${blog.value.title} · BitPulse` : 'Blog · BitPulse'),
+  meta: [
+    { name: 'description', content: () => blog.value?.excerpt ?? '' },
+    { property: 'og:title', content: () => (blog.value ? `${blog.value.title} · BitPulse` : 'BitPulse') },
+    { property: 'og:description', content: () => blog.value?.excerpt ?? '' },
+    { property: 'og:type', content: 'article' },
+    {
+      property: 'og:image',
+      content: () => (blog.value?.image ? `${SITE_URL}/${blog.value.image.replace(/^\//, '')}` : `${SITE_URL}/social-preview.png`),
+    },
+    { name: 'twitter:card', content: 'summary_large_image' },
+  ],
+})
+
 const now = ref(new Date())
+const comments: Ref<Comment[]> = ref([])
+const username = ref(accountStore.username ?? '')
+const content = ref('')
 
-const slugBuilder = (slug: string) => {
-  // Replace hyphens with spaces, capitalize first word, rest lower case
-  const words = slug.split('-')
-  if (words.length === 0) return ''
-  return (
-    words[0].charAt(0).toUpperCase() +
-    words[0].slice(1).toLowerCase() +
-    (words.length > 1
-      ? ' ' +
-        words
-          .slice(1)
-          .map((w) => w.toLowerCase())
-          .join(' ')
-      : '')
-  )
-}
+const sortedComments = computed(() =>
+  [...comments.value].sort(
+    (a, b) => new Date(b.inserted_at).getTime() - new Date(a.inserted_at).getTime(),
+  ),
+)
 
-const formatDate = (dateStr: string, source: 'title' | '') => {
-  const date = new Date(dateStr)
-  const diff = now.value.getTime() - date.getTime() // in ms
-
-  const minutes = Math.floor(diff / 60000)
-  const hours = Math.floor(diff / 3600000)
-
-  if (source === 'title') {
-    if (diff < 60000) return 'Just now'
-    if (diff < 3600000) return `${minutes} minute${minutes === 1 ? '' : 's'} ago`
-    if (diff < 86400000) return `${hours} hour${hours === 1 ? '' : 's'} ago`
-
-    // Yesterday
-    const yesterday = new Date(now.value)
-    yesterday.setDate(now.value.getDate() - 1)
-    if (
-      date.getDate() === yesterday.getDate() &&
-      date.getMonth() === yesterday.getMonth() &&
-      date.getFullYear() === yesterday.getFullYear()
-    ) {
-      return 'Yesterday at ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-    }
-
-    // This week
-    const diffDays = Math.floor(diff / 86400000)
-    if (diffDays < 7) {
-      return date.toLocaleDateString([], { weekday: 'long', hour: '2-digit', minute: '2-digit' })
-    }
-
-    // This year
-    if (date.getFullYear() === now.value.getFullYear()) {
-      return date.toLocaleDateString([], {
-        month: 'long',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-      })
-    }
-
-    // Older
-    return date.toLocaleDateString([], {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-    })
-  }
-
-  // Fallback for comments
-  if (diff < 60000) return 'Just now'
-  if (diff < 3600000) return `${minutes} minute${minutes === 1 ? '' : 's'} ago`
-  if (diff < 86400000) return `${hours} hour${hours === 1 ? '' : 's'} ago`
-
-  // Yesterday
-  const yesterday = new Date(now.value)
-  yesterday.setDate(now.value.getDate() - 1)
-  if (
-    date.getDate() === yesterday.getDate() &&
-    date.getMonth() === yesterday.getMonth() &&
-    date.getFullYear() === yesterday.getFullYear()
-  ) {
-    return 'Yesterday at ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-  }
-
-  // This week
-  const diffDays = Math.floor(diff / 86400000)
-  if (diffDays < 7) {
-    return date.toLocaleDateString([], { weekday: 'long', hour: '2-digit', minute: '2-digit' })
-  }
-
-  // Else, show full date with hour and minute
-  return date.toLocaleDateString([], {
+function articleDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString(undefined, {
     year: 'numeric',
-    month: 'short',
+    month: 'long',
     day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
   })
 }
 
-const username = ref('')
-const content = ref('')
-if (accountStore.username) {
-  username.value = accountStore.username
+function relativeTime(dateStr: string) {
+  const diff = now.value.getTime() - new Date(dateStr).getTime()
+  const min = Math.floor(diff / 60000)
+  const hr = Math.floor(diff / 3600000)
+  const days = Math.floor(diff / 86400000)
+  if (diff < 60000) return 'Just now'
+  if (diff < 3600000) return `${min} minute${min === 1 ? '' : 's'} ago`
+  if (diff < 86400000) return `${hr} hour${hr === 1 ? '' : 's'} ago`
+  if (days < 7) return `${days} day${days === 1 ? '' : 's'} ago`
+  return new Date(dateStr).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })
 }
 
-// Load existing comments
-const loadComments = async () => {
-  const { data, error } = await supabase
+async function loadComments() {
+  const { data } = await supabase
     .from('comments')
     .select('*')
     .eq('post_id', postId.value)
@@ -256,8 +83,7 @@ const loadComments = async () => {
   if (data) comments.value = data
 }
 
-// Post a new comment
-const submitComment = async () => {
+async function submitComment() {
   if (!username.value || !content.value) return
   accountStore.setUsername(username.value)
   const { error } = await supabase.from('comments').insert({
@@ -266,96 +92,182 @@ const submitComment = async () => {
     content: content.value,
   })
   content.value = ''
-  username.value = ''
-  if (error) alert('Error posting comment')
+  if (error) alert('Sorry — your comment could not be posted. Please try again.')
 }
 
-// Real-time listener
-let channel: any
-let interval = ref<ReturnType<typeof setInterval> | undefined>()
-onMounted(async () => {
-  await loadComments()
+let channel: ReturnType<typeof supabase.channel> | null = null
+let interval: ReturnType<typeof setInterval> | undefined
 
-  interval.value = setInterval(() => {
-    now.value = new Date()
-  }, 1000)
+onMounted(async () => {
+  // Comments are a Supabase feature; the article must render without it.
+  if (!isSupabaseConfigured) return
+
+  await loadComments()
+  interval = setInterval(() => (now.value = new Date()), 30000)
 
   channel = supabase
     .channel('public:comments')
     .on(
       'postgres_changes',
-      {
-        event: 'INSERT',
-        schema: 'public',
-        table: 'comments',
-        filter: `post_id=eq.${postId.value}`,
-      },
+      { event: 'INSERT', schema: 'public', table: 'comments', filter: `post_id=eq.${postId.value}` },
       (payload) => {
-        const newComment: Comment = {
-          id: payload.new.id,
-          post_id: payload.new.post_id,
-          username: payload.new.username,
-          content: payload.new.content,
-          inserted_at: payload.new.inserted_at,
-        }
-        return comments.value.push(newComment)
+        comments.value.push(payload.new as Comment)
       },
     )
     .subscribe()
-
-  // Set social meta tags for this blog post (client-side only)
-  if (blog.value) {
-    const absoluteUrl = window.location.origin + '/blog/' + blog.value.slug
-    // Resolve image path (if relative, prefix with base / )
-    let image = blog.value.image
-    if (image && !/^https?:\/\//.test(image)) {
-      // Assume assets served from /public or built assets; adjust if needed
-      image = window.location.origin + '/' + image.replace(/^\//, '')
-    }
-    setMeta({
-      title: blog.value.title + ' | Bitpulse',
-      description: blog.value.excerpt,
-      image,
-      url: absoluteUrl,
-      type: 'article',
-      siteName: 'Bitpulse',
-    })
-  }
 })
 
 onUnmounted(() => {
-  if (interval.value) clearInterval(interval.value)
+  if (interval) clearInterval(interval)
   if (channel) supabase.removeChannel(channel)
 })
 </script>
 
+<template>
+  <!-- Not found -->
+  <section v-if="!blog" class="mx-auto flex max-w-[640px] flex-col items-center px-6 py-28 text-center">
+    <div class="grid h-14 w-14 place-items-center rounded-full border border-line text-ink-3">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+        <circle cx="12" cy="12" r="10" /><path d="M8 12h8M8 15h5" stroke-linecap="round" />
+      </svg>
+    </div>
+    <h1 class="mt-6 text-[1.6rem] text-ink">Post not found</h1>
+    <p class="mt-2 text-ink-3">
+      This was either removed or never existed.
+      <RouterLink to="/blogs" class="text-accent-deep hover:underline">See all posts</RouterLink>
+    </p>
+  </section>
+
+  <!-- Article -->
+  <div v-else class="mx-auto grid max-w-[1120px] gap-10 px-6 py-14 lg:grid-cols-3">
+    <article class="lg:col-span-2">
+      <RouterLink to="/blogs" class="font-mono text-[0.72rem] uppercase tracking-[0.1em] text-accent-deep hover:underline">
+        ← All posts
+      </RouterLink>
+      <h1 class="mt-5 text-[clamp(2rem,4.5vw,3rem)] leading-[1.02] text-ink">{{ blog.title }}</h1>
+      <p class="mt-4 font-mono text-[0.8rem] text-ink-3">
+        {{ articleDate(blog.date) }}<span v-if="blog.author"> · {{ blog.author }}</span>
+      </p>
+      <img :src="`/${blog.image}`" class="mt-8 w-full rounded-lg border border-line" :alt="blog.title" />
+
+      <div class="article mt-4">
+        <blog1 v-if="blog.slug == 'what-africa-truly-needs-from-its-tech-revolution'" />
+        <blog2 v-if="blog.slug == 'rust-vs-c-for-embedded-systems-the-battle-for-the-bare-metal'" />
+        <blog3 v-if="blog.slug == 'prototyping-101'" />
+        <blog4 v-if="blog.slug == 'open-source-hardware'" />
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-2 border-t border-line pt-6">
+        <span
+          v-for="tag in blog.tags"
+          :key="tag"
+          class="rounded border border-line-2 px-2.5 py-1 font-mono text-[0.62rem] uppercase tracking-[0.05em] text-accent-deep"
+        >
+          #{{ tag }}
+        </span>
+      </div>
+    </article>
+
+    <!-- Comments -->
+    <aside class="lg:col-span-1">
+      <h2 class="text-[1.3rem] text-ink">Comments</h2>
+
+      <p v-if="!isSupabaseConfigured" class="mt-3 text-[0.9rem] text-ink-3">
+        Comments are unavailable right now.
+      </p>
+
+      <template v-else>
+      <form class="mt-4 flex flex-col gap-3" @submit.prevent="submitComment">
+        <textarea
+          v-model="content"
+          rows="4"
+          required
+          class="w-full resize-none rounded-md border border-line-2 bg-surface px-3.5 py-2.5 text-[0.95rem] text-ink focus:border-accent focus:outline-none"
+          placeholder="Write your comment…"
+        />
+        <div class="flex items-center gap-3">
+          <button type="submit" class="btn btn-primary">Post</button>
+          <span v-if="accountStore.username" class="text-[0.85rem] text-ink-3">
+            as {{ accountStore.username }}
+          </span>
+          <input
+            v-else
+            v-model="username"
+            type="text"
+            required
+            class="min-w-0 flex-1 rounded-md border border-line-2 bg-surface px-3 py-2 text-[0.9rem] text-ink focus:border-accent focus:outline-none"
+            placeholder="Your name"
+          />
+        </div>
+      </form>
+
+      <div class="mt-6 flex flex-col gap-3">
+        <p v-if="!sortedComments.length" class="text-[0.9rem] text-ink-3">Be the first to comment.</p>
+        <div
+          v-for="c in sortedComments"
+          :key="c.id"
+          class="rounded-lg border border-line bg-surface p-4"
+        >
+          <div class="flex items-baseline justify-between gap-2">
+            <span class="text-[0.85rem] font-semibold capitalize text-ink">{{ c.username }}</span>
+            <span class="font-mono text-[0.66rem] text-ink-3">{{ relativeTime(c.inserted_at) }}</span>
+          </div>
+          <p class="mt-1.5 whitespace-pre-wrap text-[0.92rem] text-ink-2">{{ c.content }}</p>
+        </div>
+      </div>
+      </template>
+    </aside>
+  </div>
+</template>
+
 <style scoped>
-.blog-preview-empty {
-  color: #757575;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 220px;
-  border-radius: 12px;
-  margin-bottom: 2rem;
+.article {
+  color: var(--color-ink-2);
+  font-size: 1.02rem;
+  line-height: 1.75;
 }
-
-.blog-preview-empty__icon {
+.article :deep(h2) {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+  margin: 2.2rem 0 1rem;
+}
+.article :deep(h3) {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 1.6rem 0 0.75rem;
+}
+.article :deep(p) {
   margin-bottom: 1rem;
-  opacity: 0.7;
 }
-
-.blog-preview-empty__title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--color-text-secondary, #757575);
-  margin-bottom: 0.5rem;
+.article :deep(ul),
+.article :deep(ol) {
+  padding-left: 1.4rem;
+  margin-bottom: 1rem;
 }
-
-.blog-preview-empty__desc {
-  font-size: 1rem;
-  color: var(--color-text-tertiary, #bdbdbd);
-  margin: 0;
+.article :deep(li) {
+  margin-bottom: 0.4rem;
+}
+.article :deep(a) {
+  color: var(--color-accent-deep);
+  text-decoration: underline;
+}
+.article :deep(blockquote) {
+  border-inline-start: 3px solid var(--color-accent);
+  background: var(--color-plate-1);
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  border-radius: 0 6px 6px 0;
+}
+.article :deep(hr) {
+  border: 0;
+  border-top: 1px solid var(--color-line);
+  margin: 2.5rem 0;
+}
+.article :deep(img) {
+  border-radius: 8px;
+  margin: 1.5rem 0;
 }
 </style>

@@ -1,64 +1,19 @@
-<template>
-    <section class="max-w-6xl h-full overflow-y-auto no-scroll mx-auto px-4 py-16 space-y-16 text-white">
-        <!-- Header -->
-        <div class="text-center">
-            <h1 class="text-4xl font-bold mb-4">Partner with BitPulse</h1>
-            <p class="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
-                Let’s co-create meaningful solutions in embedded systems, software, R&amp;D, and community tech. Whether you're a startup, organization, or visionary, we’d love to explore how we can work together.
-            </p>
-        </div>
-
-        <!-- Why Partner With Us -->
-        <div>
-            <h2 class="text-2xl font-semibold mb-6 text-center">Why Partner With Us?</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div v-for="(item, index) in partnershipBenefits" :key="index" class="bg-white dark:bg-gray-900 shadow rounded-2xl p-6 border">
-                    <h3 class="text-xl font-medium mb-2">{{ item.title }}</h3>
-                    <p class="text-gray-500 dark:text-gray-400 text-lg">{{ item.text }}</p>
-                </div>
-            </div>
-        </div>
-        <!-- Types of Partnerships -->
-        <div>
-            <h2 class="text-3xl font-semibold mb-6">Ways We Can Work Together</h2>
-            <ul class="grid md:grid-cols-2 gap-6 list-disc list-inside text-gray-500 dark:text-gray-400 text-lg">
-                <li v-for="(item, index) in partnershipTypes" :key="index">{{ item }}</li>
-            </ul>
-        </div>
-
-        <!-- Call to Action -->
-        <div class="text-center space-y-6">
-            <h3 class="text-2xl font-semibold">Let’s build something powerful together</h3>
-            <p class="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-lg">
-                Fill out a quick form, pitch an idea, or schedule a call — we’ll take it from there.
-            </p>
-            <div class="flex justify-center gap-4">
-                <span
-                    @click="uiStore.showModal('partnershipForm')"
-                    class="bg-primary cursor-pointer text-white px-6 py-3 rounded-xl font-medium hover:bg-orange-600 transition"
-                >
-                    Submit Proposal
-                </span>
-
-                <!-- TODO: Implement call scheduling -->
-                <span
-                    @click=""
-                    class="border border-gray-300 px-6 py-3 rounded-xl font-medium hover:bg-gray-100 transition cursor-not-allowed"
-                >
-                    Book a Call
-                </span>
-            </div>
-        </div>
-    </section>
-</template>
-
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
+import { useUiStore } from '@/stores/ui'
+import { useSeoMeta } from '@/composables/useSeoMeta'
+import NetLabel from '@/components/ui/NetLabel.vue'
 
-import { useUiStore } from '@/stores/ui';
+useSeoMeta({
+  title: 'Partnership',
+  description:
+    'Partner with BitPulse — co-create in embedded systems, software, R&D and community tech. From co-development to strategic alliances.',
+  canonical: '/partner',
+})
 
-const uiStore = useUiStore();
+const uiStore = useUiStore()
 
-const partnershipBenefits = [
+const benefits = [
   {
     title: 'Innovative Engineering',
     text: 'Access cutting-edge embedded and software development to power real-world impact.',
@@ -71,21 +26,80 @@ const partnershipBenefits = [
     title: 'Driven by Purpose',
     text: 'We care about meaningful tech — from local needs to scalable systems.',
   },
-];
+]
 
-const partnershipTypes = [
-  'Product Co-Development & Technical Integration',
-  'Custom Hardware & IoT Research Collaborations',
-  'Government & NGO Technology Partnerships',
-  'Academic & Technical Training Partnerships',
-  'Beta Testing or Early Adopter Programs',
-  'Funding or Strategic Tech Alliances',
-];
+const types = [
+  'Product co-development & technical integration',
+  'Custom hardware & IoT research collaborations',
+  'Government & NGO technology partnerships',
+  'Academic & technical training partnerships',
+  'Beta testing or early-adopter programs',
+  'Funding or strategic tech alliances',
+]
 </script>
 
-<style scoped>
-@reference "../assets/main.css";
-.bg-primary {
-  @apply bg-orange-600;
-}
-</style>
+<template>
+  <section class="bg-plate-0">
+    <div class="mx-auto max-w-[1120px] px-6 pb-14 pt-20">
+      <NetLabel text="Partner with BitPulse" />
+      <h1 class="mt-6 max-w-[20ch] text-[clamp(2.3rem,5.5vw,3.8rem)] leading-[0.98] text-ink">
+        Let's co-create something worth building.
+      </h1>
+      <p class="mt-6 max-w-[58ch] text-[1.1rem] text-ink-2">
+        Whether you're a startup, an organization or a visionary, we'd love to explore how we can
+        work together across embedded systems, software, R&amp;D and community tech.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-plate-1 py-16">
+    <div class="mx-auto max-w-[1120px] px-6">
+      <div class="mb-10 max-w-[640px]">
+        <NetLabel text="Why partner with us" run />
+        <h2 class="mt-4 text-[clamp(1.7rem,3.6vw,2.4rem)] text-ink">Built around your vision.</h2>
+      </div>
+      <div class="grid gap-5 md:grid-cols-3">
+        <div v-for="b in benefits" :key="b.title" class="rounded-lg border border-line bg-surface p-7">
+          <h3 class="text-[1.2rem] text-ink">{{ b.title }}</h3>
+          <p class="mt-3 text-[0.95rem] text-ink-3">{{ b.text }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-plate-0 py-16">
+    <div class="mx-auto max-w-[1120px] px-6">
+      <div class="mb-10 max-w-[640px]">
+        <NetLabel text="Ways we can work together" run />
+        <h2 class="mt-4 text-[clamp(1.7rem,3.6vw,2.4rem)] text-ink">Pick the shape that fits.</h2>
+      </div>
+      <ul class="grid gap-3 md:grid-cols-2">
+        <li
+          v-for="t in types"
+          :key="t"
+          class="flex items-center gap-3 rounded-lg border border-line bg-surface px-5 py-4 text-[0.98rem] text-ink-2"
+        >
+          <span class="h-2.5 w-2.5 shrink-0 rounded-full border-2 border-accent" />
+          {{ t }}
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-plate-1 py-20">
+    <div class="mx-auto max-w-[1120px] px-6">
+      <div class="flex flex-wrap items-center justify-between gap-8 rounded-xl border border-accent bg-accent-soft px-10 py-12">
+        <div>
+          <h2 class="max-w-[22ch] text-[clamp(1.6rem,3.4vw,2.3rem)] text-ink">
+            Let's build something powerful together.
+          </h2>
+          <p class="mt-3 text-[1rem] text-ink-2">Pitch an idea or schedule a call — we'll take it from there.</p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <button class="btn btn-primary" @click="uiStore.showModal('partnershipForm')">Submit proposal</button>
+          <RouterLink to="/contacts" class="btn btn-line">Book a call</RouterLink>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
