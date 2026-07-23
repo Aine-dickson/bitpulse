@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { site } from '@/data/site'
 import { useSeoMeta } from '@/composables/useSeoMeta'
+import { submitLead } from '@/utils/leads'
 import NetLabel from '@/components/ui/NetLabel.vue'
 
 useSeoMeta({
@@ -22,11 +23,16 @@ const topics = [
 
 const form = ref({ name: '', email: '', topic: '', message: '' })
 const submitted = ref(false)
+const submitting = ref(false)
+const errorMsg = ref('')
 
-// NOTE: submission is wired to a real endpoint in the forms pass (Phase 4).
-// For now it validates + acknowledges without leaving the page.
-function submit() {
-  submitted.value = true
+async function submit() {
+  submitting.value = true
+  errorMsg.value = ''
+  const res = await submitLead('contact', { ...form.value })
+  submitting.value = false
+  if (res.ok) submitted.value = true
+  else errorMsg.value = 'Sorry — that could not be sent. Please email us directly at ' + site.email + '.'
 }
 
 const channels = [
@@ -80,7 +86,13 @@ const channels = [
             <span class="font-mono text-[0.66rem] uppercase tracking-[0.08em] text-ink-3">What do you need?</span>
             <textarea v-model="form.message" required rows="5" class="field resize-none" placeholder="Briefly describe what you're trying to achieve…" />
           </label>
-          <button type="submit" class="btn btn-primary w-fit">Send request</button>
+          <div class="flex items-center gap-3">
+            <button type="submit" :disabled="submitting" class="btn btn-primary w-fit disabled:opacity-60">
+              <span v-if="submitting">Sending…</span>
+              <span v-else>Send request</span>
+            </button>
+            <p v-if="errorMsg" class="text-[0.85rem] text-red-600">{{ errorMsg }}</p>
+          </div>
         </form>
 
         <div v-else class="mt-6 rounded-md border border-accent bg-accent-soft p-6">

@@ -1,20 +1,24 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
+import { defineAsyncComponent, onMounted, watch } from 'vue'
+import { RouterView, useRoute } from 'vue-router'
 import AppNav from './components/layout/AppNav.vue'
 import AppFooter from './components/layout/AppFooter.vue'
-
-// Legacy modal forms — kept mounted so existing pages that call
-// uiStore.showModal(...) keep working until the forms pass reworks them.
-import partnershipForm from './components/partnershipForm.vue'
-import consultationForm from './components/consultationForm.vue'
-import requestQuoteForm from './components/requestQuoteForm.vue'
-import customPrototypeForm from './components/customPrototypeForm.vue'
-import bookSession from './components/bookSession.vue'
-import requestDevTool from './components/requestDevTool.vue'
-import embeddedQuoteForm from './components/embeddedQuoteForm.vue'
 import { useUiStore } from '@/stores/ui'
+import { leadForms } from '@/data/leadForms'
+
+// Lazy — keeps supabase-js (pulled in via submitLead) out of the main bundle
+// until a visitor actually opens an enquiry form.
+const LeadModal = defineAsyncComponent(() => import('./components/LeadModal.vue'))
 
 const uiStore = useUiStore()
+const route = useRoute()
+
+// Deep-linkable enquiry modals, e.g. /services?enquiry=consultationForm
+function openFromQuery(value: unknown) {
+  if (typeof value === 'string' && leadForms[value]) uiStore.showModal(value)
+}
+onMounted(() => openFromQuery(route.query.enquiry))
+watch(() => route.query.enquiry, openFromQuery)
 </script>
 
 <template>
@@ -25,19 +29,26 @@ const uiStore = useUiStore()
     </main>
     <AppFooter />
 
-    <!-- legacy modal overlay -->
-    <div
-      v-if="uiStore.modal"
-      class="fixed inset-0 z-[60] overflow-auto bg-black/65 pt-16"
-      @click="uiStore.hideModal"
-    >
-      <partnershipForm v-if="uiStore.modal == 'partnershipForm'" @click.stop />
-      <consultationForm v-if="uiStore.modal == 'consultationForm'" @click.stop />
-      <requestQuoteForm v-if="uiStore.modal == 'requestQuoteForm'" @click.stop />
-      <customPrototypeForm v-if="uiStore.modal == 'customPrototypeForm'" @click.stop />
-      <bookSession v-if="uiStore.modal == 'bookSessionForm'" @click.stop />
-      <requestDevTool v-if="uiStore.modal == 'devSolutionRequestForm'" @click.stop />
-      <embeddedQuoteForm v-if="uiStore.modal == 'embeddedQuoteForm'" @click.stop />
-    </div>
+    <!-- Enquiry modal overlay (config-driven, one component for every form) -->
+    <Transition name="overlay">
+      <div
+        v-if="uiStore.modal"
+        class="fixed inset-0 z-[60] flex items-start justify-center overflow-auto bg-black/60 py-10 backdrop-blur-sm"
+        @click="uiStore.hideModal"
+      >
+        <LeadModal :key="uiStore.modal" :type="uiStore.modal" />
+      </div>
+    </Transition>
   </div>
 </template>
+
+<style>
+.overlay-enter-active,
+.overlay-leave-active {
+  transition: opacity 0.18s ease;
+}
+.overlay-enter-from,
+.overlay-leave-to {
+  opacity: 0;
+}
+</style>

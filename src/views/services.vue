@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
 import { services } from '@/data/services'
 import { process } from '@/data/process'
+import { useUiStore } from '@/stores/ui'
 import { useSeoMeta } from '@/composables/useSeoMeta'
 import NetLabel from '@/components/ui/NetLabel.vue'
 import CapIcon from '@/components/ui/CapIcon.vue'
+
+const uiStore = useUiStore()
 
 useSeoMeta({
   title: 'Services',
@@ -87,7 +89,7 @@ useSeoMeta({
             Let's figure out how BitPulse can help you build, scale, or solve the challenge in front of you.
           </p>
         </div>
-        <RouterLink to="/contacts" class="btn btn-primary">Book a free consultation</RouterLink>
+        <button class="btn btn-primary" @click="uiStore.showModal('consultationForm')">Book a free consultation</button>
       </div>
     </div>
   </section>
