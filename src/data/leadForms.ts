@@ -117,6 +117,18 @@ export const leadForms: Record<string, LeadForm> = {
     ],
   },
 
+  earlyAccess: {
+    title: 'Join early access',
+    subtitle: "Get on the list to test what we're building — we'll reach out as spots open.",
+    submit: 'Request early access',
+    fields: [
+      name,
+      email,
+      { name: 'product', label: 'Which product / project?', type: 'text', full: true, placeholder: 'e.g. PulseNode, BitCraft…' },
+      { name: 'message', label: 'How would you use it?', type: 'textarea', full: true, placeholder: 'Tell us about your use case…' },
+    ],
+  },
+
   embeddedQuoteForm: {
     title: 'Embedded project quote',
     subtitle: 'Sensor nodes, gateways and firmware, scoped to your build.',

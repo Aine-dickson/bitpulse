@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import { useSeoMeta } from '@/composables/useSeoMeta'
+import { differentiators as values, notList } from '@/data/why'
 import NetLabel from '@/components/ui/NetLabel.vue'
 
 useSeoMeta({
@@ -9,35 +10,6 @@ useSeoMeta({
     "We're not just building tech — we're redefining what it can do. Innovation, full-stack expertise, community focus and practical impact.",
   canonical: '/why-bitpulse',
 })
-
-const values = [
-  {
-    title: 'Driven by Innovation',
-    body: "We don't ride waves — we create them. Curiosity, experimentation and the fearless pursuit of game-changing ideas.",
-  },
-  {
-    title: 'Full-Stack Expertise',
-    body: 'Hardware? Software? We speak both fluently. From IoT sensors to backend systems, we engineer cohesion end to end.',
-  },
-  {
-    title: 'Community-Focused',
-    body: "We're builders with the community, not just for it — through mentorship, open source and local collaboration.",
-  },
-  {
-    title: 'Practical Impact',
-    body: 'Every line of code and bolt of hardware aims to solve a real-world challenge — not just win awards.',
-  },
-  {
-    title: 'Tailored Solutions',
-    body: 'We listen first, then build. Our solutions are molded by your needs, not one-size-fits-all templates.',
-  },
-]
-
-const notList = [
-  'A dev shop chasing trends — we solve deep tech problems with purpose.',
-  'A buzzword factory — we prioritize clarity and execution over hype.',
-  'A black box — we build transparently and collaboratively.',
-]
 </script>
 
 <template>

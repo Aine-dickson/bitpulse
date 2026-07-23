@@ -29,6 +29,7 @@ export const site = {
 export const navLinks = [
   { to: '/services', label: 'Services' },
   { to: '/innovations', label: 'Sectors' },
+  { to: '/lab', label: 'Lab' },
   { to: '/blogs', label: 'Blog' },
   { to: '/about', label: 'About' },
   { to: '/contacts', label: 'Contact' },
@@ -49,7 +50,7 @@ export const footerNav = [
     links: [
       { to: '/about', label: 'About' },
       { to: '/innovations', label: 'Sectors' },
-      { to: '/services', label: 'Programs' },
+      { to: '/lab', label: 'The Lab' },
       { to: '/blogs', label: 'Blog' },
     ],
   },

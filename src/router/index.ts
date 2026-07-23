@@ -91,7 +91,16 @@ const router = createRouter({
                 title: 'Sectors',
                 requiresAuth: false,
             },
-        }
+        },
+        {
+            path: '/lab',
+            name: 'lab',
+            component: () => import('@/views/lab.vue'),
+            meta: {
+                title: 'The Lab',
+                requiresAuth: false,
+            },
+        },
     ],
     scrollBehavior() {
         return { top: 0 }
