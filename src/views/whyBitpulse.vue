@@ -1,96 +1,104 @@
-<template>
-    <div class="h-full overflow-y-auto no-scroll bg-gray-950 text-gray-200" id="why-bitpulse">
-        <!-- Hero Section -->
-        <section class="bg-gradient-to-b from-orange-900 to-gray-950 py-16 px-6 text-center">
-            <h1 class="text-4xl sm:text-5xl font-bold mb-4">Why BitPulse?</h1>
-            <p class="text-lg max-w-3xl mx-auto">
-                We’re not just building tech — we’re redefining what it can do for humanity.
-            </p>
-        </section>
-
-        <!-- Core Values -->
-        <section class="py-16 px-6 bg-gray-950">
-            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-                <div>
-                    <h2 class="text-2xl font-semibold mb-2">Driven by Innovation</h2>
-                    <p>
-                        We don’t ride waves — we create them. BitPulse is fueled by curiosity,
-                        experimentation, and the fearless pursuit of game-changing ideas.
-                    </p>
-                </div>
-                <div>
-                    <h2 class="text-2xl font-semibold mb-2">Full-Stack Expertise</h2>
-                    <p>
-                        Hardware? Software? We speak both fluently. From IoT sensors to backend systems,
-                        we engineer cohesion from end to end.
-                    </p>
-                </div>
-                <div>
-                    <h2 class="text-2xl font-semibold mb-2">Community-Focused</h2>
-                    <p>
-                        We're builders <em>with</em> the community, not just for it. Through mentorship,
-                        open-source, and local collaborations, we scale impact together.
-                    </p>
-                </div>
-                <div>
-                    <h2 class="text-2xl font-semibold mb-2">Practical Impact</h2>
-                    <p>
-                        Every line of code and bolt of hardware we produce aims to solve a real-world
-                        challenge — not just win awards.
-                    </p>
-                </div>
-                <div>
-                    <h2 class="text-2xl font-semibold mb-2">Tailored Solutions</h2>
-                    <p>
-                        We listen first, then build. Our solutions are molded by your needs, not
-                        one-size-fits-all templates.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- What We're Not -->
-        <section class="py-16 px-6 bg-gradient-to-b from-gray-900 to-gray-950">
-            <div class="max-w-3xl mx-auto text-center">
-                <h2 class="text-3xl font-bold mb-6">What We’re Not</h2>
-                <ul class="space-y-4 text-left">
-                    <li>• A dev shop chasing trends. We solve deep tech problems with purpose.</li>
-                    <li>• A buzzword factory. We prioritize clarity and execution over hype.</li>
-                    <li>• A black box. We build transparently and collaboratively.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Call to Action -->
-        <section class="py-16 px-6 bg-orange-600 text-white text-center">
-            <h2 class="text-3xl font-bold mb-4">Experience the BitPulse Difference</h2>
-            <p class="mb-8 max-w-2xl mx-auto">
-                Let’s build bold ideas into brilliant realities — together.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <router-link to="/services" class="bg-white text-orange-600 font-semibold py-3 px-6 rounded shadow hover:bg-gray-100">
-                    Explore Our Services
-                </router-link>
-                <router-link to="/partner" class="bg-white text-orange-600 font-semibold py-3 px-6 rounded shadow hover:bg-gray-100">
-                    Partner With Us
-                </router-link>
-            </div>
-        </section>
-    </div>
-</template>
-
 <script setup lang="ts">
-import { onMounted } from 'vue';
-onMounted(() => {
-    const sectionElement = document.getElementById('why-bitpulse');
-    if (sectionElement) {
-        sectionElement.scrollIntoView({ behavior: 'smooth' });
-    }
-});
+import { RouterLink } from 'vue-router'
+import { useSeoMeta } from '@/composables/useSeoMeta'
+import NetLabel from '@/components/ui/NetLabel.vue'
+
+useSeoMeta({
+  title: 'Why BitPulse',
+  description:
+    "We're not just building tech — we're redefining what it can do. Innovation, full-stack expertise, community focus and practical impact.",
+  canonical: '/why-bitpulse',
+})
+
+const values = [
+  {
+    title: 'Driven by Innovation',
+    body: "We don't ride waves — we create them. Curiosity, experimentation and the fearless pursuit of game-changing ideas.",
+  },
+  {
+    title: 'Full-Stack Expertise',
+    body: 'Hardware? Software? We speak both fluently. From IoT sensors to backend systems, we engineer cohesion end to end.',
+  },
+  {
+    title: 'Community-Focused',
+    body: "We're builders with the community, not just for it — through mentorship, open source and local collaboration.",
+  },
+  {
+    title: 'Practical Impact',
+    body: 'Every line of code and bolt of hardware aims to solve a real-world challenge — not just win awards.',
+  },
+  {
+    title: 'Tailored Solutions',
+    body: 'We listen first, then build. Our solutions are molded by your needs, not one-size-fits-all templates.',
+  },
+]
+
+const notList = [
+  'A dev shop chasing trends — we solve deep tech problems with purpose.',
+  'A buzzword factory — we prioritize clarity and execution over hype.',
+  'A black box — we build transparently and collaboratively.',
+]
 </script>
 
-<style scoped>
-section {
-  transition: all 0.3s ease-in-out;
-}
-</style>
+<template>
+  <section class="bg-plate-0">
+    <div class="mx-auto max-w-[1120px] px-6 pb-14 pt-20">
+      <NetLabel text="Why BitPulse" />
+      <h1 class="mt-6 max-w-[20ch] text-[clamp(2.3rem,5.5vw,3.8rem)] leading-[0.98] text-ink">
+        Redefining what technology can do.
+      </h1>
+      <p class="mt-6 max-w-[54ch] text-[1.1rem] text-ink-2">
+        We're not just building tech — we're building the rugged, reliable systems the real world
+        actually runs on.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-plate-1 py-16">
+    <div class="mx-auto max-w-[1120px] px-6">
+      <div class="mb-10 max-w-[640px]">
+        <NetLabel text="What sets us apart" run />
+        <h2 class="mt-4 text-[clamp(1.7rem,3.6vw,2.4rem)] text-ink">Five things we hold to.</h2>
+      </div>
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div v-for="v in values" :key="v.title" class="rounded-lg border border-line bg-surface p-7">
+          <h3 class="text-[1.2rem] text-ink">{{ v.title }}</h3>
+          <p class="mt-3 text-[0.95rem] text-ink-3">{{ v.body }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-plate-0 py-16">
+    <div class="mx-auto max-w-[1120px] px-6">
+      <div class="mb-8 max-w-[640px]">
+        <NetLabel text="What we're not" run />
+        <h2 class="mt-4 text-[clamp(1.7rem,3.6vw,2.4rem)] text-ink">Just as clear on the opposite.</h2>
+      </div>
+      <ul class="flex flex-col gap-3">
+        <li
+          v-for="n in notList"
+          :key="n"
+          class="flex items-start gap-3 rounded-lg border border-line bg-surface px-6 py-5 text-[1rem] text-ink-2"
+        >
+          <span class="mt-2 h-2 w-4 shrink-0 rounded-full bg-line-2" />
+          {{ n }}
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-plate-1 py-20">
+    <div class="mx-auto max-w-[1120px] px-6">
+      <div class="flex flex-wrap items-center justify-between gap-8 rounded-xl border border-accent bg-accent-soft px-10 py-12">
+        <h2 class="max-w-[22ch] text-[clamp(1.6rem,3.4vw,2.3rem)] text-ink">
+          Experience the BitPulse difference.
+        </h2>
+        <div class="flex flex-wrap gap-3">
+          <RouterLink to="/services" class="btn btn-primary">Explore our services</RouterLink>
+          <RouterLink to="/partner" class="btn btn-line">Partner with us</RouterLink>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

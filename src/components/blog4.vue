@@ -1,5 +1,5 @@
 <template>
-  <div class="text-white py-10 space-y-10">
+  <div class="py-10 space-y-10">
     <!-- <header class="space-y-4">
       <h1 class="text-3xl md:text-4xl font-extrabold leading-snug">
         Launching Open Source Hardware Projects with the Community
