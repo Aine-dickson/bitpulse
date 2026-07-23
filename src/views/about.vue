@@ -1,140 +1,133 @@
-<template>
-    <div class="h-full overflow-y-auto no-scroll bg-gray-950 text-gray-200 py-16 px-4 md:px-12 lg:px-24" id="about-section">
-        <!-- Hero -->
-        <section class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">About BitPulse</h1>
-            <p class="text-lg text-gray-400 max-w-3xl mx-auto">
-                Because ideas deserve to be built — beautifully and boldly.
-            </p>
-        </section>
-
-        <!-- Founding Story -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-semibold mb-4">Our Origin</h2>
-            <p class="text-gray-300 max-w-4xl">
-                BitPulse was born out of the desire to craft practical, transformative tech solutions that create tangible impact — from smart cities to next-gen developer tools. We began with a vision to not just build products, but to empower industries and communities.
-            </p>
-        </section>
-
-        <!-- Mission and Vision -->
-        <section class="mb-16">
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Our Mission</h3>
-                    <p class="text-gray-300">
-                        To engineer purposeful technology that solves real-world problems and uplifts people and industries.
-                    </p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Our Vision</h3>
-                    <p class="text-gray-300">
-                        A world where tech works in harmony with human potential — building smarter cities, better health systems, and inclusive digital futures.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Core Values -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-semibold mb-4 text-gray-200">What Drives Us</h2>
-            <ul class="grid md:grid-cols-3 gap-6">
-                <li class="bg-orange-800 p-6 rounded shadow">
-                    <h4 class="font-bold mb-2">Driven by Innovation</h4>
-                    <p>We don’t just follow trends — we engineer tomorrow’s breakthroughs from the ground up.</p>
-                </li>
-                <li class="bg-orange-800 p-6 rounded shadow">
-                    <h4 class="font-bold mb-2">Full-Stack Expertise</h4>
-                    <p>From hardware schematics to scalable cloud systems, we craft seamless end-to-end solutions.</p>
-                </li>
-                <li class="bg-orange-800 p-6 rounded shadow">
-                    <h4 class="font-bold mb-2">Community-Focused</h4>
-                    <p>We build with and for people. Our open approach invites collaboration, learning, and shared success.</p>
-                </li>
-            </ul>
-        </section>
-
-        <!-- How We Work -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-semibold mb-4">How We Work</h2>
-            <p class="max-w-4xl text-gray-300">
-                Our process is lean, agile, and deeply collaborative. We begin by understanding your vision, then build a strategic roadmap to bring it to life — with full-stack development, prototyping, and ongoing support that scales with your needs.
-            </p>
-        </section>
-
-        <!-- BitPulse in Numbers (optional) -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-semibold mb-4">BitPulse in Numbers</h2>
-            <div class="grid sm:grid-cols-3 gap-6 text-center">
-                <div>
-                    <p class="text-4xl font-bold">0+</p>
-                    <p class="text-gray-400">Projects Deployed</p>
-                </div>
-                <div>
-                    <p class="text-4xl font-bold">0+</p>
-                    <p class="text-gray-400">Developers Empowered</p>
-                </div>
-                <div>
-                    <p class="text-4xl font-bold">0+</p>
-                    <p class="text-gray-400">Hours of R&D</p>
-                </div>
-            </div>
-        
-            <!-- Note: Replace 0+ with actual values when available -->
-        </section>
-
-        <!-- Founder Quote (optional) -->
-        <section class="mb-16 text-center">
-            <blockquote class="italic text-lg text-gray-300 max-w-2xl mx-auto">
-                “We’re not just coding solutions — we’re building bridges between what’s possible and what’s needed.”
-            </blockquote>
-            <p class="mt-2 text-sm text-gray-500">— BitPulse Founder</p>
-        </section>
-
-        <!-- Timeline (optional) -->
-        <section class="mb-16">
-        <h2 class="text-2xl font-semibold mb-4">Milestones</h2>
-            <ul class="border-l-2 border-orange-600 pl-6 space-y-6">
-                <li>
-                    <div class="text-orange-600 font-bold">2023</div>
-                    <p class="text-gray-300">BitPulse vision conceived and research started.</p>
-                </li>
-                <li>
-                    <div class="text-orange-600 font-bold">2024</div>
-                    <p class="text-gray-300">BitCraft launched as the open innovation community arm.</p>
-                </li>
-                <li>
-                    <div class="text-orange-600 font-bold">2025</div>
-                    <p class="text-gray-300">Public launch and pilot projects underway.</p>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Manifesto (optional) -->
-        <section class="mb-16 bg-orange-800 p-8 rounded">
-            <h2 class="text-2xl font-semibold mb-4 text-center text-gray-100">The BitPulse Manifesto</h2>
-            <p class="max-w-3xl mx-auto text-gray-300 text-center">
-                We believe in purposeful technology. In small teams that build big things. In local ideas with global impact. In tech that respects people, that educates, that amplifies what makes us human.
-            </p>
-        </section>
-
-        <!-- CTA -->
-        <section class="text-center mt-16">
-            <h2 class="text-2xl font-bold mb-4">Let’s Build Something That Matters</h2>
-            <p class="text-gray-400 mb-6">Ready to bring your vision to life or explore how we can work together?</p>
-            <router-link to="/contacts" class="inline-block bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded">
-                Connect with Us
-            </router-link>
-        </section>
-    </div>
-</template>
-
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { RouterLink } from 'vue-router'
+import { useSeoMeta } from '@/composables/useSeoMeta'
+import NetLabel from '@/components/ui/NetLabel.vue'
 
-onMounted(() => {
-    const categoryElement = document.getElementById('about-section');
-    if (categoryElement) {
-        categoryElement.scrollIntoView({ behavior: 'smooth'});
-    }
-});
+useSeoMeta({
+  title: 'About',
+  description:
+    'BitPulse engineers purposeful technology — from smart cities to next-gen developer tools. Small team, big builds, local ideas with global impact.',
+  canonical: '/about',
+})
+
+const values = [
+  {
+    title: 'Driven by Innovation',
+    body: "We don't just follow trends — we engineer tomorrow's breakthroughs from the ground up.",
+  },
+  {
+    title: 'Full-Stack Expertise',
+    body: 'From hardware schematics to scalable cloud systems, we craft seamless end-to-end solutions.',
+  },
+  {
+    title: 'Community-Focused',
+    body: 'We build with and for people. Our open approach invites collaboration, learning and shared success.',
+  },
+]
+
+const milestones = [
+  { year: '2023', body: 'BitPulse vision conceived and research started.' },
+  { year: '2024', body: 'BitCraft launched as the open innovation community arm.' },
+  { year: '2025', body: 'Public launch and pilot projects underway.' },
+]
 </script>
+
+<template>
+  <!-- HERO -->
+  <section class="bg-plate-0">
+    <div class="mx-auto max-w-[1120px] px-6 pb-14 pt-20">
+      <NetLabel text="About BitPulse" />
+      <h1 class="mt-6 max-w-[20ch] text-[clamp(2.3rem,5.5vw,4rem)] leading-[0.98] text-ink">
+        Because ideas deserve to be built — beautifully and boldly.
+      </h1>
+      <p class="mt-6 max-w-[60ch] text-[1.1rem] text-ink-2">
+        BitPulse was born out of the desire to craft practical, transformative tech that creates
+        tangible impact — from smart cities to next-gen developer tools. We began with a vision to
+        not just build products, but to empower industries and communities.
+      </p>
+    </div>
+  </section>
+
+  <!-- MISSION / VISION -->
+  <section class="bg-plate-1 py-16">
+    <div class="mx-auto grid max-w-[1120px] gap-6 px-6 md:grid-cols-2">
+      <div class="rounded-lg border border-line bg-surface p-8">
+        <NetLabel text="Our Mission" />
+        <p class="mt-4 text-[1.05rem] text-ink-2">
+          To engineer purposeful technology that solves real-world problems and uplifts people and
+          industries.
+        </p>
+      </div>
+      <div class="rounded-lg border border-line bg-surface p-8">
+        <NetLabel text="Our Vision" />
+        <p class="mt-4 text-[1.05rem] text-ink-2">
+          A world where tech works in harmony with human potential — building smarter cities, better
+          health systems and inclusive digital futures.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="bg-plate-0 py-20">
+    <div class="mx-auto max-w-[1120px] px-6">
+      <div class="mb-10 max-w-[640px]">
+        <NetLabel text="What drives us" run />
+        <h2 class="mt-4 text-[clamp(1.8rem,4vw,2.6rem)] text-ink">Small team. Big builds.</h2>
+      </div>
+      <div class="grid gap-5 md:grid-cols-3">
+        <div
+          v-for="v in values"
+          :key="v.title"
+          class="rounded-lg border border-line bg-surface p-7"
+        >
+          <h3 class="text-[1.2rem] text-ink">{{ v.title }}</h3>
+          <p class="mt-3 text-[0.95rem] text-ink-3">{{ v.body }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MILESTONES -->
+  <section class="bg-plate-1 py-20">
+    <div class="mx-auto max-w-[1120px] px-6">
+      <div class="mb-10 max-w-[640px]">
+        <NetLabel text="Milestones" run />
+        <h2 class="mt-4 text-[clamp(1.8rem,4vw,2.6rem)] text-ink">How we got here.</h2>
+      </div>
+      <ul class="ml-1 flex list-none flex-col gap-8 border-l-2 border-line-2 pl-7">
+        <li v-for="m in milestones" :key="m.year" class="relative">
+          <span class="absolute -left-[35px] top-1 h-3.5 w-3.5 rounded-full border-2 border-accent bg-plate-1" />
+          <div class="font-mono text-[0.8rem] font-semibold tracking-[0.06em] text-accent-deep">{{ m.year }}</div>
+          <p class="mt-1 text-[1rem] text-ink-2">{{ m.body }}</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="bg-plate-0 py-20">
+    <div class="mx-auto max-w-[1120px] px-6">
+      <div class="rounded-xl border border-line bg-surface px-10 py-14 text-center">
+        <NetLabel text="The BitPulse manifesto" />
+        <p class="mx-auto mt-6 max-w-[46ch] text-[clamp(1.15rem,2.4vw,1.5rem)] leading-snug text-ink">
+          We believe in purposeful technology. In small teams that build big things. In local ideas
+          with global impact. In tech that respects people, that educates, that amplifies what makes
+          us human.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-plate-1 py-20">
+    <div class="mx-auto max-w-[1120px] px-6">
+      <div class="flex flex-wrap items-center justify-between gap-8 rounded-xl border border-accent bg-accent-soft px-10 py-12">
+        <h2 class="max-w-[22ch] text-[clamp(1.6rem,3.4vw,2.3rem)] text-ink">
+          Let's build something that matters.
+        </h2>
+        <RouterLink to="/contacts" class="btn btn-primary">Connect with us</RouterLink>
+      </div>
+    </div>
+  </section>
+</template>

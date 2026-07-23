@@ -1,5 +1,4 @@
 // Single source of truth for site-wide identity + contact details.
-// TODO(content): confirm real phone / WhatsApp / email with the team.
 
 export const site = {
   name: 'BitPulse',
@@ -9,14 +8,14 @@ export const site = {
     'BitPulse is a product & R&D studio for embedded hardware, firmware and systems software — designed, built and sustained end to end, for teams building across Africa and beyond.',
   blurb:
     'Routing ideas from bare metal to working systems — engineering the infrastructure of African innovation.',
-  email: 'hello@bitpulse.dev',
+  email: 'contact@bitpulse.dev',
   location: 'Kampala, Uganda',
   timezone: 'UTC+3',
-  phone: '+256 700 000 000',
+  phone: '+256 706 337924',
   get phoneHref() {
     return `tel:${this.phone.replace(/\s+/g, '')}`
   },
-  whatsapp: '256700000000',
+  whatsapp: '256777532858',
   get whatsappHref() {
     return `https://wa.me/${this.whatsapp}`
   },
@@ -57,7 +56,7 @@ export const footerNav = [
   {
     heading: 'Contact',
     links: [
-      { to: '/contacts', label: 'hello@bitpulse.dev' },
+      { to: '/contacts', label: 'contact@bitpulse.dev' },
       { to: '/careers', label: 'Careers' },
       { to: '/partner', label: 'Partnerships' },
     ],

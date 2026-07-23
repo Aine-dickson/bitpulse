@@ -9,6 +9,10 @@ export interface Service {
   tag: string
   icon: string
   summary: string
+  /** Longer positioning line for the services page. */
+  detail: string
+  /** Concrete things we deliver on this track. */
+  deliverables: string[]
 }
 
 export const services: Service[] = [
@@ -20,6 +24,14 @@ export const services: Service[] = [
     icon: 'chip',
     summary:
       'Sensor nodes, gateways and low-power firmware — from board bring-up to fleet telemetry.',
+    detail:
+      'Design and deploy intelligent embedded systems for automation, sensing and control — built to run reliably on constrained hardware, in the field.',
+    deliverables: [
+      'Custom IoT solutions (smart agriculture, health monitors)',
+      'Embedded firmware development in Rust',
+      'Hardware simulation and bring-up (Wokwi + real boards)',
+      'Low-power and performance-optimized designs',
+    ],
   },
   {
     slug: 'backend-systems',
@@ -28,6 +40,14 @@ export const services: Service[] = [
     tag: 'Systems',
     icon: 'server',
     summary: 'Rust, C and Go services built for real-time data, hard deadlines and small footprints.',
+    detail:
+      'Reliable, blazing-fast backends and system-level tools — the server side of your devices, designed to keep up with them.',
+    deliverables: [
+      'Rust-based backend APIs (Actix, Shuttle)',
+      'Custom CLI tools for automation and productivity',
+      'System-level integrations for edge computing',
+      'WebAssembly modules for frontend/backend use',
+    ],
   },
   {
     slug: 'rnd-prototyping',
@@ -36,6 +56,14 @@ export const services: Service[] = [
     tag: 'Prototype',
     icon: 'flask',
     summary: 'Schematic to working proof-of-concept — de-risk the hard part before you tool up.',
+    detail:
+      'Turn ideas into reality with research-driven hardware/software prototypes, so the riskiest assumption is tested first.',
+    deliverables: [
+      'Hardware-software co-design and integration',
+      'Smart infrastructure prototyping (traffic, sensing)',
+      'Custom data acquisition systems',
+      'Grant-ready technical documentation and research',
+    ],
   },
   {
     slug: 'developer-tools',
@@ -44,6 +72,14 @@ export const services: Service[] = [
     tag: 'Tooling',
     icon: 'code',
     summary: 'SDKs, CLIs and open frameworks that make the platform under your product usable.',
+    detail:
+      'Empower developers through tailored tools and community-driven platforms — the layer that makes everything above it easier to build.',
+    deliverables: [
+      'Custom Markdown parsers and formatting engines',
+      'Tooling for Rust-based development workflows',
+      'Open-source embedded libraries and contributions',
+      'Developer community platforms (BitCraft)',
+    ],
   },
   {
     slug: 'mentorship-training',
@@ -53,6 +89,14 @@ export const services: Service[] = [
     icon: 'layers',
     summary:
       'Cohort-based embedded & systems training that leaves your team able to maintain the build.',
+    detail:
+      'Personalized mentorship and educational programs in modern technologies — so the capability stays with your team, not just with us.',
+    deliverables: [
+      'Rust and embedded programming training',
+      'Workshops and bootcamps for institutions',
+      'Technical curriculum planning and guidance',
+      'Remote/onsite mentorship on project implementation',
+    ],
   },
   {
     slug: 'firmware-audit',
@@ -62,6 +106,14 @@ export const services: Service[] = [
     icon: 'clock',
     summary:
       'A fixed-scope review of an existing codebase — reliability, power, security, upgrade path.',
+    detail:
+      'An independent, fixed-scope review of firmware you already run — where the risk is, what it costs to fix, and what to do first.',
+    deliverables: [
+      'Reliability & fault-tolerance review',
+      'Power & memory-footprint analysis',
+      'Security & update-path assessment',
+      'Prioritized remediation report',
+    ],
   },
 ]
 
