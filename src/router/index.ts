@@ -93,6 +93,12 @@ const router = createRouter({
             },
         },
         {
+            path: '/innovations/:slug',
+            name: 'sector_detail',
+            component: () => import('@/views/sectorDetail.vue'),
+            props: true,
+        },
+        {
             path: '/lab',
             name: 'lab',
             component: () => import('@/views/lab.vue'),

@@ -99,15 +99,16 @@ useSeoMeta({
         </p>
       </div>
       <div class="grid gap-x-14 md:grid-cols-2">
-        <div
+        <RouterLink
           v-for="sec in sectors"
           :key="sec.id"
-          class="flex items-baseline gap-4 border-b border-line py-5"
+          :to="`/innovations/${sec.slug}`"
+          class="group flex items-baseline gap-4 border-b border-line py-5"
         >
           <span class="w-11 shrink-0 font-mono text-[0.72rem] text-accent-deep">{{ sec.id }}</span>
-          <h4 class="text-[1.28rem] text-ink">{{ sec.name }}</h4>
+          <h4 class="text-[1.28rem] text-ink transition-colors group-hover:text-accent-deep">{{ sec.name }}</h4>
           <p class="ml-auto max-w-[44%] text-right text-[0.92rem] text-ink-3">{{ sec.blurb }}</p>
-        </div>
+        </RouterLink>
       </div>
     </div>
   </section>

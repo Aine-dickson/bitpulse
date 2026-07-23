@@ -1,10 +1,18 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRoute } from 'vue-router'
 import { navLinks } from '@/data/site'
+import BrandMark from '@/components/ui/BrandMark.vue'
 import ThemeToggle from './ThemeToggle.vue'
 
 const open = ref(false)
+const route = useRoute()
+
+// Active for the exact path and any nested route (e.g. /services/:slug keeps
+// "Services" lit). '/' never matches here — the brand is the home link.
+function isActive(to: string) {
+  return route.path === to || route.path.startsWith(to + '/')
+}
 </script>
 
 <template>
@@ -12,12 +20,7 @@ const open = ref(false)
     <div class="mx-auto flex h-[70px] max-w-[1120px] items-center gap-5 px-6">
       <!-- brand -->
       <RouterLink to="/" class="flex items-center gap-3 text-ink" @click="open = false">
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
-          <rect x="4.5" y="4.5" width="21" height="21" rx="4" stroke="var(--color-accent)" stroke-width="2" />
-          <path d="M8 15h4l2-5 3 10 2-5h3" stroke="var(--color-accent-deep)" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round" fill="none" />
-          <circle cx="25.5" cy="15" r="1.6" fill="var(--color-accent)" />
-        </svg>
+        <BrandMark :size="32" />
         <span class="font-display text-[1.34rem] font-extrabold tracking-tight">
           Bit<span class="text-accent-deep">Pulse</span>
         </span>
@@ -30,7 +33,7 @@ const open = ref(false)
           :key="l.to"
           :to="l.to"
           class="navlink text-[0.95rem] text-ink-2 transition-colors hover:text-ink"
-          active-class="text-ink"
+          :class="{ 'is-active': isActive(l.to) }"
         >
           {{ l.label }}
         </RouterLink>
@@ -64,8 +67,8 @@ const open = ref(false)
             v-for="l in navLinks"
             :key="l.to"
             :to="l.to"
-            class="text-base text-ink-2"
-            active-class="text-ink"
+            class="flex items-center gap-2.5 text-base text-ink-2"
+            :class="{ 'mobile-active': isActive(l.to) }"
             @click="open = false"
           >
             {{ l.label }}
@@ -95,9 +98,27 @@ const open = ref(false)
   background: var(--color-accent);
   transition: width 0.2s;
 }
-.navlink:hover::after {
+.navlink:hover::after,
+.navlink.is-active::after {
   width: 100%;
 }
+.navlink.is-active {
+  color: var(--color-ink);
+}
+
+/* mobile: leading accent tick on the active item */
+.mobile-active {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+.mobile-active::before {
+  content: "";
+  width: 10px;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.18s ease;
