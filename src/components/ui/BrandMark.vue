@@ -1,37 +1,40 @@
 <script setup lang="ts">
-// BitPulse monogram: BP lettering with the signal pulse running through it.
-// Theme-aware — letters take `tone` (defaults to the ink token so they flip
-// with the theme), the pulse uses the accent token. Pass tone="#fff" on dark
-// grounds (e.g. the footer).
-withDefaults(defineProps<{ size?: number; tone?: string }>(), {
-  size: 34,
-  tone: 'var(--color-ink)',
-})
+import { useId } from 'vue'
+
+// BitPulse monogram: the pulse-shaped "p" from the wordmark — a stem+bowl "p"
+// with a heartbeat running through it, in the brand green→teal gradient.
+// Height-driven; width follows the glyph's aspect.
+withDefaults(defineProps<{ size?: number }>(), { size: 30 })
+
+// Unique gradient id so multiple instances (nav + footer) don't collide.
+const gid = `bp-${useId()}`
 </script>
 
 <template>
-  <svg :width="size" :height="size" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-    <!-- B -->
+  <svg
+    :height="size"
+    viewBox="0 0 100 130"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    :style="{ width: 'auto' }"
+  >
+    <defs>
+      <linearGradient :id="gid" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#41B86F" />
+        <stop offset="1" stop-color="#1FC6A6" />
+      </linearGradient>
+    </defs>
+    <!-- stem + descender -->
+    <rect x="39" y="40" width="15" height="84" rx="7.5" :fill="`url(#${gid})`" />
+    <!-- bowl -->
+    <circle cx="64" cy="66" r="16" fill="none" :stroke="`url(#${gid})`" stroke-width="14" />
+    <!-- heartbeat through the stem -->
     <path
-      d="M15 16 V48 M15 16 H23 a8 8 0 0 1 0 16 H15 M15 32 H25 a8 8 0 0 1 0 16 H15"
-      :stroke="tone"
-      stroke-width="5.2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <!-- P -->
-    <path
-      d="M40 16 V48 M40 16 H48 a8.5 8.5 0 0 1 0 17 H40"
-      :stroke="tone"
-      stroke-width="5.2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <!-- pulse -->
-    <path
-      d="M6 40 H20 L25 29 L30 51 L34 40 H58"
-      stroke="var(--color-accent)"
-      stroke-width="3.4"
+      d="M22 50 H40 L46 30 L54 78 L60 50 H70"
+      fill="none"
+      :stroke="`url(#${gid})`"
+      stroke-width="7"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
