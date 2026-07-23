@@ -37,9 +37,15 @@ useHead({
     { property: 'og:type', content: 'article' },
     {
       property: 'og:image',
-      content: () => (blog.value?.image ? `${SITE_URL}/${blog.value.image.replace(/^\//, '')}` : `${SITE_URL}/social-preview.png`),
+      content: () => (blog.value?.image ? `${SITE_URL}/${blog.value.image.replace(/^\//, '')}` : `${SITE_URL}/og-image.png`),
     },
     { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: () => (blog.value ? `${blog.value.title} · BitPulse` : 'BitPulse') },
+    { name: 'twitter:description', content: () => blog.value?.excerpt ?? '' },
+    {
+      name: 'twitter:image',
+      content: () => (blog.value?.image ? `${SITE_URL}/${blog.value.image.replace(/^\//, '')}` : `${SITE_URL}/og-image.png`),
+    },
   ],
 })
 

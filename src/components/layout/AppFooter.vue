@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { site, footerNav } from '@/data/site'
-import BrandMark from '@/components/ui/BrandMark.vue'
+import BrandWordmark from '@/components/ui/BrandWordmark.vue'
 
 const year = ref(new Date().getFullYear())
 </script>
@@ -12,12 +12,8 @@ const year = ref(new Date().getFullYear())
     <div class="mx-auto max-w-[1120px] px-6 pb-8 pt-14">
       <div class="flex flex-wrap justify-between gap-9 border-b border-footer-line pb-8">
         <div class="max-w-[34ch]">
-          <div class="flex items-center gap-3">
-            <BrandMark :size="30" />
-            <span class="font-display text-2xl font-extrabold text-white">
-              Bit<span class="text-accent">Pulse</span>
-            </span>
-          </div>
+          <BrandWordmark :height="30" variant="light" />
+
           <p class="mt-3 text-[0.92rem] opacity-85">{{ site.blurb }}</p>
         </div>
 
