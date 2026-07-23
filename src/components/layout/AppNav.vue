@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import { navLinks } from '@/data/site'
-import BrandMark from '@/components/ui/BrandMark.vue'
 import ThemeToggle from './ThemeToggle.vue'
 
 const open = ref(false)
@@ -18,12 +17,10 @@ function isActive(to: string) {
 <template>
   <header class="sticky top-0 z-50 border-b border-line bg-plate-0/85 backdrop-blur-md">
     <div class="mx-auto flex h-[70px] max-w-[1120px] items-center gap-5 px-6">
-      <!-- brand -->
-      <RouterLink to="/" class="flex items-center gap-3 text-ink" @click="open = false">
-        <BrandMark :size="34" />
-        <span class="font-display text-[1.34rem] font-extrabold tracking-tight">
-          Bit<span class="text-accent-deep">Pulse</span>
-        </span>
+      <!-- brand: theme-swapped logo (dark art on light theme, light art on dark) -->
+      <RouterLink to="/" class="brand" aria-label="BitPulse home" @click="open = false">
+        <img src="/bitpulse_logo-dark.png" alt="BitPulse" class="brand-logo brand-logo--light" />
+        <img src="/bitpulse_logo-light.png" alt="" aria-hidden="true" class="brand-logo brand-logo--dark" />
       </RouterLink>
 
       <!-- desktop links -->
@@ -84,6 +81,28 @@ function isActive(to: string) {
 </template>
 
 <style scoped>
+.brand {
+  display: inline-flex;
+  align-items: center;
+}
+.brand-logo {
+  display: block;
+  height: 44px;
+  width: 150px;
+  object-fit: cover;
+  object-position: center;
+}
+/* theme swap via the data-theme attribute set on <html> */
+.brand-logo--dark {
+  display: none;
+}
+:global([data-theme='dark']) .brand-logo--light {
+  display: none;
+}
+:global([data-theme='dark']) .brand-logo--dark {
+  display: block;
+}
+
 .navlink {
   position: relative;
   padding: 5px 0;
