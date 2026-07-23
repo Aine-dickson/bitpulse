@@ -1,0 +1,1 @@
+import{s as o}from"./supabase-m9FLe-ly.js";async function a(e,s){try{const{error:r}=await o.from("form_submissions").insert({type:e,payload:s});return r?{ok:!1,error:r.message}:{ok:!0}}catch(r){return{ok:!1,error:r instanceof Error?r.message:"Network error"}}}export{a as s};
