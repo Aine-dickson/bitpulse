@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" -- && bun scripts/prerender.mjs",
+    "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
@@ -14,7 +14,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.49.4",
     "@tailwindcss/vite": "^4.1.5",
-    "add": "^2.0.6",
+    "@unhead/vue": "^2.0.0",
     "axios": "^1.9.0",
     "pinia": "^3.0.1",
     "pinia-plugin-persistedstate": "^4.3.0",

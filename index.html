@@ -1,28 +1,36 @@
 <!doctype html>
-<html lang="">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Dynamic meta placeholders (replaced during prerender) -->
-    <meta property="og:type" content="<!--OG_TYPE:website-->" />
-    <meta property="og:url" content="<!--OG_URL:https://bitpulse.dev/-->" />
-    <meta property="og:title" content="<!--OG_TITLE:BitPulse-->" />
-    <meta
-      property="og:description"
-      content="<!--OG_DESC:Driving innovation through technology — one solution at a time.-->"
-    />
-    <meta property="og:image" content="<!--OG_IMAGE:https://bitpulse.dev/social-preview.png-->" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="<!--OG_URL:https://bitpulse.dev/-->" />
-    <meta name="twitter:title" content="<!--OG_TITLE:BitPulse-->" />
-    <meta
-      name="twitter:description"
-      content="<!--OG_DESC:Driving innovation through technology — one solution at a time.-->"
-    />
-    <meta name="twitter:image" content="<!--OG_IMAGE:https://bitpulse.dev/social-preview.png-->" />
 
-    <title><!--PAGE_TITLE:BitPulse--></title>
+    <!-- Light-first, no-flash: apply the persisted theme before first paint.
+         Default is always light, even when the OS prefers dark. -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('bitpulse-theme')
+          document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light')
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'light')
+        }
+      })()
+    </script>
+
+    <title>BitPulse — Embedded, Firmware & Systems Software</title>
+    <meta
+      name="description"
+      content="BitPulse is a product & R&D studio for embedded hardware, firmware and systems software — routing ideas from bare metal to working systems."
+    />
+
+    <!-- Fonts: Archivo (display) + IBM Plex Mono (designators) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="app"></div>

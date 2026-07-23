@@ -142,6 +142,17 @@ const router = createRouter({
             ]
         }
     ],
+    scrollBehavior() {
+        return { top: 0 }
+    },
+})
+
+// Fallback title for routes that don't call useSeoMeta themselves.
+// Pages that use useSeoMeta (via @unhead) will override this on mount.
+router.afterEach((to) => {
+    if (typeof document === 'undefined') return
+    const title = to.meta?.title as string | undefined
+    document.title = title ? `${title} · BitPulse` : 'BitPulse — Embedded, Firmware & Systems Software'
 })
 
 export default router

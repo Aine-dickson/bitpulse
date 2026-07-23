@@ -1,37 +1,186 @@
 @import "tailwindcss";
-.thin-scroll::-webkit-scrollbar{
-    width: 0.5rem;
-    height: 0.2rem;
-}
 
-.thin-scroll::-webkit-scrollbar-track{
-    background: #bbb8b8;
-}
-.thin-scroll::-webkit-scrollbar-thumb{
-    background-color: #202020;
-    border-radius: 1rem;
-}
-.thin-scroll::-webkit-scrollbar-thumb:hover{
-    background: #030303;
-}
+/* ============================================================
+   BITPULSE · "THE TRACE" design system
+   Light-first. Dark is opt-in (data-theme="dark") and flips tokens.
+   ============================================================ */
 
-
-.no-scroll::-webkit-scrollbar{
-    width: 0rem;
-    height: 0rem;
-}
-
-.no-scroll::-webkit-scrollbar-track{
-    background: #bbb8b8;
-}
-.no-scroll::-webkit-scrollbar-thumb{
-    background-color: #202020;
-    border-radius: 1rem;
-}
-.no-scroll::-webkit-scrollbar-thumb:hover{
-    background: #030303;
-}
+/* Route Tailwind's `dark:` variant off the data-theme attribute
+   (so the whole app — new and legacy components — follows the toggle). */
+@custom-variant dark (&:is([data-theme="dark"], [data-theme="dark"] *));
 
 @theme {
-    --breakpoint-xs: 446px;
+  --font-display: "Archivo", "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Code", Consolas, Menlo, monospace;
+
+  /* Light (default) — warm porcelain → greige depths */
+  --color-plate-0: #F5F5F0;
+  --color-plate-1: #EEEEE6;
+  --color-plate-2: #E6E6DC;
+  --color-plate-3: #DEDFD3;
+  --color-surface: #FBFBF8;
+  --color-ink: #1B241F;
+  --color-ink-2: #4C554E;
+  --color-ink-3: #7A827B;
+  --color-line: #DAD9CC;
+  --color-line-2: #C9C9B9;
+  --color-accent: #12924E;
+  --color-accent-deep: #0B6B39;
+  --color-accent-soft: #E2EFE7;
+  --color-footer: #232A24;
+  --color-footer-ink: #C4CCC3;
+  --color-footer-line: #37402F;
+
+  --breakpoint-xs: 446px;
+}
+
+/* Dark = flip the tokens (soft, layered — never pure black) */
+[data-theme="dark"] {
+  --color-plate-0: #141A16;
+  --color-plate-1: #19201B;
+  --color-plate-2: #1F2721;
+  --color-plate-3: #262F28;
+  --color-surface: #1C231E;
+  --color-ink: #EAF0EA;
+  --color-ink-2: #AAB3AB;
+  --color-ink-3: #7D867E;
+  --color-line: #2B342D;
+  --color-line-2: #374139;
+  --color-accent: #31D07E;
+  --color-accent-deep: #5BE0A0;
+  --color-accent-soft: #17251C;
+  --color-footer: #0F140F;
+  --color-footer-ink: #9AA39B;
+  --color-footer-line: #212A22;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--color-plate-0);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.021em;
+    line-height: 1.03;
+    text-wrap: balance;
+  }
+  ::selection {
+    background: var(--color-accent);
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+}
+
+@layer components {
+  /* --- net label: mono designator + via + trace tick --- */
+  .net {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent-deep);
+    font-weight: 600;
+  }
+  .net-via {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 2px solid var(--color-accent);
+    box-sizing: border-box;
+    flex: none;
+  }
+  .net-run {
+    width: 26px;
+    height: 2px;
+    background: var(--color-accent);
+    position: relative;
+    flex: none;
+  }
+  .net-run::after {
+    content: "";
+    position: absolute;
+    right: -1px;
+    top: -2px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+
+  /* --- buttons --- */
+  .btn {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.94rem;
+    padding: 12px 22px;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition: background 0.18s, color 0.18s, border-color 0.18s, transform 0.08s;
+  }
+  .btn:active {
+    transform: translateY(1px);
+  }
+  .btn-primary {
+    background: var(--color-accent);
+    color: #fff;
+  }
+  [data-theme="dark"] .btn-primary {
+    color: #08130d;
+  }
+  .btn-primary:hover {
+    background: var(--color-accent-deep);
+  }
+  .btn-line {
+    background: transparent;
+    color: var(--color-ink);
+    border-color: var(--color-line-2);
+  }
+  .btn-line:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent-deep);
+  }
+}
+
+/* --- scrollbar utilities (kept for legacy views) --- */
+.thin-scroll::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.2rem;
+}
+.thin-scroll::-webkit-scrollbar-track {
+  background: #bbb8b8;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background-color: #202020;
+  border-radius: 1rem;
+}
+.thin-scroll::-webkit-scrollbar-thumb:hover {
+  background: #030303;
+}
+.no-scroll::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
