@@ -8,7 +8,7 @@ import blog3 from './blog3.vue'
 import blog4 from './blog4.vue'
 import { useBlogStore, type Comment } from '@/stores/blog'
 import { useAccountStore } from '@/stores/account'
-import { supabase } from '@/utils/supabase'
+import { supabase, isSupabaseConfigured } from '@/utils/supabase'
 import { SITE_URL } from '@/config/seo'
 
 const route = useRoute()
@@ -99,6 +99,9 @@ let channel: ReturnType<typeof supabase.channel> | null = null
 let interval: ReturnType<typeof setInterval> | undefined
 
 onMounted(async () => {
+  // Comments are a Supabase feature; the article must render without it.
+  if (!isSupabaseConfigured) return
+
   await loadComments()
   interval = setInterval(() => (now.value = new Date()), 30000)
 
@@ -169,6 +172,11 @@ onUnmounted(() => {
     <aside class="lg:col-span-1">
       <h2 class="text-[1.3rem] text-ink">Comments</h2>
 
+      <p v-if="!isSupabaseConfigured" class="mt-3 text-[0.9rem] text-ink-3">
+        Comments are unavailable right now.
+      </p>
+
+      <template v-else>
       <form class="mt-4 flex flex-col gap-3" @submit.prevent="submitComment">
         <textarea
           v-model="content"
@@ -207,6 +215,7 @@ onUnmounted(() => {
           <p class="mt-1.5 whitespace-pre-wrap text-[0.92rem] text-ink-2">{{ c.content }}</p>
         </div>
       </div>
+      </template>
     </aside>
   </div>
 </template>
