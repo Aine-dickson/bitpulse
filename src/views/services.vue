@@ -34,10 +34,11 @@ useSeoMeta({
   <!-- CAPABILITY DETAIL -->
   <section class="bg-plate-1 py-16">
     <div class="mx-auto grid max-w-[1120px] gap-5 px-6 md:grid-cols-2">
-      <article
+      <RouterLink
         v-for="s in services"
         :key="s.slug"
-        class="relative flex flex-col rounded-lg border border-line bg-surface p-7 shadow-[0_1px_2px_rgba(27,36,31,0.04),0_14px_34px_-22px_rgba(27,36,31,0.30)]"
+        :to="`/services/${s.slug}`"
+        class="group relative flex flex-col rounded-lg border border-line bg-surface p-7 shadow-[0_1px_2px_rgba(27,36,31,0.04),0_14px_34px_-22px_rgba(27,36,31,0.30)] transition-colors hover:border-accent"
       >
         <div class="flex items-center gap-4">
           <span class="grid h-[46px] w-[46px] place-items-center rounded-md bg-accent-soft text-accent-deep">
@@ -55,7 +56,10 @@ useSeoMeta({
             {{ d }}
           </li>
         </ul>
-      </article>
+        <span class="mt-5 font-mono text-[0.72rem] text-accent-deep opacity-0 transition-opacity group-hover:opacity-100">
+          View details →
+        </span>
+      </RouterLink>
     </div>
   </section>
 

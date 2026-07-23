@@ -13,6 +13,8 @@ export interface Service {
   detail: string
   /** Concrete things we deliver on this track. */
   deliverables: string[]
+  /** Typical situations this track is a fit for. */
+  goodFor: string[]
 }
 
 export const services: Service[] = [
@@ -32,6 +34,7 @@ export const services: Service[] = [
       'Hardware simulation and bring-up (Wokwi + real boards)',
       'Low-power and performance-optimized designs',
     ],
+    goodFor: ['Smart agriculture & sensing', 'Connected consumer devices', 'Industrial monitoring', 'Fleets of remote nodes'],
   },
   {
     slug: 'backend-systems',
@@ -48,6 +51,7 @@ export const services: Service[] = [
       'System-level integrations for edge computing',
       'WebAssembly modules for frontend/backend use',
     ],
+    goodFor: ['Device backends & telemetry', 'High-throughput data pipelines', 'Latency-sensitive services', 'Replacing a slow legacy stack'],
   },
   {
     slug: 'rnd-prototyping',
@@ -64,6 +68,7 @@ export const services: Service[] = [
       'Custom data acquisition systems',
       'Grant-ready technical documentation and research',
     ],
+    goodFor: ['Validating a new product idea', 'Grant & research deliverables', 'De-risking before tooling up', 'Hardware/software feasibility'],
   },
   {
     slug: 'developer-tools',
@@ -80,6 +85,7 @@ export const services: Service[] = [
       'Open-source embedded libraries and contributions',
       'Developer community platforms (BitCraft)',
     ],
+    goodFor: ['Platform & SDK teams', 'Internal tooling & automation', 'Open-source ecosystems', 'Improving developer experience'],
   },
   {
     slug: 'mentorship-training',
@@ -97,6 +103,7 @@ export const services: Service[] = [
       'Technical curriculum planning and guidance',
       'Remote/onsite mentorship on project implementation',
     ],
+    goodFor: ['Upskilling an in-house team', 'Institutions & bootcamps', 'Onboarding to a new stack', 'Sustaining a delivered build'],
   },
   {
     slug: 'firmware-audit',
@@ -114,6 +121,7 @@ export const services: Service[] = [
       'Security & update-path assessment',
       'Prioritized remediation report',
     ],
+    goodFor: ['Firmware nearing production', 'Inherited / legacy codebases', 'Reliability or power concerns', 'Pre-launch security review'],
   },
 ]
 

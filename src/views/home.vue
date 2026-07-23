@@ -62,7 +62,7 @@ useSeoMeta({
         <RouterLink
           v-for="s in services"
           :key="s.slug"
-          to="/services"
+          :to="`/services/${s.slug}`"
           class="cap group relative flex min-h-[230px] flex-col rounded-lg border border-line bg-surface p-6 shadow-[0_1px_2px_rgba(27,36,31,0.04),0_14px_34px_-22px_rgba(27,36,31,0.30)] transition-[transform,border-color] duration-200 hover:-translate-y-[3px] hover:border-accent"
         >
           <span class="absolute -top-[5px] left-6 h-2.5 w-2.5 rounded-full border-2 border-line-2 bg-plate-1 transition-colors group-hover:border-accent group-hover:bg-accent" />

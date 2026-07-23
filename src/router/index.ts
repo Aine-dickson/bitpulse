@@ -39,6 +39,12 @@ const router = createRouter({
                 requiresAuth: false,
             },
         },
+        {
+            path: '/services/:slug',
+            name: 'service_detail',
+            component: () => import('@/views/serviceDetail.vue'),
+            props: true,
+        },
         { 
             path: '/blogs',
             name: 'blog',
