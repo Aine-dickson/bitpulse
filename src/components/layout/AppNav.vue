@@ -20,7 +20,7 @@ function isActive(to: string) {
     <div class="mx-auto flex h-[70px] max-w-[1120px] items-center gap-5 px-6">
       <!-- brand -->
       <RouterLink to="/" class="flex items-center gap-3 text-ink" @click="open = false">
-        <BrandMark :size="32" />
+        <BrandMark :size="34" />
         <span class="font-display text-[1.34rem] font-extrabold tracking-tight">
           Bit<span class="text-accent-deep">Pulse</span>
         </span>

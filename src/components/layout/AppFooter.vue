@@ -13,7 +13,7 @@ const year = ref(new Date().getFullYear())
       <div class="flex flex-wrap justify-between gap-9 border-b border-footer-line pb-8">
         <div class="max-w-[34ch]">
           <div class="flex items-center gap-3">
-            <BrandMark :size="30" />
+            <BrandMark :size="30" tone="#ffffff" />
             <span class="font-display text-2xl font-extrabold text-white">
               Bit<span class="text-accent">Pulse</span>
             </span>
