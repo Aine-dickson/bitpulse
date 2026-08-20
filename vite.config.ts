@@ -8,6 +8,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 import { services } from './src/data/services'
 import { sectors } from './src/data/sectors'
+import { projects } from './src/data/projects'
 import posts from './src/content/posts.json'
 
 // https://vite.dev/config/
@@ -33,7 +34,10 @@ export default defineConfig({
             const serviceRoutes = services.map((s) => `/services/${s.slug}`)
             const sectorRoutes = sectors.map((s) => `/innovations/${s.slug}`)
             const blogRoutes = (posts as { slug: string }[]).map((p) => `/blogs/${p.slug}`)
-            return [...staticPaths, ...serviceRoutes, ...sectorRoutes, ...blogRoutes]
+            // Every product gets a page. Placeholder entries are still built so
+            // the route exists, but they carry noindex until their copy is real.
+            const labRoutes = projects.map((p) => `/lab/${p.slug}`)
+            return [...staticPaths, ...serviceRoutes, ...sectorRoutes, ...blogRoutes, ...labRoutes]
         },
     },
 })

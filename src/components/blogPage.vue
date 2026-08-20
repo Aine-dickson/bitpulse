@@ -10,6 +10,13 @@ import { useBlogStore, type Comment } from '@/stores/blog'
 import { useAccountStore } from '@/stores/account'
 import { supabase, isSupabaseConfigured } from '@/utils/supabase'
 import { SITE_URL } from '@/config/seo'
+import {
+  articleLd,
+  breadcrumbLd,
+  graph,
+  organizationLd,
+  websiteLd,
+} from '@/utils/structuredData'
 
 const route = useRoute()
 const blogStore = useBlogStore()
@@ -28,23 +35,76 @@ const blog = computed(() => {
 })
 
 // Reactive SEO (updates if the user navigates between posts).
+const postUrl = computed(() =>
+  blog.value ? `${SITE_URL}/blogs/${blog.value.slug}` : `${SITE_URL}/blogs`,
+)
+// Social cards must be landscape 1200x630; the in-page art is portrait and
+// would get its title cropped off. Prefer the generated -og.jpg.
+const postImage = computed(() => {
+  const art = blog.value?.ogImage ?? blog.value?.image
+  return art ? `${SITE_URL}/${art.replace(/^\//, '')}` : `${SITE_URL}/og-image.png`
+})
+
 useHead({
   title: () => (blog.value ? `${blog.value.title} · BitPulse` : 'Blog · BitPulse'),
+  htmlAttrs: { lang: 'en' },
+  // Without a canonical, every post competes with itself on any URL variant
+  // (trailing slash, query string, the 404.html SPA redirect path).
+  link: [{ rel: 'canonical', href: () => postUrl.value }],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: () =>
+        JSON.stringify(
+          graph([
+            organizationLd(),
+            websiteLd(),
+            breadcrumbLd([
+              { name: 'Home', path: '/' },
+              { name: 'Blog', path: '/blogs' },
+              ...(blog.value ? [{ name: blog.value.title, path: `/blogs/${blog.value.slug}` }] : []),
+            ]),
+            ...(blog.value
+              ? [
+                  articleLd({
+                    title: blog.value.title,
+                    description: blog.value.excerpt ?? '',
+                    path: `/blogs/${blog.value.slug}`,
+                    image: blog.value.ogImage ?? blog.value.image,
+                    datePublished: blog.value.date,
+                    author: blog.value.author,
+                    tags: blog.value.tags,
+                  }),
+                ]
+              : []),
+          ]),
+        ),
+    },
+  ],
   meta: [
     { name: 'description', content: () => blog.value?.excerpt ?? '' },
+    {
+      name: 'robots',
+      content: 'index, follow, max-image-preview:large, max-snippet:-1',
+    },
+    { property: 'og:url', content: () => postUrl.value },
+    { property: 'og:site_name', content: 'BitPulse' },
+    { property: 'og:locale', content: 'en_US' },
+    { property: 'article:published_time', content: () => blog.value?.date ?? '' },
+    { property: 'article:author', content: () => blog.value?.author ?? 'BitPulse' },
     { property: 'og:title', content: () => (blog.value ? `${blog.value.title} · BitPulse` : 'BitPulse') },
     { property: 'og:description', content: () => blog.value?.excerpt ?? '' },
     { property: 'og:type', content: 'article' },
     {
       property: 'og:image',
-      content: () => (blog.value?.image ? `${SITE_URL}/${blog.value.image.replace(/^\//, '')}` : `${SITE_URL}/og-image.png`),
+      content: () => postImage.value,
     },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: () => (blog.value ? `${blog.value.title} · BitPulse` : 'BitPulse') },
     { name: 'twitter:description', content: () => blog.value?.excerpt ?? '' },
     {
       name: 'twitter:image',
-      content: () => (blog.value?.image ? `${SITE_URL}/${blog.value.image.replace(/^\//, '')}` : `${SITE_URL}/og-image.png`),
+      content: () => postImage.value,
     },
   ],
 })
@@ -98,7 +158,7 @@ async function submitComment() {
     content: content.value,
   })
   content.value = ''
-  if (error) alert('Sorry — your comment could not be posted. Please try again.')
+  if (error) alert('Your comment could not be posted. Please try again.')
 }
 
 let channel: ReturnType<typeof supabase.channel> | null = null
@@ -154,7 +214,15 @@ onUnmounted(() => {
       <p class="mt-4 font-mono text-[0.8rem] text-ink-3">
         {{ articleDate(blog.date) }}<span v-if="blog.author"> · {{ blog.author }}</span>
       </p>
-      <img :src="`/${blog.image}`" class="mt-8 w-full rounded-lg border border-line" :alt="blog.title" />
+      <img
+        :src="`/${blog.image}`"
+        :alt="blog.title"
+        width="1200"
+        height="1650"
+        fetchpriority="high"
+        decoding="async"
+        class="mt-8 w-full rounded-lg border border-line"
+      />
 
       <div class="article mt-4">
         <blog1 v-if="blog.slug == 'what-africa-truly-needs-from-its-tech-revolution'" />

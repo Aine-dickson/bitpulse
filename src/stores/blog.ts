@@ -9,6 +9,8 @@ export interface Blog {
   excerpt: string
   slug: string
   image: string
+  /** Landscape 1200x630 social card; the in-page `image` is portrait. */
+  ogImage?: string
   date: string
   tags: string[]
   author?: string

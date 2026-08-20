@@ -4,7 +4,7 @@
             <h1 class="text-3xl md:text-4xl font-extrabold leading-snug">
                 Rust vs C++ for Embedded Systems: The Battle for the Bare Metal
             </h1>
-            <p class="italic text-gray-300">By BitPulse – Engineering Tomorrow, Today</p>
+            <p class="italic text-gray-300">By BitPulse, Engineering Tomorrow, Today</p>
         </header> -->
 
         <section class="space-y-6 text-lg">
@@ -72,7 +72,7 @@
                 class="p-4 border-l-4 border-gray-300 dark:border-gray-500 bg-gray-50 dark:bg-gray-800 rounded"
             >
                 <p class="text-md italic leading-relaxed text-gray-700 dark:text-gray-300">
-                    Rust is not “just a safer C++.” It’s a paradigm shift — especially for embedded systems
+                    Rust is not “just a safer C++.” It’s a paradigm shift, especially for embedded systems
                     where <span class="font-bold">bugs are expensive and safety is priceless</span>.
                 </p>
             </blockquote>
@@ -98,7 +98,7 @@
                 tricks (like reboots and logs) might not help.
             </p>
             <p>
-                So — between C++ and Rust, which one should African engineers, innovators, and startups
+                So between C++ and Rust, which one should African engineers, innovators, and startups
                 focus on as they build the
                 <span class="font-bold">next wave of life-changing hardware</span>?
             </p>
@@ -109,7 +109,7 @@
 
         <section class="space-y-4 text-lg">
             <h2 class="text-2xl font-bold">🧓🏾 The C++ Legacy</h2>
-            <p>C++ is the dominant force in embedded systems — and it’s earned that spot. It offers:</p>
+            <p>C++ is the dominant force in embedded systems, and it’s earned that spot. It offers:</p>
             <ul class="list-disc list-inside space-y-1">
                 <li>Direct memory control</li>
                 <li>Real-time performance</li>
@@ -125,7 +125,7 @@
                 </p>
             </blockquote>
             <p>
-                Buffer overflows, use-after-free, memory leaks, data races — these bugs are silent killers
+                Buffer overflows, use-after-free, memory leaks, data races: these bugs are silent killers
                 in embedded. In systems without an OS or with strict uptime requirements, even a single
                 mistake can brick your device or hurt someone.
             </p>
@@ -136,7 +136,7 @@
         <section class="space-y-4 text-lg">
             <h2 class="text-2xl font-bold">🦀 Enter Rust: Built for Fearless Systems</h2>
             <p>
-                Rust is younger — but it's built from the ground up to
+                Rust is younger, but it's built from the ground up to
                 <span class="font-bold">eliminate entire classes of bugs at compile time</span>.
             </p>
             <p>What does that mean for embedded systems?</p>
@@ -168,33 +168,33 @@
             <ol class="list-decimal list-outside ml-6 space-y-4">
                 <li>
                     <p>
-                        <span class="font-bold">Memory Safety Without a Garbage Collector</span> — Rust uses
-                        ownership and lifetimes, making it predictable and efficient — perfect for
+                        <span class="font-bold">Memory Safety Without a Garbage Collector</span>: Rust uses
+                        ownership and lifetimes, making it predictable and efficient, and a good fit for
                         microcontrollers.
                     </p>
                 </li>
                 <li>
                     <p>
-                        <span class="font-bold">No Runtime Required</span> — Can run without a standard library
+                        <span class="font-bold">No Runtime Required</span>: Can run without a standard library
                         (no-std) for bare metal.
                     </p>
                 </li>
                 <li>
                     <p>
-                        <span class="font-bold">Modern Tooling</span> — Cargo, <code>rust-analyzer</code>,
+                        <span class="font-bold">Modern Tooling</span>: Cargo, <code>rust-analyzer</code>,
                         <code>probe-rs</code>, plus ecosystems like <code>embedded-hal</code>,
                         <code>cortex-m</code>, <code>esp-idf-hal</code>.
                     </p>
                 </li>
                 <li>
                     <p>
-                        <span class="font-bold">Portability and Interop</span> — Easily call into C when needed;
+                        <span class="font-bold">Portability and Interop</span>: Easily call into C when needed;
                         many use C for drivers and Rust for logic.
                     </p>
                 </li>
                 <li>
                     <p>
-                        <span class="font-bold">Better Dev Experience</span> — Compiler guides you, failing
+                        <span class="font-bold">Better Dev Experience</span>: Compiler guides you, failing
                         loudly and early to save time.
                     </p>
                 </li>
@@ -220,14 +220,14 @@
                 You want to bring <span class="font-bold">modern development practices</span> into
                 embedded
                 </li>
-                <li>You plan to scale — teams using Rust onboard more safely</li>
+                <li>You plan to scale, since teams using Rust onboard more safely</li>
             </ul>
             <blockquote
                 class="p-4 border-l-4 border-gray-300 dark:border-gray-500 bg-gray-50 dark:bg-gray-800 rounded"
             >
                 <p class="text-md italic leading-relaxed text-gray-700 dark:text-gray-300">
                     “The future of embedded is <span class="font-bold">safe by default</span>. Rust is not a
-                    trend — it’s an upgrade.”
+                    trend. It’s an upgrade.”
                 </p>
             </blockquote>
         </section>
@@ -240,11 +240,11 @@
             If African developers and startups adopt Rust early for embedded systems, we can leapfrog
             outdated tooling and practices. This is our
             <span class="font-bold">opportunity to build safer, more reliable</span>, and
-            <span class="font-bold">future-proof hardware products</span> — without the burden of legacy
+            <span class="font-bold">future-proof hardware products</span>: without the burden of legacy
             debt.
         </p>
         <p>
-            From low-cost medical devices, to rural automation, to industrial control systems —
+            From low-cost medical devices, to rural automation, to industrial control systems,
             <span class="font-bold"
             >Rust can help us build hardware that doesn't just work, but lasts.</span
             >
@@ -274,7 +274,7 @@
         <h2 class="text-2xl font-bold">💬 Final Word</h2>
         <p>
             C++ walked so Rust could run. In the end, both are powerful tools. But Rust is leading a new
-            movement — one that’s obsessed with
+            movement, one that’s obsessed with
             <span class="font-bold">reliability, control, and safety</span> at all costs.
         </p>
         <blockquote
@@ -318,7 +318,7 @@
             >
             </li>
         </ul>
-        <p>Or check out what we’re building at BitPulse — some projects will be open-sourced soon!</p>
+        <p>Or check out what we’re building at BitPulse. Some projects will be open-sourced soon!</p>
         </section>
 
         <hr class="border-gray-700" />
@@ -337,7 +337,7 @@
             class="p-4 border-l-4 border-gray-300 dark:border-gray-500 bg-gray-50 dark:bg-gray-800 rounded"
         >
             <p class="text-md italic leading-relaxed text-gray-700 dark:text-gray-300 font-bold">
-            Let’s build the future — safely, together.
+            Let’s build the future safely, together.
             </p>
         </blockquote>
         </section>

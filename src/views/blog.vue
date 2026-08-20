@@ -3,13 +3,37 @@ import { computed, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useBlogStore } from '@/stores/blog'
 import { useSeoMeta } from '@/composables/useSeoMeta'
+import { breadcrumbLd, itemListLd } from '@/utils/structuredData'
+import allPosts from '@/content/posts.json'
 import NetLabel from '@/components/ui/NetLabel.vue'
 
 useSeoMeta({
-  title: 'Blog',
+  title: 'Embedded Systems & Firmware Engineering Blog',
   description:
-    'Insights, guides and case studies from the BitPulse team — on embedded systems, firmware, prototyping and open hardware.',
+    'Insights, guides and case studies from the BitPulse team on embedded systems, firmware, bare-metal development, prototyping and open hardware.',
   canonical: '/blogs',
+  jsonLd: [
+    breadcrumbLd([
+      { name: 'Home', path: '/' },
+      { name: 'Blog', path: '/blogs' },
+    ]),
+    {
+      '@type': 'Blog',
+      '@id': 'https://bitpulse.dev/blogs#blog',
+      name: 'BitPulse Field Notes',
+      description:
+        'Embedded systems, firmware and systems-software engineering notes from the BitPulse studio.',
+      url: 'https://bitpulse.dev/blogs',
+      inLanguage: 'en',
+    },
+    itemListLd({
+      name: 'BitPulse articles',
+      items: (allPosts as { title: string; slug: string }[]).map((p) => ({
+        name: p.title,
+        path: `/blogs/${p.slug}`,
+      })),
+    }),
+  ],
 })
 
 const blogStore = useBlogStore()
@@ -98,7 +122,7 @@ async function handleSubscribe() {
     }
     subscribeSuccess.value = true
   } catch {
-    subscribeError.value = 'Network error — please retry.'
+    subscribeError.value = 'Network error. Please retry.'
   } finally {
     isSubscribing.value = false
   }
@@ -114,7 +138,7 @@ async function handleSubscribe() {
         Notes from the workbench.
       </h1>
       <p class="mt-6 max-w-[54ch] text-[1.1rem] text-ink-2">
-        Thoughts, guides and case studies from the BitPulse team — on embedded systems, firmware,
+        Thoughts, guides and case studies from the BitPulse team on embedded systems, firmware,
         prototyping and open hardware.
       </p>
     </div>
@@ -129,7 +153,15 @@ async function handleSubscribe() {
         class="group mb-12 grid gap-6 overflow-hidden rounded-xl border border-line bg-surface md:grid-cols-2"
         @click="blogStore.previewPost(featured.id)"
       >
-        <img :src="`/${featured.image}`" alt="" class="h-64 w-full object-cover md:h-full" />
+        <img
+          :src="`/${featured.image}`"
+          :alt="featured.title"
+          width="1200"
+          height="630"
+          fetchpriority="high"
+          decoding="async"
+          class="h-64 w-full object-cover md:h-full"
+        />
         <div class="flex flex-col justify-center p-8">
           <span class="font-mono text-[0.66rem] uppercase tracking-[0.12em] text-accent-deep">Featured</span>
           <h2 class="mt-3 text-[1.6rem] text-ink">{{ featured.title }}</h2>
@@ -188,7 +220,15 @@ async function handleSubscribe() {
           class="group flex flex-col overflow-hidden rounded-lg border border-line bg-surface transition-[transform,border-color] duration-200 hover:-translate-y-[3px] hover:border-accent"
           @click="blogStore.previewPost(post.id)"
         >
-          <img :src="`/${post.image}`" alt="" class="h-44 w-full object-cover" />
+          <img
+            :src="`/${post.image}`"
+            :alt="post.title"
+            width="1200"
+            height="630"
+            loading="lazy"
+            decoding="async"
+            class="h-44 w-full object-cover"
+          />
           <div class="flex flex-1 flex-col p-5">
             <span class="font-mono text-[0.66rem] text-ink-3">{{ formatDate(post.date) }}</span>
             <h3 class="mt-1.5 text-[1.12rem] text-ink">{{ post.title }}</h3>
@@ -229,7 +269,7 @@ async function handleSubscribe() {
         </form>
         <p v-if="subscribeError" class="mt-3 text-[0.85rem] text-red-600">{{ subscribeError }}</p>
         <p v-else-if="subscribeSuccess" class="mt-3 text-[0.85rem] text-accent-deep">
-          Subscription successful — check your inbox.
+          Subscription successful. Check your inbox.
         </p>
       </div>
     </div>

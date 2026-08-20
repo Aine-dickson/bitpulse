@@ -1,7 +1,7 @@
 <template>
     <div class="py-4 px-4 mx-auto max-w-screen-xl text-center lg:px-12">
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 dark:text-white">Testimonials</h1>
-        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Because ideas deserve to be built — beautifully and boldly. We engineer practical solutions that solve real-world problems and move industries forward.</p>
+        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Because ideas deserve to be built, beautifully and boldly. We engineer practical solutions that solve real-world problems and move industries forward.</p>
 
         <div id="indicators-carousel" class="relative w-full" data-carousel="static">
             <!-- Carousel wrapper -->
@@ -44,32 +44,32 @@ import testimonyCard from './testimonyCard.vue';
 let testimonies = [
     {
         name: "Samuel K.",
-        image: "/profile.png",
-        testimony: "BitPulse helped us bring our product to life faster than we imagined. Their team understood both the tech and the vision — and delivered beyond our expectations.",
+        image: "/profile.webp",
+        testimony: "BitPulse helped us bring our product to life faster than we imagined. Their team understood both the tech and the vision, and delivered beyond our expectations.",
         title: "Founder, AgriSense"
     },
     {
         name: "Dr. Brenda A.",
-        image: "/profile.png",
+        image: "/profile.webp",
         testimony: "We integrated BitPulse’s smart hardware into our rural clinics, and the improvement in efficiency has been unbelievable. It’s tech made for real impact.",
         title: "District Health Officer"
     },
     {
         name: "Charles N.",
-        image: "/profile.png",
+        image: "/profile.webp",
         testimony: "BitPulse's transport tech cut our coordination costs and boosted delivery accuracy by 40%. They're changing how logistics runs in Uganda.",
         title: "Operations Lead, FastGo Africa"
     },
     {
         name: "Amina T.",
-        image: "/profile.png",
+        image: "/profile.webp",
         testimony: "Their open tools and documentation made it easy to plug into our own systems. As a developer, I love how BitPulse balances power and simplicity.",
         title: "Software Engineer"
     },
     {
         name: "Prof. John L.",
-        image: "/profile.png",
-        testimony: "BitPulse isn't just building tech — they’re educating and inspiring the next generation of creators. Their commitment to open innovation is real.",
+        image: "/profile.webp",
+        testimony: "BitPulse isn't just building tech. They’re educating and inspiring the next generation of creators. Their commitment to open innovation is real.",
         title: "Lecturer, TechUni Uganda"
     }
 ];

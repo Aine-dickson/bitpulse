@@ -5,9 +5,9 @@ export const site = {
   legalName: 'BitPulse Engineering Ltd',
   tagline: 'Routing ideas from bare metal to working systems.',
   description:
-    'BitPulse is a product & R&D studio for embedded hardware, firmware and systems software — designed, built and sustained end to end, for teams building across Africa and beyond.',
+    'BitPulse is a product & R&D studio for embedded hardware, firmware and systems software, designed, built and sustained end to end, for teams building across Africa and beyond.',
   blurb:
-    'Routing ideas from bare metal to working systems — engineering the infrastructure of African innovation.',
+    'Routing ideas from bare metal to working systems, engineering the infrastructure of African innovation.',
   email: 'contact@bitpulse.dev',
   location: 'Kampala, Uganda',
   timezone: 'UTC+3',
@@ -22,7 +22,7 @@ export const site = {
   stats: [
     { value: '12+', label: 'Systems shipped' },
     { value: '6', label: 'Sectors served' },
-    { value: 'Rust · C', label: 'Bare-metal core' },
+    { value: 'Metal → UI', label: 'Full-stack depth' },
   ],
 } as const
 
@@ -38,11 +38,16 @@ export const navLinks = [
 export const footerNav = [
   {
     heading: 'Build',
+    // Deep-link to the actual service pages: four links all pointing at
+    // /services wasted the internal link equity and gave crawlers no path to
+    // the detail pages except the services index.
     links: [
-      { to: '/services', label: 'Embedded & IoT' },
-      { to: '/services', label: 'Backend & Systems' },
-      { to: '/services', label: 'R&D & Prototyping' },
-      { to: '/services', label: 'Firmware Audit' },
+      { to: '/services/embedded-iot', label: 'Embedded & IoT' },
+      { to: '/services/backend-systems', label: 'Backend & Systems' },
+      { to: '/services/apps-interfaces', label: 'Apps & Interfaces' },
+      { to: '/services/legacy-modernization', label: 'Legacy Modernization' },
+      { to: '/services/rnd-prototyping', label: 'R&D & Prototyping' },
+      { to: '/services/firmware-audit', label: 'Firmware Audit' },
     ],
   },
   {

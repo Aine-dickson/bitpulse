@@ -81,6 +81,12 @@ export const routes: RouteRecordRaw[] = [
         component: () => import('@/views/lab.vue'),
         meta: { title: 'The Lab', requiresAuth: false },
     },
+    {
+        path: '/lab/:slug',
+        name: 'lab_detail',
+        component: () => import('@/views/labDetail.vue'),
+        props: true,
+    },
 ]
 
 export default routes

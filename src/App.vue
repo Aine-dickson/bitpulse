@@ -13,9 +13,17 @@ const LeadModal = defineAsyncComponent(() => import('./components/LeadModal.vue'
 const uiStore = useUiStore()
 const route = useRoute()
 
-// Deep-linkable enquiry modals, e.g. /services?enquiry=consultationForm
+// Deep-linkable enquiry modals, e.g. /services?enquiry=consultationForm.
+// `service` and `sector` ride along so a campaign or email link can land
+// someone on an already-filled form: ?enquiry=requestQuoteForm&service=Apps%20%26%20Interfaces
 function openFromQuery(value: unknown) {
-  if (typeof value === 'string' && leadForms[value]) uiStore.showModal(value)
+  if (typeof value !== 'string' || !leadForms[value]) return
+  const ctx: Record<string, string> = {}
+  for (const k of ['service', 'sector'] as const) {
+    const v = route.query[k]
+    if (typeof v === 'string' && v) ctx[k] = v
+  }
+  uiStore.showModal(value, ctx)
 }
 onMounted(() => openFromQuery(route.query.enquiry))
 watch(() => route.query.enquiry, openFromQuery)

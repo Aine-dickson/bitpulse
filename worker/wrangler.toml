@@ -1,0 +1,24 @@
+name = "bitpulse-leads"
+main = "src/index.ts"
+compatibility_date = "2025-01-15"
+
+# api.bitpulse.dev must exist as a DNS record in the bitpulse.dev zone. A
+# proxied AAAA record pointing at 100:: is the usual placeholder: the Worker
+# route intercepts the request before the origin is ever consulted.
+routes = [
+  { pattern = "api.bitpulse.dev/*", zone_name = "bitpulse.dev" }
+]
+
+[vars]
+# Must be a domain verified in Resend, or sends are rejected.
+MAIL_FROM = "BitPulse <no-reply@bitpulse.dev>"
+MAIL_TO = "contact@bitpulse.dev"
+
+# Optional. Uncomment after `wrangler kv namespace create LEAD_RATELIMIT` and
+# paste the id it prints. Without it the Worker skips rate limiting entirely.
+# [[kv_namespaces]]
+# binding = "LEAD_RATELIMIT"
+# id = "<paste-the-id-here>"
+
+[observability]
+enabled = true

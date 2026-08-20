@@ -7,7 +7,7 @@ import NetLabel from '@/components/ui/NetLabel.vue'
 useSeoMeta({
   title: 'Why BitPulse',
   description:
-    "We're not just building tech — we're redefining what it can do. Innovation, full-stack expertise, community focus and practical impact.",
+    "We're not just building tech. We're redefining what it can do, with innovation, full-stack expertise, community focus and practical impact.",
   canonical: '/why-bitpulse',
 })
 </script>
@@ -20,7 +20,7 @@ useSeoMeta({
         Redefining what technology can do.
       </h1>
       <p class="mt-6 max-w-[54ch] text-[1.1rem] text-ink-2">
-        We're not just building tech — we're building the rugged, reliable systems the real world
+        We're not just building tech. We're building the rugged, reliable systems the real world
         actually runs on.
       </p>
     </div>

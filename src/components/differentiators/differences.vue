@@ -1,7 +1,7 @@
 <template>
     <div id="why-bitpulse" class="py-4 px-4 mx-auto max-w-screen-xl text-center lg:px-12">
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 dark:text-white">Why BitPulse?</h1>
-        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Because ideas deserve to be built — beautifully and boldly. We engineer practical solutions that solve real-world problems and move industries forward.</p>
+        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Because ideas deserve to be built, beautifully and boldly. We engineer practical solutions that solve real-world problems and move industries forward.</p>
 
         <!-- Differences -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
@@ -27,7 +27,7 @@ const differences = [
   {
     image: "innovate",
     title: "Driven by Innovation",
-    description: "We don’t just follow trends — we engineer tomorrow’s breakthroughs from the ground up."
+    description: "We don’t just follow trends. We engineer tomorrow’s breakthroughs from the ground up."
   },
   {
     image: "expert",

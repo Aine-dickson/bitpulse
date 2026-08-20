@@ -7,7 +7,7 @@
       <p class="text-lg italic text-gray-300">
         Tips for Publishing and Managing Open-Source Embedded or Tooling Projects
       </p>
-      <p class="italic text-gray-400">By BitPulse – Engineering Tomorrow, Together</p>
+      <p class="italic text-gray-400">By BitPulse, Engineering Tomorrow, Together</p>
     </header> -->
 
     <section class="space-y-4 text-lg">
@@ -34,7 +34,7 @@
     <section class="space-y-4 text-lg">
       <h2 class="text-2xl font-bold">💬 Why Open Source Hardware?</h2>
       <p>
-        Hardware is <span class="font-bold">physical</span> — it costs time, materials, and
+        Hardware is <span class="font-bold">physical</span>: it costs time, materials, and
         iteration. Openness multiplies impact for:
       </p>
       <ul class="list-disc list-inside space-y-1">
@@ -97,9 +97,9 @@
       <h2 class="text-2xl font-bold">🧾 Step 3: Choose a License</h2>
       <p>Hardware & software can use <span class="font-bold">separate licenses</span>.</p>
       <ul class="list-disc list-inside space-y-1">
-        <li><span class="font-bold">CERN OHL</span> – physical design friendly</li>
-        <li><span class="font-bold">TAPR OHL</span> – GPL-style spirit</li>
-        <li><span class="font-bold">MIT / Apache 2.0 / BSD</span> – common for firmware</li>
+        <li><span class="font-bold">CERN OHL</span>: physical design friendly</li>
+        <li><span class="font-bold">TAPR OHL</span>: GPL-style spirit</li>
+        <li><span class="font-bold">MIT / Apache 2.0 / BSD</span>: common for firmware</li>
       </ul>
       <p>Add a <code>LICENSES.md</code> explaining each piece.</p>
     </section>
@@ -261,7 +261,7 @@
         <li>What challenges do you face in open-sourcing hardware?</li>
         <li>Would you contribute to BitPulse’s open tools?</li>
       </ul>
-      <p>Let’s unlock Africa’s embedded potential — one open project at a time.</p>
+      <p>Let’s unlock Africa’s embedded potential, one open project at a time.</p>
       <blockquote
         class="p-4 border-l-4 border-gray-300 dark:border-gray-500 bg-gray-50 dark:bg-gray-800 rounded"
       >

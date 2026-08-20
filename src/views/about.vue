@@ -6,14 +6,14 @@ import NetLabel from '@/components/ui/NetLabel.vue'
 useSeoMeta({
   title: 'About',
   description:
-    'BitPulse engineers purposeful technology — from smart cities to next-gen developer tools. Small team, big builds, local ideas with global impact.',
+    'BitPulse engineers purposeful technology, from smart cities to next-gen developer tools. Small team, big builds, local ideas with global impact.',
   canonical: '/about',
 })
 
 const values = [
   {
     title: 'Driven by Innovation',
-    body: "We don't just follow trends — we engineer tomorrow's breakthroughs from the ground up.",
+    body: "We don't just follow trends. We engineer tomorrow's breakthroughs from the ground up.",
   },
   {
     title: 'Full-Stack Expertise',
@@ -38,11 +38,11 @@ const milestones = [
     <div class="mx-auto max-w-[1120px] px-6 pb-14 pt-20">
       <NetLabel text="About BitPulse" />
       <h1 class="mt-6 max-w-[20ch] text-[clamp(2.3rem,5.5vw,4rem)] leading-[0.98] text-ink">
-        Because ideas deserve to be built — beautifully and boldly.
+        Because ideas deserve to be built, beautifully and boldly.
       </h1>
       <p class="mt-6 max-w-[60ch] text-[1.1rem] text-ink-2">
         BitPulse was born out of the desire to craft practical, transformative tech that creates
-        tangible impact — from smart cities to next-gen developer tools. We began with a vision to
+        tangible impact, from smart cities to next-gen developer tools. We began with a vision to
         not just build products, but to empower industries and communities.
       </p>
     </div>
@@ -61,7 +61,7 @@ const milestones = [
       <div class="rounded-lg border border-line bg-surface p-8">
         <NetLabel text="Our Vision" />
         <p class="mt-4 text-[1.05rem] text-ink-2">
-          A world where tech works in harmony with human potential — building smarter cities, better
+          A world where tech works in harmony with human potential, building smarter cities, better
           health systems and inclusive digital futures.
         </p>
       </div>

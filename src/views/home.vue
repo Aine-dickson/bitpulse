@@ -9,6 +9,7 @@ import { differentiators } from '@/data/why'
 import { projects, statusMeta } from '@/data/projects'
 import { useUiStore } from '@/stores/ui'
 import { useSeoMeta } from '@/composables/useSeoMeta'
+import { itemListLd } from '@/utils/structuredData'
 import NetLabel from '@/components/ui/NetLabel.vue'
 import CapIcon from '@/components/ui/CapIcon.vue'
 import BoardDiagram from '@/components/home/BoardDiagram.vue'
@@ -17,9 +18,15 @@ const uiStore = useUiStore()
 const labPreview = projects.filter((p) => p.earlyAccess).slice(0, 3)
 
 useSeoMeta({
-  title: 'BitPulse — Embedded, Firmware & Systems Software',
+  title: 'BitPulse | Embedded, Firmware & Systems Software Studio',
   description: site.description,
   canonical: '/',
+  jsonLd: [
+    itemListLd({
+      name: 'BitPulse engineering services',
+      items: services.map((s) => ({ name: s.name, path: `/services/${s.slug}` })),
+    }),
+  ],
 })
 </script>
 
@@ -56,7 +63,7 @@ useSeoMeta({
       <div class="mb-12 max-w-[640px]">
         <NetLabel text="What we build" run />
         <h2 class="mt-4 text-[clamp(1.9rem,4vw,2.85rem)] text-ink">
-          One team across the whole signal path — sensor to server.
+          One team across the whole signal path, sensor to server.
         </h2>
         <p class="mt-4 text-[1.06rem] text-ink-2">
           Most shops stop at the driver or start at the API. We work the full path, so firmware,
@@ -94,7 +101,7 @@ useSeoMeta({
         <NetLabel text="Where the signal lands" run />
         <h2 class="mt-4 text-[clamp(1.9rem,4vw,2.85rem)] text-ink">Six sectors we're already wiring up.</h2>
         <p class="mt-4 text-[1.06rem] text-ink-2">
-          The same core — sensing, firmware, connectivity, data — retargeted to the problems worth
+          The same core of sensing, firmware, connectivity and data, retargeted to the problems worth
           solving on the continent.
         </p>
       </div>
@@ -119,7 +126,7 @@ useSeoMeta({
       <div class="mb-12 max-w-[640px]">
         <NetLabel text="Productized programs" run />
         <h2 class="mt-4 text-[clamp(1.9rem,4vw,2.85rem)] text-ink">
-          Fixed scope, priced up front — no blank quotes.
+          Fixed scope, priced up front. No blank quotes.
         </h2>
         <p class="mt-4 text-[1.06rem] text-ink-2">
           Engagements packaged so you know what you're getting, and roughly what to budget, before
@@ -156,7 +163,7 @@ useSeoMeta({
       <div class="mb-12 flex flex-wrap items-end justify-between gap-4">
         <div class="max-w-[640px]">
           <NetLabel text="Why BitPulse" run />
-          <h2 class="mt-4 text-[clamp(1.9rem,4vw,2.85rem)] text-ink">Not just building tech — redefining what it can do.</h2>
+          <h2 class="mt-4 text-[clamp(1.9rem,4vw,2.85rem)] text-ink">Not just building tech. Redefining what it can do.</h2>
         </div>
         <RouterLink to="/why-bitpulse" class="font-mono text-[0.8rem] text-accent-deep hover:underline">
           More on our approach →

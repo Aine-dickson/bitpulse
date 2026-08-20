@@ -4,6 +4,7 @@ import { RouterLink, useRoute } from 'vue-router'
 import { services, getServiceBySlug } from '@/data/services'
 import { useUiStore } from '@/stores/ui'
 import { useSeoMeta } from '@/composables/useSeoMeta'
+import { breadcrumbLd, serviceLd } from '@/utils/structuredData'
 import NetLabel from '@/components/ui/NetLabel.vue'
 import CapIcon from '@/components/ui/CapIcon.vue'
 
@@ -13,10 +14,35 @@ const uiStore = useUiStore()
 const service = computed(() => getServiceBySlug(route.params.slug as string) ?? null)
 const others = computed(() => services.filter((s) => s.slug !== service.value?.slug))
 
+// The page already knows which track you are on, so the forms open with the
+// service selected rather than asking you to say it again.
+const ctx = () => ({ service: service.value?.name ?? '' })
+const openQuote = () => uiStore.showModal('requestQuoteForm', ctx())
+const openConsultation = () => uiStore.showModal('consultationForm', ctx())
+
 useSeoMeta({
-  title: service.value ? service.value.name : 'Service',
+  // Title carries the service *and* the category — "Embedded & IoT" alone
+  // matches no query anyone actually types.
+  title: service.value ? `${service.value.name} Engineering Services` : 'Service',
   description: service.value?.detail,
   canonical: service.value ? `/services/${service.value.slug}` : '/services',
+  noindex: !service.value,
+  jsonLd: service.value
+    ? [
+        breadcrumbLd([
+          { name: 'Home', path: '/' },
+          { name: 'Services', path: '/services' },
+          { name: service.value.name, path: `/services/${service.value.slug}` },
+        ]),
+        serviceLd({
+          name: service.value.name,
+          description: service.value.detail,
+          path: `/services/${service.value.slug}`,
+          serviceType: service.value.tag,
+          deliverables: [...service.value.deliverables],
+        }),
+      ]
+    : [],
 })
 </script>
 
@@ -46,10 +72,18 @@ useSeoMeta({
           {{ service.name }}
         </h1>
         <p class="mt-6 max-w-[58ch] text-[1.14rem] text-ink-2">{{ service.detail }}</p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <button class="btn btn-primary" @click="uiStore.showModal('consultationForm')">Book a free consultation</button>
-          <RouterLink to="/contacts" class="btn btn-line">Request a quote</RouterLink>
+        <!--
+          Both CTAs open a form that already knows which service you are on.
+          "Request a quote" used to bounce to /contacts and its general
+          consultation box, which is where quote requests went to die.
+        -->
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <button class="btn btn-primary" @click="openQuote">Request a quote</button>
+          <button class="btn btn-line" @click="openConsultation">Book a free consultation</button>
         </div>
+        <p class="mt-3 font-mono text-[0.7rem] uppercase tracking-[0.08em] text-ink-3">
+          {{ service.name }} pre-filled · reply within 1 working day
+        </p>
       </div>
     </section>
 
@@ -73,6 +107,27 @@ useSeoMeta({
               {{ g }}
             </li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA: catch anyone who read to the bottom without scrolling back up -->
+    <section class="bg-plate-2 py-16">
+      <div class="mx-auto max-w-[1120px] px-6">
+        <div class="rounded-lg border border-line bg-surface p-8 sm:p-10">
+          <NetLabel text="Next step" run />
+          <h2 class="mt-4 max-w-[22ch] text-[clamp(1.5rem,3.2vw,2.1rem)] text-ink">
+            Tell us what you are building.
+          </h2>
+          <p class="mt-4 max-w-[56ch] text-[1.02rem] text-ink-2">
+            Send us the shape of the problem and we will come back with scope, timeline and a price.
+            If you would rather talk it through first, the consultation is free and there is no
+            obligation at the end of it.
+          </p>
+          <div class="mt-7 flex flex-wrap items-center gap-3">
+            <button class="btn btn-primary" @click="openQuote">Request a quote</button>
+            <button class="btn btn-line" @click="openConsultation">Book a free consultation</button>
+          </div>
         </div>
       </div>
     </section>

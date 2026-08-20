@@ -1,0 +1,16 @@
+{
+  "name": "bitpulse-leads-worker",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250109.0",
+    "typescript": "~5.8.0",
+    "wrangler": "^4.124.0"
+  }
+}

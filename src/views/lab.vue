@@ -1,16 +1,28 @@
 <script setup lang="ts">
-import { projects, statusMeta } from '@/data/projects'
+import { RouterLink } from 'vue-router'
+import { projects, indexableProjects, statusMeta } from '@/data/projects'
 import { useUiStore } from '@/stores/ui'
 import { useSeoMeta } from '@/composables/useSeoMeta'
+import { breadcrumbLd, itemListLd } from '@/utils/structuredData'
 import NetLabel from '@/components/ui/NetLabel.vue'
 
 const uiStore = useUiStore()
 
 useSeoMeta({
-  title: 'The Lab',
+  title: 'The Lab | Products & Tools BitPulse Is Building',
   description:
-    'Products and projects BitPulse is building in the open — some live, some in beta, some still on the bench. Sign up to test what we ship next.',
+    'Products and projects BitPulse is building in the open: BitCraft, PulseNode and more. Some live, some in beta, some still on the bench. Sign up to test what we ship next.',
   canonical: '/lab',
+  jsonLd: [
+    breadcrumbLd([
+      { name: 'Home', path: '/' },
+      { name: 'The Lab', path: '/lab' },
+    ]),
+    itemListLd({
+      name: 'BitPulse products and projects',
+      items: indexableProjects.map((p) => ({ name: p.name, path: `/lab/${p.slug}` })),
+    }),
+  ],
 })
 </script>
 
@@ -34,7 +46,7 @@ useSeoMeta({
       <div class="mt-8 flex flex-wrap gap-x-6 gap-y-2">
         <span v-for="(m, key) in statusMeta" :key="key" class="inline-flex items-center gap-2 font-mono text-[0.66rem] uppercase tracking-[0.08em] text-ink-3">
           <span class="h-2.5 w-2.5 rounded-full" :style="{ background: m.dot }" />
-          {{ m.label }} — {{ m.note }}
+          {{ m.label }} · {{ m.note }}
         </span>
       </div>
     </div>
@@ -55,7 +67,12 @@ useSeoMeta({
             {{ statusMeta[p.status].label }}
           </span>
         </div>
-        <h2 class="mt-3 text-[1.4rem] text-ink">{{ p.name }}</h2>
+        <!-- The card title is the crawlable link into each product page. -->
+        <h2 class="mt-3 text-[1.4rem] text-ink">
+          <RouterLink :to="`/lab/${p.slug}`" class="hover:text-accent-deep hover:underline">
+            {{ p.name }}
+          </RouterLink>
+        </h2>
         <p class="mt-2 text-[0.95rem] text-ink-2">{{ p.blurb }}</p>
         <div class="mt-4 flex flex-wrap gap-2">
           <span
@@ -66,12 +83,19 @@ useSeoMeta({
             {{ t }}
           </span>
         </div>
-        <div v-if="p.earlyAccess" class="mt-6 border-t border-line pt-4">
-          <button
+        <div class="mt-6 flex flex-wrap items-center gap-4 border-t border-line pt-4">
+          <RouterLink
+            :to="`/lab/${p.slug}`"
             class="font-mono text-[0.76rem] text-accent-deep hover:underline"
+          >
+            Read more →
+          </RouterLink>
+          <button
+            v-if="p.earlyAccess"
+            class="font-mono text-[0.76rem] text-ink-2 hover:underline"
             @click="uiStore.showModal('earlyAccess')"
           >
-            Join early access →
+            Join early access
           </button>
         </div>
       </article>

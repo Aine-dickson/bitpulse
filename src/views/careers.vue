@@ -7,7 +7,7 @@ import NetLabel from '@/components/ui/NetLabel.vue'
 useSeoMeta({
   title: 'Careers',
   description:
-    'Careers at BitPulse — the full roles board is on its way. In the meantime, tell us how you want to build with us.',
+    'Careers at BitPulse. The full roles board is on its way. In the meantime, tell us how you want to build with us.',
   canonical: '/careers',
 })
 
@@ -15,7 +15,7 @@ const roadmap = [
   'Career philosophy & team culture',
   'Open roles listing with filtering',
   'Application form with resume upload',
-  'Life at BitPulse — benefits and values',
+  'Life at BitPulse: benefits and values',
 ]
 </script>
 

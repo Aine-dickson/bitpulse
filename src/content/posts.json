@@ -1,42 +1,56 @@
 [
-  {
-    "id": "e3okrmlk",
-    "title": "How Embedded Systems are Powering Smart Infrastructure",
-    "excerpt": "A dive into real-world use cases where embedded tech and IoT are transforming industries…",
-    "slug": "what-africa-truly-needs-from-its-tech-revolution",
-    "image": "African_tech_evolution.png",
-    "date": "2025-05-15T10:00",
-    "tags": ["IoT", "Embedded Systems"],
-    "author": "Aine Dixon"
-  },
-  {
-    "id": "d3f4o-erjt",
-    "title": "Prototyping 101: From Idea to Physical MVP",
-    "slug": "prototyping-101",
-    "excerpt": "What to consider before starting your hardware or embedded software prototype.",
-    "image": "prototyping.png",
-    "date": "2025-05-26T14:00",
-    "tags": ["Prototyping"],
-    "author": "Aine Dixon"
-  },
-  {
-    "id": "vo95irf3-erjt",
-    "title": "Rust vs C++ for Embedded Systems",
-    "slug": "rust-vs-c-for-embedded-systems-the-battle-for-the-bare-metal",
-    "excerpt": "We compare two powerful languages and how they stack up in embedded development.",
-    "image": "rust_vs_cpp.png",
-    "date": "2025-06-06T09:00",
-    "tags": ["Embedded Systems"],
-    "author": "Aine Dixon"
-  },
-  {
-    "id": "e4t3pi-erjt",
-    "title": "Launching Open Source Hardware Projects with the Community",
-    "slug": "open-source-hardware",
-    "excerpt": "Tips for publishing and managing open-source embedded or tooling projects.",
-    "image": "opensource.png",
-    "date": "2025-08-04T16:00",
-    "tags": ["Hardware Design", "Open Source"],
-    "author": "Aine Dixon"
-  }
+    {
+        "id": "e3okrmlk",
+        "title": "How Embedded Systems are Powering Smart Infrastructure",
+        "excerpt": "A dive into real-world use cases where embedded tech and IoT are transforming industries…",
+        "slug": "what-africa-truly-needs-from-its-tech-revolution",
+        "image": "African_tech_evolution.webp",
+        "date": "2025-05-15T10:00",
+        "tags": [
+            "IoT",
+            "Embedded Systems"
+        ],
+        "author": "Aine Dixon",
+        "ogImage": "African_tech_evolution-og.jpg"
+    },
+    {
+        "id": "d3f4o-erjt",
+        "title": "Prototyping 101: From Idea to Physical MVP",
+        "slug": "prototyping-101",
+        "excerpt": "What to consider before starting your hardware or embedded software prototype.",
+        "image": "prototyping.webp",
+        "date": "2025-05-26T14:00",
+        "tags": [
+            "Prototyping"
+        ],
+        "author": "Aine Dixon",
+        "ogImage": "prototyping-og.jpg"
+    },
+    {
+        "id": "vo95irf3-erjt",
+        "title": "Rust vs C++ for Embedded Systems",
+        "slug": "rust-vs-c-for-embedded-systems-the-battle-for-the-bare-metal",
+        "excerpt": "We compare two powerful languages and how they stack up in embedded development.",
+        "image": "rust_vs_cpp.webp",
+        "date": "2025-06-06T09:00",
+        "tags": [
+            "Embedded Systems"
+        ],
+        "author": "Aine Dixon",
+        "ogImage": "rust_vs_cpp-og.jpg"
+    },
+    {
+        "id": "e4t3pi-erjt",
+        "title": "Launching Open Source Hardware Projects with the Community",
+        "slug": "open-source-hardware",
+        "excerpt": "Tips for publishing and managing open-source embedded or tooling projects.",
+        "image": "opensource.webp",
+        "date": "2025-08-04T16:00",
+        "tags": [
+            "Hardware Design",
+            "Open Source"
+        ],
+        "author": "Aine Dixon",
+        "ogImage": "opensource-og.jpg"
+    }
 ]

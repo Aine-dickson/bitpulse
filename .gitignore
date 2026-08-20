@@ -144,3 +144,7 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Cloudflare Worker local secrets and build state
+worker/.dev.vars
+worker/.wrangler/

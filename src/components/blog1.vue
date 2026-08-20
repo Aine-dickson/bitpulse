@@ -2,27 +2,27 @@
     <div class="py-10">
 
         <h2 class="text-2xl font-semibold mb-4">
-            🌍 The Rise of African Tech — A Surface-Level View
+            🌍 The Rise of African Tech: A Surface-Level View
         </h2>
 
         <div class="text-lg space-y-3">
             <p>Africa is buzzing with code.</p>
-            <p>Hackathons are full. Mobile money is mainstream. Fintechs are launching in every capital city. From Lagos to Kampala to Nairobi, there’s a wave of momentum — and rightly so. The world is taking notice. Startups like Flutterwave, Chipper Cash, and Paystack have shown that African software can scale, disrupt, and win globally.</p>
+            <p>Hackathons are full. Mobile money is mainstream. Fintechs are launching in every capital city. From Lagos to Kampala to Nairobi, there’s a wave of momentum, and rightly so. The world is taking notice. Startups like Flutterwave, Chipper Cash, and Paystack have shown that African software can scale, disrupt, and win globally.</p>
             <p>But beneath the surface, something’s missing.</p>
-            <p>While apps and APIs dominate the spotlight, many of Africa’s most <span class="font-bold">pressing problems</span> remain unsolved — or even untouched — by our tech boom.</p>
+            <p>While apps and APIs dominate the spotlight, many of Africa’s most <span class="font-bold">pressing problems</span> remain unsolved, or even untouched, by our tech boom.</p>
             <p>We’ve made progress, yes. But we’ve also grown addicted to trends. Our definition of “tech” has become too narrow.</p>
         </div>
 
 
         <blockquote class="p-4 my-6 border-s-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800">
-            <p class="text-lg italic font-medium leading-relaxed text-gray-900 dark:text-white">Apps are great — but Africa also needs tech that moves metal, purifies water, manages traffic, and thrives in unstable power environments.</p>
+            <p class="text-lg italic font-medium leading-relaxed text-gray-900 dark:text-white">Apps are great, but Africa also needs tech that moves metal, purifies water, manages traffic, and thrives in unstable power environments.</p>
         </blockquote>
 
         <hr class="text-gray-300 dark:text-gray-800 my-12" />
 
         <h2 class="text-2xl font-semibold mb-4">🚧 The Problems We’re Ignoring</h2>
         <div class="text-lg space-y-3 mb-4">
-            <p>Take a walk through any African city or village, and you’ll see the real problems — not in the cloud, but on the ground.</p>
+            <p>Take a walk through any African city or village, and you’ll see the real problems. They aren’t in the cloud, they’re on the ground.</p>
             <ul class="list-disc pl-10 space-y-2">
                 <li>
                     <span class="font-bold">Traffic that bleeds productivity</span> from major cities daily
@@ -66,38 +66,38 @@
                 <li>
                     <h3 class="text-xl font-semibold mb-3">⚙️ 1. Embedded Innovation</h3>
                     <p>
-                        We need tech that can sense, automate, and control physical realities — not just manipulate digital forms. From smart irrigation systems to intelligent traffic signals to programmable manufacturing lines, <span class="font-bold">embedded systems</span> are essential.
+                        We need tech that can sense, automate, and control physical realities, not just manipulate digital forms. From smart irrigation systems to intelligent traffic signals to programmable manufacturing lines, <span class="font-bold">embedded systems</span> are essential.
                     </p>
                 </li>
                 <li>
                     <h3 class="text-xl font-semibold mb-3">🔋 2. Sustainable Hardware</h3>
                     <p>
-                        Our devices must endure power outages, rough handling, dust, and heat. This means using <span class="font-bold">robust components</span>, <span class="font-bold">fail-safe logic</span>, and <span class="font-bold">local repairability</span> as design principles — not afterthoughts.
+                        Our devices must endure power outages, rough handling, dust, and heat. This means using <span class="font-bold">robust components</span>, <span class="font-bold">fail-safe logic</span>, and <span class="font-bold">local repairability</span> as design principles rather than afterthoughts.
                     </p>
                 </li>
                 <li>
                     <h3 class="text-xl font-semibold mb-3">🔗 3. Interoperable & Offline-First Platforms</h3>
                     <p>
-                        Systems must talk to each other without needing Silicon Valley infrastructure. <span class="font-bold">Offline-first design</span> is not a limitation here — it’s a necessity.
+                        Systems must talk to each other without needing Silicon Valley infrastructure. <span class="font-bold">Offline-first design</span> is not a limitation here. It’s a necessity.
                     </p>
                 </li>
                 <li>
                     <h3 class="text-xl font-semibold mb-3">🧠 4. Local Problem-Solvers</h3>
                     <p>
-                        We need more engineers, developers, and designers who build with their communities in mind — not just for overseas freelancing. This calls for education that mixes <span class="font-bold">deep technical skill with local immersion</span>.
+                        We need more engineers, developers, and designers who build with their communities in mind, not just for overseas freelancing. This calls for education that mixes <span class="font-bold">deep technical skill with local immersion</span>.
                     </p>
                 </li>
                 <li>
                     <h3 class="text-xl font-semibold mb-3">🌍 5. African-Centric R&D</h3>
                     <p>
-                        Innovation must come from labs, garages, and startups that see <span class="font-bold">Africa not as a user base, but as a design base</span>. The best solutions will come from within — if we make space and support them.
+                        Innovation must come from labs, garages, and startups that see <span class="font-bold">Africa not as a user base, but as a design base</span>. The best solutions will come from within, if we make space and support them.
                     </p>
                 </li>
             </ul>
         </section>
 
         <blockquote class="p-4 my-4 border-s-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800">
-            <p class="text-lg italic font-medium leading-relaxed text-gray-900 dark:text-white">We don’t need a Silicon Valley copy. We need a BitPulse moment — rugged, reliable systems designed by and for African environments.</p>
+            <p class="text-lg italic font-medium leading-relaxed text-gray-900 dark:text-white">We don’t need a Silicon Valley copy. We need a BitPulse moment: rugged, reliable systems designed by and for African environments.</p>
         </blockquote>
 
         <hr class="text-gray-300 dark:text-gray-800 my-12" />
@@ -114,7 +114,7 @@
                     <span class="font-bold">Educators</span> must inspire curiosity in systems thinking and practical tech, not just certifications.
                 </li>
                 <li>
-                    <span class="font-bold">Entrepreneurs</span> must be patient with hardware cycles, and willing to build things that take time — not just pitch decks.
+                    <span class="font-bold">Entrepreneurs</span> must be patient with hardware cycles, and willing to build things that take time, not just pitch decks.
                 </li>
                 <li>
                     <span class="font-bold">Governments</span> must rethink procurement, giving local innovators a chance instead of importing cookie-cutter solutions that fail locally.
@@ -139,7 +139,7 @@
                 BitPulse was born from this realization.
             </p>
             <p>
-                We’re not just building apps. We’re building <span class="font-bold">systems</span> — often messy, sometimes slow, but always grounded in reality. Whether it's a simulated billet-cutting machine for low-cost prototyping, or a decentralized traffic control concept powered by microcontrollers and fuzzy logic, we are committed to tech that works <span class="font-bold">in the real world</span>.
+                We’re not just building apps. We’re building <span class="font-bold">systems</span> that are often messy and sometimes slow, but always grounded in reality. Whether it's a simulated billet-cutting machine for low-cost prototyping, or a decentralized traffic control concept powered by microcontrollers and fuzzy logic, we are committed to tech that works <span class="font-bold">in the real world</span>.
             </p>
             <p>
                 We’re early in our journey. But our direction is clear:
@@ -159,7 +159,7 @@
                 Africa is not behind. Africa is <span class="font-bold">different</span>. And that’s our strength.
             </p>
             <p>
-                We’re a continent of complexity and creativity. If we build systems that honor that — systems that go beyond code — we won’t just catch up to the world’s tech scene…
+                We’re a continent of complexity and creativity. If we build systems that honor that, systems that go beyond code, we won’t just catch up to the world’s tech scene…
             </p>
             <p>
                 We’ll redefine it.
@@ -190,7 +190,7 @@
 
         <hr class="text-gray-300 dark:text-gray-800 my-12" />
         <p class="italic font-bold text-lg">
-            Written by the BitPulse Team — Innovating for Real Impact.
+            Written by the BitPulse Team. Innovating for real impact.
         </p>
         <hr class="text-gray-300 dark:text-gray-800 mt-12 mb-4" />
     </div>

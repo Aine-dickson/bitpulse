@@ -2,13 +2,24 @@
 import { RouterLink } from 'vue-router'
 import { sectors } from '@/data/sectors'
 import { useSeoMeta } from '@/composables/useSeoMeta'
+import { breadcrumbLd, itemListLd } from '@/utils/structuredData'
 import NetLabel from '@/components/ui/NetLabel.vue'
 
 useSeoMeta({
-  title: 'Sectors',
+  title: 'Sectors We Build For | Smart Cities, Health Tech, Fintech & More',
   description:
-    'The same core — sensing, firmware, connectivity, data — retargeted to smarter cities, health tech, digital economies, education, developer tools and embedded systems.',
+    'The same core of sensing, firmware, connectivity and data, retargeted to smarter cities, health tech, digital economies, education, developer tools and embedded systems.',
   canonical: '/innovations',
+  jsonLd: [
+    breadcrumbLd([
+      { name: 'Home', path: '/' },
+      { name: 'Sectors', path: '/innovations' },
+    ]),
+    itemListLd({
+      name: 'Sectors BitPulse builds for',
+      items: sectors.map((s) => ({ name: s.name, path: `/innovations/${s.slug}` })),
+    }),
+  ],
 })
 </script>
 
@@ -21,7 +32,7 @@ useSeoMeta({
         Six sectors we're already wiring up.
       </h1>
       <p class="mt-6 max-w-[54ch] text-[1.1rem] text-ink-2">
-        The same core — sensing, firmware, connectivity, data — retargeted to the problems worth
+        The same core of sensing, firmware, connectivity and data, retargeted to the problems worth
         solving on the continent.
       </p>
     </div>

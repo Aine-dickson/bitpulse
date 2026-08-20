@@ -25,6 +25,21 @@ defineProps<{ name: string }>()
       <path d="M12 3 2 8l10 5 10-5-10-5Z" />
       <path d="M2 8v5l10 5 10-5V8" />
     </template>
+    <template v-else-if="name === 'window'">
+      <rect x="2" y="4" width="14" height="11" rx="1.5" />
+      <path d="M2 7.5h14" />
+      <path d="M4.5 5.75h.01M6.75 5.75h.01" />
+      <path d="M6 18.5h5" />
+      <rect x="15" y="11" width="7" height="10.5" rx="1.5" />
+      <path d="M18.2 19.4h.01" />
+    </template>
+    <template v-else-if="name === 'legacy'">
+      <ellipse cx="8" cy="5.5" rx="5.5" ry="2.5" />
+      <path d="M2.5 5.5v6c0 1.4 2.5 2.5 5.5 2.5" />
+      <path d="M2.5 11.5v6c0 1.4 2.5 2.5 5.5 2.5" />
+      <path d="M17 21v-8" />
+      <path d="M13.5 16.5 17 13l3.5 3.5" />
+    </template>
     <template v-else-if="name === 'clock'">
       <circle cx="12" cy="12" r="9" />
       <path d="M12 7v5l3.5 2" />

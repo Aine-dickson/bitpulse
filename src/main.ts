@@ -30,7 +30,7 @@ export const createApp = ViteSSG(
       const title = to.meta?.title as string | undefined
       document.title = title
         ? `${title} · BitPulse`
-        : 'BitPulse — Embedded, Firmware & Systems Software'
+        : 'BitPulse | Embedded, Firmware & Systems Software'
     })
 
     // GitHub Pages SPA deep-link restore (see public/404.html).

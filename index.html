@@ -26,13 +26,32 @@
       content="BitPulse is a product & R&D studio for embedded hardware, firmware and systems software — routing ideas from bare metal to working systems."
     />
 
-    <!-- Fonts: Archivo (display) + IBM Plex Mono (designators) -->
+    <!-- Feed + crawl hints -->
+    <link rel="alternate" type="application/rss+xml" title="BitPulse — Field Notes" href="/rss.xml" />
+
+    <!-- Fonts: Archivo (display) + IBM Plex Mono (designators).
+         Loaded non-render-blocking: the stylesheet is fetched at `media="print"`
+         (so it never blocks first paint) then flipped to `all` once it lands.
+         LCP is a ranking input; a blocking Google Fonts request costs ~300ms. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
   </head>
   <body>
     <div id="app"></div>

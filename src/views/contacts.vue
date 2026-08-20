@@ -2,14 +2,45 @@
 import { ref } from 'vue'
 import { site } from '@/data/site'
 import { useSeoMeta } from '@/composables/useSeoMeta'
+import { breadcrumbLd } from '@/utils/structuredData'
 import { submitLead } from '@/utils/leads'
+import { useUiStore } from '@/stores/ui'
 import NetLabel from '@/components/ui/NetLabel.vue'
 
 useSeoMeta({
-  title: 'Contact',
+  title: 'Contact BitPulse | Embedded & Firmware Engineering, Kampala',
   description:
-    'Need help, looking to collaborate, or want a quote? Tell us what you are trying to build and we will get back within 24–48 hours.',
+    'Need help, looking to collaborate, or want a quote? Tell us what you are trying to build and we will get back within 24 to 48 hours. Based in Kampala, Uganda.',
   canonical: '/contacts',
+  jsonLd: [
+    breadcrumbLd([
+      { name: 'Home', path: '/' },
+      { name: 'Contact', path: '/contacts' },
+    ]),
+    // LocalBusiness (not just Organization) is what makes the studio eligible
+    // for the Kampala / "near me" style local packs.
+    {
+      '@type': ['ProfessionalService', 'LocalBusiness'],
+      '@id': 'https://bitpulse.dev/contacts#localbusiness',
+      name: site.name,
+      description: site.description,
+      url: 'https://bitpulse.dev/contacts',
+      email: site.email,
+      telephone: site.phone,
+      image: 'https://bitpulse.dev/og-image.png',
+      priceRange: '$$',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Kampala',
+        addressCountry: 'UG',
+      },
+      areaServed: [
+        { '@type': 'Country', name: 'Uganda' },
+        { '@type': 'Place', name: 'East Africa' },
+      ],
+      parentOrganization: { '@id': 'https://bitpulse.dev/#organization' },
+    },
+  ],
 })
 
 const topics = [
@@ -21,6 +52,8 @@ const topics = [
   'Careers & collaboration',
 ]
 
+const uiStore = useUiStore()
+
 const form = ref({ name: '', email: '', topic: '', message: '' })
 const submitted = ref(false)
 const submitting = ref(false)
@@ -29,10 +62,10 @@ const errorMsg = ref('')
 async function submit() {
   submitting.value = true
   errorMsg.value = ''
-  const res = await submitLead('contact', { ...form.value })
+  const res = await submitLead('contact', { ...form.value }, { form: 'Quick consultation' })
   submitting.value = false
   if (res.ok) submitted.value = true
-  else errorMsg.value = 'Sorry — that could not be sent. Please email us directly at ' + site.email + '.'
+  else errorMsg.value = `That did not send. Please email us directly at ${site.email}, or use WhatsApp.`
 }
 
 const channels = [
@@ -53,7 +86,7 @@ const channels = [
       </h1>
       <p class="mt-6 max-w-[54ch] text-[1.1rem] text-ink-2">
         Need help, looking to collaborate, or after a quote? Send us the shape of the problem and
-        we'll point you at the right next step — usually within 24–48 hours.
+        we'll point you at the right next step, usually within 24 to 48 hours.
       </p>
     </div>
   </section>
@@ -63,7 +96,18 @@ const channels = [
     <div class="mx-auto grid max-w-[1120px] gap-6 px-6 lg:grid-cols-[1.3fr_0.7fr]">
       <!-- form -->
       <div class="rounded-lg border border-line bg-surface p-8">
-        <NetLabel text="Quick consultation" />
+        <div class="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <NetLabel text="Quick consultation" />
+            <p class="mt-3 max-w-[46ch] text-[0.9rem] text-ink-3">
+              For a general question or a first hello. If you already know what you need built,
+              the quote form asks the right questions and gets you a price faster.
+            </p>
+          </div>
+          <button type="button" class="btn btn-line shrink-0" @click="uiStore.showModal('requestQuoteForm')">
+            Request a quote
+          </button>
+        </div>
         <form v-if="!submitted" class="mt-6 flex flex-col gap-4" @submit.prevent="submit">
           <div class="grid gap-4 sm:grid-cols-2">
             <label class="flex flex-col gap-1.5">
@@ -98,8 +142,8 @@ const channels = [
         <div v-else class="mt-6 rounded-md border border-accent bg-accent-soft p-6">
           <p class="font-display text-[1.15rem] font-extrabold text-ink">Thanks for reaching out.</p>
           <p class="mt-2 text-[0.95rem] text-ink-2">
-            We've got the shape of it — expect a reply within 24–48 hours. For anything urgent,
-            reach us directly on the right.
+            We've got the shape of it. Expect a reply within 24 to 48 hours, and a copy is on its
+            way to your inbox. For anything urgent, reach us directly on the right.
           </p>
         </div>
       </div>

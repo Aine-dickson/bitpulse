@@ -7,7 +7,7 @@ import NetLabel from '@/components/ui/NetLabel.vue'
 useSeoMeta({
   title: 'Partnership',
   description:
-    'Partner with BitPulse — co-create in embedded systems, software, R&D and community tech. From co-development to strategic alliances.',
+    'Partner with BitPulse to co-create in embedded systems, software, R&D and community tech. From co-development to strategic alliances.',
   canonical: '/partner',
 })
 
@@ -24,7 +24,7 @@ const benefits = [
   },
   {
     title: 'Driven by Purpose',
-    text: 'We care about meaningful tech — from local needs to scalable systems.',
+    text: 'We care about meaningful tech, from local needs to scalable systems.',
   },
 ]
 
@@ -93,7 +93,7 @@ const types = [
           <h2 class="max-w-[22ch] text-[clamp(1.6rem,3.4vw,2.3rem)] text-ink">
             Let's build something powerful together.
           </h2>
-          <p class="mt-3 text-[1rem] text-ink-2">Pitch an idea or schedule a call — we'll take it from there.</p>
+          <p class="mt-3 text-[1rem] text-ink-2">Pitch an idea or schedule a call, and we'll take it from there.</p>
         </div>
         <div class="flex flex-wrap gap-3">
           <button class="btn btn-primary" @click="uiStore.showModal('partnershipForm')">Submit proposal</button>

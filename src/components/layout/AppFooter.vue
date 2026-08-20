@@ -36,7 +36,7 @@ const year = ref(new Date().getFullYear())
 
       <div class="flex flex-wrap justify-between gap-2.5 pt-6 font-mono text-[0.66rem] uppercase tracking-[0.06em] text-[#8f9b8c]">
         <span>© {{ year }} {{ site.legalName }}</span>
-        <span>{{ site.location }} — {{ site.timezone }}</span>
+        <span>{{ site.location }} · {{ site.timezone }}</span>
         <span>The Trace · v2</span>
       </div>
     </div>

@@ -3,16 +3,27 @@ import { services } from '@/data/services'
 import { process } from '@/data/process'
 import { useUiStore } from '@/stores/ui'
 import { useSeoMeta } from '@/composables/useSeoMeta'
+import { breadcrumbLd, itemListLd } from '@/utils/structuredData'
 import NetLabel from '@/components/ui/NetLabel.vue'
 import CapIcon from '@/components/ui/CapIcon.vue'
 
 const uiStore = useUiStore()
 
 useSeoMeta({
-  title: 'Services',
+  title: 'Embedded, Firmware & Systems Engineering Services',
   description:
-    'From embedded firmware and backend systems to R&D prototyping, developer tools, training and firmware audits — the full signal path, one team.',
+    'Embedded firmware, backend & systems software, web and mobile apps, legacy modernization, R&D prototyping, developer tools, training and firmware audits. The full signal path, one team, from Kampala.',
   canonical: '/services',
+  jsonLd: [
+    breadcrumbLd([
+      { name: 'Home', path: '/' },
+      { name: 'Services', path: '/services' },
+    ]),
+    itemListLd({
+      name: 'BitPulse engineering services',
+      items: services.map((s) => ({ name: s.name, path: `/services/${s.slug}` })),
+    }),
+  ],
 })
 </script>
 
@@ -25,7 +36,7 @@ useSeoMeta({
         Explore what we can build together.
       </h1>
       <p class="mt-6 max-w-[52ch] text-[1.1rem] text-ink-2">
-        From backend systems to embedded innovation, we work the full signal path — turning ideas
+        From backend systems to the interface in front of the user, we work the full signal path, turning ideas
         into real-world hardware, firmware and software.
       </p>
     </div>
@@ -93,7 +104,10 @@ useSeoMeta({
             Let's figure out how BitPulse can help you build, scale, or solve the challenge in front of you.
           </p>
         </div>
-        <button class="btn btn-primary" @click="uiStore.showModal('consultationForm')">Book a free consultation</button>
+        <div class="flex flex-wrap items-center gap-3">
+          <button class="btn btn-primary" @click="uiStore.showModal('consultationForm')">Book a free consultation</button>
+          <button class="btn btn-line" @click="uiStore.showModal('requestQuoteForm')">Request a quote</button>
+        </div>
       </div>
     </div>
   </section>
