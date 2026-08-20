@@ -148,3 +148,6 @@ dist
 # Cloudflare Worker local secrets and build state
 worker/.dev.vars
 worker/.wrangler/
+
+# OG card generator scratch (browser profiles can stay locked)
+.og-tmp/

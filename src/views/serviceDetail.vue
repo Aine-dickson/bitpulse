@@ -26,6 +26,10 @@ useSeoMeta({
   title: service.value ? `${service.value.name} Engineering Services` : 'Service',
   description: service.value?.detail,
   canonical: service.value ? `/services/${service.value.slug}` : '/services',
+  // Per-service share card, so a link to one track no longer looks identical
+  // to a link to the home page. Regenerate with: bun scripts/generate-og.ts
+  image: service.value ? `/og/services/${service.value.slug}.png` : undefined,
+  imageAlt: service.value ? `${service.value.name} · ${service.value.summary}` : undefined,
   noindex: !service.value,
   jsonLd: service.value
     ? [
