@@ -1,0 +1,11 @@
+# https://bitpulse.dev/robots.txt
+# Everything on this site is meant to be indexed. Crawl freely.
+
+User-agent: *
+Allow: /
+
+# Query-string variants of real pages (the enquiry-modal deep links) are
+# duplicates of the canonical page — no value in crawling them separately.
+Disallow: /*?enquiry=
+
+Sitemap: https://bitpulse.dev/sitemap.xml

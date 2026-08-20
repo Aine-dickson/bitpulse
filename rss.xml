@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BitPulse — Field Notes</title>
+    <link>https://bitpulse.dev/blogs</link>
+    <description>Embedded systems, firmware and systems-software engineering notes from the BitPulse studio.</description>
+    <language>en</language>
+    <atom:link href="https://bitpulse.dev/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Launching Open Source Hardware Projects with the Community</title>
+      <link>https://bitpulse.dev/blogs/open-source-hardware</link>
+      <guid isPermaLink="true">https://bitpulse.dev/blogs/open-source-hardware</guid>
+      <description>Tips for publishing and managing open-source embedded or tooling projects.</description>
+      <pubDate>Mon, 04 Aug 2025 16:00:00 GMT</pubDate>
+      <category>Hardware Design</category><category>Open Source</category>
+    </item>
+    <item>
+      <title>Rust vs C++ for Embedded Systems</title>
+      <link>https://bitpulse.dev/blogs/rust-vs-c-for-embedded-systems-the-battle-for-the-bare-metal</link>
+      <guid isPermaLink="true">https://bitpulse.dev/blogs/rust-vs-c-for-embedded-systems-the-battle-for-the-bare-metal</guid>
+      <description>We compare two powerful languages and how they stack up in embedded development.</description>
+      <pubDate>Fri, 06 Jun 2025 09:00:00 GMT</pubDate>
+      <category>Embedded Systems</category>
+    </item>
+    <item>
+      <title>Prototyping 101: From Idea to Physical MVP</title>
+      <link>https://bitpulse.dev/blogs/prototyping-101</link>
+      <guid isPermaLink="true">https://bitpulse.dev/blogs/prototyping-101</guid>
+      <description>What to consider before starting your hardware or embedded software prototype.</description>
+      <pubDate>Mon, 26 May 2025 14:00:00 GMT</pubDate>
+      <category>Prototyping</category>
+    </item>
+    <item>
+      <title>How Embedded Systems are Powering Smart Infrastructure</title>
+      <link>https://bitpulse.dev/blogs/what-africa-truly-needs-from-its-tech-revolution</link>
+      <guid isPermaLink="true">https://bitpulse.dev/blogs/what-africa-truly-needs-from-its-tech-revolution</guid>
+      <description>A dive into real-world use cases where embedded tech and IoT are transforming industries…</description>
+      <pubDate>Thu, 15 May 2025 10:00:00 GMT</pubDate>
+      <category>IoT</category><category>Embedded Systems</category>
+    </item>
+  </channel>
+</rss>

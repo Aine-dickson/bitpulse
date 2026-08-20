@@ -1,199 +1,199 @@
 {
   "\u0000/home/runner/work/bitpulse/bitpulse/node_modules/@supabase/node-fetch/browser.js?commonjs-proxy": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "\u0000/home/runner/work/bitpulse/bitpulse/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestBuilder.js?commonjs-exports": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "\u0000/home/runner/work/bitpulse/bitpulse/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestClient.js?commonjs-exports": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "\u0000/home/runner/work/bitpulse/bitpulse/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestError.js?commonjs-exports": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "\u0000/home/runner/work/bitpulse/bitpulse/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestFilterBuilder.js?commonjs-exports": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "\u0000/home/runner/work/bitpulse/bitpulse/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestQueryBuilder.js?commonjs-exports": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "\u0000/home/runner/work/bitpulse/bitpulse/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestTransformBuilder.js?commonjs-exports": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "\u0000/home/runner/work/bitpulse/bitpulse/node_modules/@supabase/postgrest-js/dist/cjs/constants.js?commonjs-exports": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "\u0000/home/runner/work/bitpulse/bitpulse/node_modules/@supabase/postgrest-js/dist/cjs/index.js?commonjs-es-import": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "\u0000/home/runner/work/bitpulse/bitpulse/node_modules/@supabase/postgrest-js/dist/cjs/index.js?commonjs-exports": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "\u0000/home/runner/work/bitpulse/bitpulse/node_modules/@supabase/postgrest-js/dist/cjs/version.js?commonjs-exports": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "\u0000commonjsHelpers.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "\u0000plugin-vue:export-helper": [],
   "\u0000vite/modulepreload-polyfill.js": [],
   "\u0000vite/preload-helper.js": [],
   "index.html": [],
   "node_modules/@supabase/auth-js/dist/module/AuthClient.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/GoTrueAdminApi.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/GoTrueClient.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/lib/base64url.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/lib/constants.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/lib/errors.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/lib/fetch.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/lib/helpers.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/lib/local-storage.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/lib/locks.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/lib/polyfills.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/lib/types.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/lib/version.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/functions-js/dist/module/FunctionsClient.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/functions-js/dist/module/helper.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/functions-js/dist/module/types.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/node-fetch/browser.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/postgrest-js/dist/cjs/PostgrestBuilder.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/postgrest-js/dist/cjs/PostgrestClient.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/postgrest-js/dist/cjs/PostgrestError.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/postgrest-js/dist/cjs/PostgrestFilterBuilder.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/postgrest-js/dist/cjs/PostgrestQueryBuilder.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/postgrest-js/dist/cjs/PostgrestTransformBuilder.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/postgrest-js/dist/cjs/constants.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/postgrest-js/dist/cjs/index.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/postgrest-js/dist/cjs/version.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/postgrest-js/dist/esm/wrapper.mjs": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/realtime-js/dist/module/RealtimeChannel.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/realtime-js/dist/module/RealtimeClient.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/realtime-js/dist/module/RealtimePresence.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/realtime-js/dist/module/WebSocket.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/realtime-js/dist/module/lib/constants.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/realtime-js/dist/module/lib/push.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/realtime-js/dist/module/lib/serializer.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/realtime-js/dist/module/lib/timer.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/realtime-js/dist/module/lib/transformers.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/realtime-js/dist/module/lib/version.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/storage-js/dist/module/StorageClient.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/storage-js/dist/module/lib/constants.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/storage-js/dist/module/lib/errors.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/storage-js/dist/module/lib/fetch.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/storage-js/dist/module/lib/helpers.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/storage-js/dist/module/lib/version.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/storage-js/dist/module/packages/StorageBucketApi.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/storage-js/dist/module/packages/StorageFileApi.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/supabase-js/dist/module/SupabaseClient.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/supabase-js/dist/module/index.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/supabase-js/dist/module/lib/SupabaseAuthClient.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/supabase-js/dist/module/lib/constants.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/supabase-js/dist/module/lib/fetch.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/supabase-js/dist/module/lib/helpers.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@supabase/supabase-js/dist/module/lib/version.js": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "node_modules/@unhead/vue/dist/client.mjs": [],
   "node_modules/@unhead/vue/dist/shared/vue.Cr7xSEtD.mjs": [],
@@ -203,204 +203,204 @@
   "node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js": [],
   "node_modules/@vue/shared/dist/shared.esm-bundler.js": [],
   "node_modules/axios/index.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/adapters/adapters.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/adapters/fetch.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/adapters/xhr.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/axios.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/cancel/CancelToken.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/cancel/CanceledError.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/cancel/isCancel.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/core/Axios.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/core/AxiosError.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/core/AxiosHeaders.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/core/InterceptorManager.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/core/buildFullPath.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/core/dispatchRequest.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/core/mergeConfig.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/core/settle.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/core/transformData.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/defaults/index.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/defaults/transitional.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/env/data.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/AxiosURLSearchParams.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/HttpStatusCode.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/bind.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/buildURL.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/combineURLs.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/composeSignals.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/cookies.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/formDataToJSON.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/isAbsoluteURL.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/isAxiosError.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/isURLSameOrigin.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/null.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/parseHeaders.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/parseProtocol.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/progressEventReducer.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/resolveConfig.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/speedometer.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/spread.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/throttle.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/toFormData.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/toURLEncodedForm.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/trackStream.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/helpers/validator.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/platform/browser/classes/Blob.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/platform/browser/classes/FormData.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/platform/browser/classes/URLSearchParams.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/platform/browser/index.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/platform/common/utils.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/platform/index.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/axios/lib/utils.js": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "node_modules/deep-pick-omit/dist/index.mjs": [],
   "node_modules/destr/dist/index.mjs": [],
@@ -420,55 +420,55 @@
   "src/App.vue?vue&type=style&index=0&lang.css": [],
   "src/assets/main.css": [],
   "src/components/LeadModal.vue": [
-    "/assets/LeadModal-CPMnV71v.js",
-    "/assets/LeadModal-D_ZKmxdq.css"
+    "/assets/LeadModal-CumOniA5.js",
+    "/assets/LeadModal-D_A8xnHg.css"
   ],
   "src/components/LeadModal.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/LeadModal-CPMnV71v.js",
-    "/assets/LeadModal-D_ZKmxdq.css"
+    "/assets/LeadModal-CumOniA5.js",
+    "/assets/LeadModal-D_A8xnHg.css"
   ],
-  "src/components/LeadModal.vue?vue&type=style&index=0&scoped=ca570a19&lang.css": [
-    "/assets/LeadModal-CPMnV71v.js",
-    "/assets/LeadModal-D_ZKmxdq.css"
+  "src/components/LeadModal.vue?vue&type=style&index=0&scoped=ff209f69&lang.css": [
+    "/assets/LeadModal-CumOniA5.js",
+    "/assets/LeadModal-D_A8xnHg.css"
   ],
   "src/components/blog1.vue": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "src/components/blog2.vue": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "src/components/blog3.vue": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "src/components/blog4.vue": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "src/components/blogPage.vue": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "src/components/blogPage.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
-  "src/components/blogPage.vue?vue&type=style&index=0&scoped=2f79c3f2&lang.css": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+  "src/components/blogPage.vue?vue&type=style&index=0&scoped=4273af96&lang.css": [
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "src/components/home/BoardDiagram.vue": [
-    "/assets/home-Df_034iG.js",
+    "/assets/home-BgKHyWq-.js",
     "/assets/home-BIauPsQI.css"
   ],
   "src/components/home/BoardDiagram.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/home-Df_034iG.js",
+    "/assets/home-BgKHyWq-.js",
     "/assets/home-BIauPsQI.css"
   ],
   "src/components/home/BoardDiagram.vue?vue&type=style&index=0&scoped=05f516cc&lang.css": [
-    "/assets/home-Df_034iG.js",
+    "/assets/home-BgKHyWq-.js",
     "/assets/home-BIauPsQI.css"
   ],
   "src/components/layout/AppFooter.vue?vue&type=script&setup=true&lang.ts": [],
@@ -480,140 +480,145 @@
   "src/components/layout/ThemeToggle.vue?vue&type=style&index=0&scoped=2158f2e8&lang.css": [],
   "src/components/ui/BrandWordmark.vue?vue&type=script&setup=true&lang.ts": [],
   "src/components/ui/CapIcon.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/CapIcon.vue_vue_type_script_setup_true_lang-DDQFfiK2.js"
+    "/assets/CapIcon.vue_vue_type_script_setup_true_lang-XeHO8RJ1.js"
   ],
   "src/components/ui/NetLabel.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/NetLabel.vue_vue_type_script_setup_true_lang-8ruegcu8.js"
+    "/assets/NetLabel.vue_vue_type_script_setup_true_lang-CH-M86zR.js"
   ],
   "src/composables/useSeoMeta.ts": [
-    "/assets/NetLabel.vue_vue_type_script_setup_true_lang-8ruegcu8.js"
+    "/assets/NetLabel.vue_vue_type_script_setup_true_lang-CH-M86zR.js"
   ],
   "src/composables/useTheme.ts": [],
   "src/config/seo.ts": [
-    "/assets/seo-bKAYT1ok.js"
+    "/assets/structuredData-5SnfQU5M.js"
   ],
   "src/content/posts.json": [
-    "/assets/blog-BM9Vysa0.js"
+    "/assets/blog-BqijMQpB.js"
   ],
   "src/data/leadForms.ts": [],
   "src/data/process.ts": [
     "/assets/process-B4P6h7yI.js"
   ],
   "src/data/programs.ts": [
-    "/assets/home-Df_034iG.js",
+    "/assets/home-BgKHyWq-.js",
     "/assets/home-BIauPsQI.css"
   ],
   "src/data/projects.ts": [
-    "/assets/projects-BVDly1q3.js"
+    "/assets/projects-pL6uUYKQ.js"
   ],
-  "src/data/sectors.ts": [
-    "/assets/sectors-49GW2N3R.js"
-  ],
-  "src/data/services.ts": [
-    "/assets/CapIcon.vue_vue_type_script_setup_true_lang-DDQFfiK2.js"
-  ],
+  "src/data/sectors.ts": [],
+  "src/data/services.ts": [],
   "src/data/site.ts": [],
   "src/data/why.ts": [
-    "/assets/why-7ilgxIiW.js"
+    "/assets/why-pA1LyC4H.js"
   ],
   "src/main.ts": [],
   "src/router/api.ts": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "src/router/index.ts": [],
   "src/stores/account.ts": [
-    "/assets/blogPage-w2K0yByi.js",
-    "/assets/blogPage-DVLb72YM.css"
+    "/assets/blogPage-BQ03rwMn.js",
+    "/assets/blogPage-DbzlPgpR.css"
   ],
   "src/stores/blog.ts": [
-    "/assets/blog-BM9Vysa0.js"
+    "/assets/blog-BqijMQpB.js"
   ],
   "src/stores/ui.ts": [],
   "src/utils/leads.ts": [
-    "/assets/leads-8Hm1wDXF.js"
+    "/assets/leads-dFGv-dxK.js"
+  ],
+  "src/utils/structuredData.ts": [
+    "/assets/structuredData-5SnfQU5M.js"
   ],
   "src/utils/supabase.ts": [
-    "/assets/supabase-DtlHWLMc.js"
+    "/assets/supabase-C8VVA1TH.js"
   ],
   "src/views/about.vue": [
-    "/assets/about-BDmElczv.js"
+    "/assets/about-DOwPUQlT.js"
   ],
   "src/views/about.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/about-BDmElczv.js"
+    "/assets/about-DOwPUQlT.js"
   ],
   "src/views/blog.vue": [
-    "/assets/blog-CggH9Kdc.js"
+    "/assets/blog-CanAiOBn.js"
   ],
   "src/views/blog.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/blog-CggH9Kdc.js"
+    "/assets/blog-CanAiOBn.js"
   ],
   "src/views/careers.vue": [
-    "/assets/careers-BtLQYf8T.js"
+    "/assets/careers-B48c7Lsm.js"
   ],
   "src/views/careers.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/careers-BtLQYf8T.js"
+    "/assets/careers-B48c7Lsm.js"
   ],
   "src/views/contacts.vue": [
-    "/assets/contacts-NVPQZ7Q7.js",
-    "/assets/contacts-CjybU3HT.css"
+    "/assets/contacts-CcrtoNji.js",
+    "/assets/contacts-Cbw-R2qG.css"
   ],
   "src/views/contacts.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/contacts-NVPQZ7Q7.js",
-    "/assets/contacts-CjybU3HT.css"
+    "/assets/contacts-CcrtoNji.js",
+    "/assets/contacts-Cbw-R2qG.css"
   ],
-  "src/views/contacts.vue?vue&type=style&index=0&scoped=33d6cb1c&lang.css": [
-    "/assets/contacts-NVPQZ7Q7.js",
-    "/assets/contacts-CjybU3HT.css"
+  "src/views/contacts.vue?vue&type=style&index=0&scoped=fdf21e70&lang.css": [
+    "/assets/contacts-CcrtoNji.js",
+    "/assets/contacts-Cbw-R2qG.css"
   ],
   "src/views/home.vue": [
-    "/assets/home-Df_034iG.js",
+    "/assets/home-BgKHyWq-.js",
     "/assets/home-BIauPsQI.css"
   ],
   "src/views/home.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/home-Df_034iG.js",
+    "/assets/home-BgKHyWq-.js",
     "/assets/home-BIauPsQI.css"
   ],
   "src/views/innovations.vue": [
-    "/assets/innovations-BWHpr59A.js"
+    "/assets/innovations-B-g2s7im.js"
   ],
   "src/views/innovations.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/innovations-BWHpr59A.js"
+    "/assets/innovations-B-g2s7im.js"
   ],
   "src/views/lab.vue": [
-    "/assets/lab-DBGk28T6.js"
+    "/assets/lab-Bmez_--5.js"
   ],
   "src/views/lab.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/lab-DBGk28T6.js"
+    "/assets/lab-Bmez_--5.js"
+  ],
+  "src/views/labDetail.vue": [
+    "/assets/labDetail-BU3XNN7x.js"
+  ],
+  "src/views/labDetail.vue?vue&type=script&setup=true&lang.ts": [
+    "/assets/labDetail-BU3XNN7x.js"
   ],
   "src/views/partnership.vue": [
-    "/assets/partnership-DV0iaVUH.js"
+    "/assets/partnership-BNZODwX9.js"
   ],
   "src/views/partnership.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/partnership-DV0iaVUH.js"
+    "/assets/partnership-BNZODwX9.js"
   ],
   "src/views/sectorDetail.vue": [
-    "/assets/sectorDetail-nij-MMEt.js"
+    "/assets/sectorDetail-CoTPfh5P.js"
   ],
   "src/views/sectorDetail.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/sectorDetail-nij-MMEt.js"
+    "/assets/sectorDetail-CoTPfh5P.js"
   ],
   "src/views/serviceDetail.vue": [
-    "/assets/serviceDetail-LwFxgx1Z.js"
+    "/assets/serviceDetail-Chu208bu.js"
   ],
   "src/views/serviceDetail.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/serviceDetail-LwFxgx1Z.js"
+    "/assets/serviceDetail-Chu208bu.js"
   ],
   "src/views/services.vue": [
-    "/assets/services-Dv4XELIJ.js"
+    "/assets/services-lQCwtIsj.js"
   ],
   "src/views/services.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/services-Dv4XELIJ.js"
+    "/assets/services-lQCwtIsj.js"
   ],
   "src/views/whyBitpulse.vue": [
-    "/assets/whyBitpulse-B_9hZs9Y.js"
+    "/assets/whyBitpulse-BLUVGOYd.js"
   ],
   "src/views/whyBitpulse.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/whyBitpulse-B_9hZs9Y.js"
+    "/assets/whyBitpulse-BLUVGOYd.js"
   ]
 }
