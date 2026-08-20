@@ -97,7 +97,7 @@ const byNewest = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date))
 const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>BitPulse — Field Notes</title>
+    <title>BitPulse Field Notes</title>
     <link>${SITE_URL}/blogs</link>
     <description>Embedded systems, firmware and systems-software engineering notes from the BitPulse studio.</description>
     <language>en</language>
