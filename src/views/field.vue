@@ -117,13 +117,14 @@ useSeoMeta({
             :title="fieldTheme === 'dark' ? 'Light theme' : 'Dark theme'"
             @click="toggleTheme"
           >
-            <svg v-if="fieldTheme === 'dark'" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <svg v-if="fieldTheme === 'dark'" class="h-[18px] w-[18px] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true">
               <circle cx="12" cy="12" r="4.2" />
               <path d="M12 2.6v2.2M12 19.2v2.2M4.3 4.3l1.6 1.6M18.1 18.1l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.3 19.7l1.6-1.6M18.1 5.9l1.6-1.6" />
             </svg>
-            <svg v-else class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <svg v-else class="h-[18px] w-[18px] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z" />
             </svg>
+            <span>{{ fieldTheme === 'dark' ? 'Light' : 'Dark' }}</span>
           </button>
         </div>
 
@@ -502,21 +503,28 @@ useSeoMeta({
   color: var(--f-panel-ink);
   border: 1.5px solid var(--f-panel-line);
 }
+/* A bare icon read as decoration and got missed, so this is an explicit
+   control: border, fill, and a word saying what it does. Still quiet enough
+   that it never competes with the two CTAs below it. */
 .theme-btn {
-  display: inline-grid;
-  place-items: center;
-  width: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   height: 44px;
-  margin-right: -10px; /* optical: keeps the icon aligned to the text column */
-  border-radius: 10px;
-  color: var(--f-muted);
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-}
-.theme-btn:hover {
+  padding: 0 14px;
+  border-radius: 999px;
   color: var(--f-ink);
   background: var(--f-card);
+  border: 1.5px solid var(--f-rule);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.theme-btn:hover {
+  border-color: var(--f-green);
+  color: var(--f-green);
 }
 
 .cta-bar {
