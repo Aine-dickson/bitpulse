@@ -14,8 +14,13 @@
         try {
           var t = localStorage.getItem('bitpulse-theme')
           document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light')
+          // /field carries its own theme, defaulting to light, so a visitor
+          // arriving from a business card never inherits the studio's dark mode.
+          var f = localStorage.getItem('bitpulse-field-theme')
+          document.documentElement.setAttribute('data-field-theme', f === 'dark' ? 'dark' : 'light')
         } catch (e) {
           document.documentElement.setAttribute('data-theme', 'light')
+          document.documentElement.setAttribute('data-field-theme', 'light')
         }
       })()
     </script>

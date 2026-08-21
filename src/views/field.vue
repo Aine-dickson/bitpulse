@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useSeoMeta, SITE_URL } from '@/composables/useSeoMeta'
 import SiteDiagram from '@/components/field/SiteDiagram.vue'
@@ -17,6 +18,36 @@ import {
 // so the studio chrome is suppressed (see `standalone` in the route meta).
 // The visitor has already met Aine. The page exists to prove the business is
 // real and get them onto WhatsApp or the phone, nothing else.
+
+// This page's theme is its own, independent of the studio toggle: it always
+// opens light (matching the printed cards) and only this control changes it.
+// The attribute is already stamped before first paint by the script in
+// index.html, so a returning visitor's choice does not flash.
+const FIELD_THEME_KEY = 'bitpulse-field-theme'
+const fieldTheme = ref<'light' | 'dark'>('light')
+
+function stamp(t: 'light' | 'dark') {
+  document.documentElement.setAttribute('data-field-theme', t)
+}
+
+onMounted(() => {
+  try {
+    if (localStorage.getItem(FIELD_THEME_KEY) === 'dark') fieldTheme.value = 'dark'
+  } catch {
+    /* private mode or storage blocked: light is the right fallback */
+  }
+  stamp(fieldTheme.value)
+})
+
+function toggleTheme() {
+  fieldTheme.value = fieldTheme.value === 'dark' ? 'light' : 'dark'
+  try {
+    localStorage.setItem(FIELD_THEME_KEY, fieldTheme.value)
+  } catch {
+    /* choice just will not persist; the page still switches */
+  }
+  stamp(fieldTheme.value)
+}
 
 useSeoMeta({
   title: 'WiFi, CCTV & Hotspot Installation in Kampala | BitPulse Field Services',
@@ -73,10 +104,27 @@ useSeoMeta({
     <section class="bg-paper">
       <div class="mx-auto grid max-w-[1000px] items-center gap-8 px-5 pb-10 pt-8 sm:px-8 sm:pb-14 sm:pt-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
        <div>
-        <div class="flex items-center gap-3">
+        <div class="flex items-center justify-between gap-3">
           <span class="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-green sm:text-[0.75rem]">
             Field Services · Kampala
           </span>
+
+          <!-- Shares the eyebrow's row so it adds no height above the fold. -->
+          <button
+            type="button"
+            class="theme-btn"
+            :aria-label="fieldTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
+            :title="fieldTheme === 'dark' ? 'Light theme' : 'Dark theme'"
+            @click="toggleTheme"
+          >
+            <svg v-if="fieldTheme === 'dark'" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4.2" />
+              <path d="M12 2.6v2.2M12 19.2v2.2M4.3 4.3l1.6 1.6M18.1 18.1l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.3 19.7l1.6-1.6M18.1 5.9l1.6-1.6" />
+            </svg>
+            <svg v-else class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z" />
+            </svg>
+          </button>
         </div>
 
         <h1 class="mt-4 max-w-[16ch] text-[2rem] font-extrabold leading-[1.04] tracking-tight text-inkf xs:text-[2.3rem] sm:text-[3.2rem]">
@@ -137,9 +185,14 @@ useSeoMeta({
                   <path d="M12 19.5h.01" />
                 </template>
                 <template v-else-if="s.icon === 'camera'">
-                  <path d="M3 7.5 17 4l1.4 5.4L4.4 12.9 3 7.5Z" />
-                  <path d="M18.4 9.4 21.5 8l1 3.8-3.1.8" />
-                  <path d="M6 13.4V19a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1.2" />
+                  <!-- Bullet camera: sun visor, capsule body, lens ring, wall
+                       bracket. The previous abstract shape did not read as a
+                       camera at 24px, which is the only size it is ever seen at. -->
+                  <path d="M6 5.9h10.4" />
+                  <rect x="5" y="7.3" width="13" height="6.6" rx="3.3" />
+                  <circle cx="14.6" cy="10.6" r="2" />
+                  <path d="M9 13.9v3.3" />
+                  <path d="M6.4 17.2h5.2" />
                 </template>
                 <template v-else-if="s.icon === 'ticket'">
                   <path d="M3 8.5V6.8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v1.7a2.2 2.2 0 0 0 0 4.4v1.7a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1.7a2.2 2.2 0 0 0 0-4.4Z" />
@@ -266,12 +319,12 @@ useSeoMeta({
     <!-- ================= FINAL CTA =================
          The photo prompt is the real conversion lever: it turns "I should get
          a quote sometime" into a message that can be sent in ten seconds. -->
-    <section class="border-t border-rule bg-inkf">
+    <section class="border-t border-rule bg-panel">
       <div class="mx-auto max-w-[1000px] px-5 py-12 sm:px-8 sm:py-16">
-        <h2 class="max-w-[18ch] text-[1.6rem] font-extrabold leading-tight tracking-tight text-onink sm:text-[2.2rem]">
+        <h2 class="max-w-[18ch] text-[1.6rem] font-extrabold leading-tight tracking-tight text-panel-ink sm:text-[2.2rem]">
           Get a quote for your building.
         </h2>
-        <p class="mt-4 max-w-[48ch] text-[1rem] leading-relaxed text-onink-muted sm:text-[1.08rem]">
+        <p class="mt-4 max-w-[48ch] text-[1rem] leading-relaxed text-panel-muted sm:text-[1.08rem]">
           Send a photo of the building or the room and we can give you a rough idea before we visit.
         </p>
 
@@ -290,7 +343,7 @@ useSeoMeta({
           </a>
         </div>
 
-        <p class="mt-6 text-[0.9rem] text-onink-muted">
+        <p class="mt-6 text-[0.9rem] text-panel-muted">
           Ask for {{ fieldContact.person }} · {{ fieldContact.location }}
         </p>
       </div>
@@ -361,6 +414,14 @@ useSeoMeta({
  */
 :global(.field) {
   --f-green: #17803d;
+  /* The final CTA sits on a dark panel in BOTH themes, so it needs its own
+     colour rather than borrowing --f-ink. Reusing --f-ink was a real bug: it
+     flips to a light value in dark mode, which turned the panel background
+     near-white while its text stayed near-white. */
+  --f-panel: #101a14;
+  --f-panel-ink: #f4f3ed;
+  --f-panel-muted: #8b9990;
+  --f-panel-line: #3a4a41;
   --f-green-soft: #e4efe7;
   --f-ink: #101a14;
   --f-paper: #f4f3ed;
@@ -371,10 +432,17 @@ useSeoMeta({
   --f-onink-muted: #8b9990;
 }
 
-/* Dark is opt-in site-wide; this page follows it rather than fighting it.
-   The lifted green (#35A860) is the collateral's dark-surface green.
-   Specificity (0,2,0) beats the light block's (0,1,0), so order cannot bite. */
-:global([data-theme='dark'] .field) {
+/*
+ * /field keeps its OWN theme, stamped as data-field-theme on <html>, rather
+ * than following the studio's data-theme. The two audiences are different
+ * people: a head teacher arriving from a business card should not inherit the
+ * dark mode an engineer set while reading the Lab. This page always opens
+ * light, matching the printed collateral, and the on-page toggle is the only
+ * thing that changes it.
+ *
+ * Specificity (0,2,0) beats the light block's (0,1,0), so order cannot bite.
+ */
+:global([data-field-theme='dark'] .field) {
   --f-green: #35a860;
   --f-green-soft: #17251c;
   --f-ink: #eaf0ea;
@@ -384,24 +452,28 @@ useSeoMeta({
   --f-rule: #2b342d;
   --f-onink: #eaf0ea;
   --f-onink-muted: #8b9990;
+  /* Panel stays dark; it just drops a shade so it still separates from the
+     dark page around it. */
+  --f-panel: #0b0f0c;
+  --f-panel-ink: #eaf0ea;
+  --f-panel-muted: #8b9990;
+  --f-panel-line: #2b342d;
 }
 
 .bg-paper { background: var(--f-paper); }
 .bg-card { background: var(--f-card); }
 .bg-green { background: var(--f-green); }
-.bg-inkf { background: var(--f-ink); }
+.bg-panel { background: var(--f-panel); }
 .bg-greensoft { background: var(--f-green-soft); }
 .text-inkf { color: var(--f-ink); }
 .text-muted { color: var(--f-muted); }
 .text-green { color: var(--f-green); }
-.text-onink { color: var(--f-onink); }
-.text-onink-muted { color: var(--f-onink-muted); }
 .border-rule { border-color: var(--f-rule); }
 
 /* On the dark final-CTA panel the ink background stays dark in both themes,
    so its text tokens are pinned rather than flipped. */
-.bg-inkf .text-onink { color: #f4f3ed; }
-.bg-inkf .text-onink-muted { color: #8b9990; }
+.text-panel-ink { color: var(--f-panel-ink); }
+.text-panel-muted { color: var(--f-panel-muted); }
 
 /* Phone numbers are the most important characters here, so they are set in the
    mono face with tabular figures: they should read as data, not as prose. */
@@ -427,9 +499,26 @@ useSeoMeta({
 }
 .cta-onink {
   background: transparent;
-  color: #f4f3ed;
-  border: 1.5px solid #3a4a41;
+  color: var(--f-panel-ink);
+  border: 1.5px solid var(--f-panel-line);
 }
+.theme-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px; /* optical: keeps the icon aligned to the text column */
+  border-radius: 10px;
+  color: var(--f-muted);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.theme-btn:hover {
+  color: var(--f-ink);
+  background: var(--f-card);
+}
+
 .cta-bar {
   @apply px-3 text-[0.95rem];
 }
