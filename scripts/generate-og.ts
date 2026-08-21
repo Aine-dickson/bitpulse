@@ -165,6 +165,50 @@ function card(s: (typeof services)[number]): string {
 </body></html>`
 }
 
+/**
+ * Field-services card. Different job from the studio cards: this URL spreads by
+ * being pasted into WhatsApp, so the preview is often ~200px wide. Everything
+ * on it is sized to survive that: three words and a phone number, nothing that
+ * turns to mush when scaled down.
+ */
+function fieldCard(): string {
+  const F = { green: '#17803D', ink: '#101A14', paper: '#F4F3ED', rule: '#CFD2C9' }
+  return `<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:1200px;height:630px;background:${F.paper};font-family:Archivo,system-ui,sans-serif;
+       color:${F.ink};overflow:hidden;display:flex;flex-direction:column}
+  .top{flex:1;padding:56px 64px 0;display:flex;flex-direction:column}
+  .brand{display:flex;align-items:center;gap:16px}
+  .brand b{font-size:38px;font-weight:900;letter-spacing:-.02em}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;
+           letter-spacing:.18em;text-transform:uppercase;color:${F.green};margin-top:38px}
+  h1{font-size:104px;font-weight:900;line-height:1.02;letter-spacing:-.03em;margin-top:20px}
+  .sub{font-size:30px;color:${F.ink};margin-top:26px;font-weight:600}
+  .bar{background:${F.green};color:#fff;padding:30px 64px;display:flex;align-items:center;
+       justify-content:space-between;gap:24px}
+  .tel{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;
+       font-size:62px;font-weight:600;letter-spacing:.01em}
+  .site{font-family:'IBM Plex Mono',monospace;font-size:26px;opacity:.92}
+</style></head>
+<body>
+  <div class="top">
+    <div class="brand">${MONOGRAM.replace('height="44"', 'height="58"')}<b>BitPulse</b></div>
+    <div class="eyebrow">Field Services &middot; Kampala</div>
+    <h1>WiFi &middot; CCTV<br>Hotspots</h1>
+    <div class="sub">Installed and maintained. Schools, hostels, offices, businesses.</div>
+  </div>
+  <div class="bar">
+    <div class="tel">0777 532 858</div>
+    <div class="site">bitpulse.dev/field</div>
+  </div>
+</body></html>`
+}
+
 // ------------------------------------------------------------------- render
 
 const EDGE_CANDIDATES = [
@@ -179,18 +223,18 @@ if (!browser) {
 }
 
 mkdirSync(outDir, { recursive: true })
+mkdirSync(resolve(root, 'public/og'), { recursive: true })
 mkdirSync(tmpDir, { recursive: true })
 
-let made = 0
-for (const s of services) {
-  const html = resolve(tmpDir, `${s.slug}.html`)
-  const png = resolve(outDir, `${s.slug}.png`)
-  writeFileSync(html, card(s), 'utf8')
+/** One card: write the HTML, shoot it, confirm the PNG actually landed. */
+function render(id: string, html: string, png: string): boolean {
+  const htmlPath = resolve(tmpDir, `${id}.html`)
+  writeFileSync(htmlPath, html, 'utf8')
   // Remove any previous card, so a failed render cannot pass as a fresh one.
   if (existsSync(png)) unlinkSync(png)
 
   const res = spawnSync(
-    browser,
+    browser!,
     [
       '--headless=new',
       '--disable-gpu',
@@ -199,23 +243,31 @@ for (const s of services) {
       '--force-device-scale-factor=1',
       // A per-card profile: Edge keeps the previous one locked, which silently
       // kills every launch after the first.
-      `--user-data-dir=${resolve(tmpDir, `profile-${s.slug}`)}`,
+      `--user-data-dir=${resolve(tmpDir, `profile-${id}`)}`,
       // Give webfonts time to land, or the card renders in a fallback face.
       '--virtual-time-budget=6000',
       '--window-size=1200,630',
       `--screenshot=${png}`,
-      `file:///${html.replace(/\\/g, '/')}`,
+      `file:///${htmlPath.replace(/\\/g, '/')}`,
     ],
     { stdio: 'ignore' },
   )
 
   if (res.error || !waitForStablePng(png)) {
-    console.error(`[og] FAILED ${s.slug}`, res.error ?? 'no screenshot written')
-    continue
+    console.error(`[og] FAILED ${id}`, res.error ?? 'no screenshot written')
+    return false
   }
-  console.log(`[og] ${s.slug}.png  ${statSync(png).size} bytes`)
-  made++
+  console.log(`[og] ${id}.png  ${statSync(png).size} bytes`)
+  return true
 }
+
+const jobs: { id: string; html: string; png: string }[] = [
+  ...services.map((s) => ({ id: s.slug, html: card(s), png: resolve(outDir, `${s.slug}.png`) })),
+  { id: 'field', html: fieldCard(), png: resolve(root, 'public/og/field.png') },
+]
+
+let made = 0
+for (const j of jobs) if (render(j.id, j.html, j.png)) made++
 
 // Edge can still hold a lock on its profile dirs; a leftover temp folder is
 // not worth failing the run over.
@@ -224,5 +276,5 @@ try {
 } catch {
   console.warn('[og] could not remove .og-tmp (browser still holding it); safe to delete manually')
 }
-console.log(`[og] wrote ${made}/${services.length} cards to public/og/services/`)
-if (made !== services.length) process.exit(1)
+console.log(`[og] wrote ${made}/${jobs.length} cards`)
+if (made !== jobs.length) process.exit(1)

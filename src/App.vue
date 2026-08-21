@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineAsyncComponent, onMounted, watch } from 'vue'
+import { computed, defineAsyncComponent, onMounted, watch } from 'vue'
 import { RouterView, useRoute } from 'vue-router'
 import AppNav from './components/layout/AppNav.vue'
 import AppFooter from './components/layout/AppFooter.vue'
@@ -25,17 +25,22 @@ function openFromQuery(value: unknown) {
   }
   uiStore.showModal(value, ctx)
 }
+// Routes flagged `standalone` render without the studio header and footer.
+// /field is the one today: a direct-entry landing page whose only job is to
+// get a warm lead onto WhatsApp or the phone.
+const standalone = computed(() => route.meta.standalone === true)
+
 onMounted(() => openFromQuery(route.query.enquiry))
 watch(() => route.query.enquiry, openFromQuery)
 </script>
 
 <template>
   <div class="flex min-h-screen flex-col bg-plate-0 text-ink">
-    <AppNav />
+    <AppNav v-if="!standalone" />
     <main class="flex-1">
       <RouterView />
     </main>
-    <AppFooter />
+    <AppFooter v-if="!standalone" />
 
     <!-- Enquiry modal overlay (config-driven, one component for every form) -->
     <Transition name="overlay">

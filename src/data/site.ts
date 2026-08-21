@@ -63,6 +63,10 @@ export const footerNav = [
     heading: 'Contact',
     links: [
       { to: '/contacts', label: 'contact@bitpulse.dev' },
+      // Field services lives at /field as a standalone landing page reached
+      // from business cards. It stays out of the main nav on purpose, but it
+      // needs one path in from the site so it is reachable and crawlable.
+      { to: '/field', label: 'WiFi & CCTV installation' },
       { to: '/careers', label: 'Careers' },
       { to: '/partner', label: 'Partnerships' },
     ],

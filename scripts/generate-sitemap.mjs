@@ -45,6 +45,9 @@ const entries = [
   { path: '/blogs', priority: '0.8', changefreq: 'weekly' },
   { path: '/about', priority: '0.7', changefreq: 'monthly' },
   { path: '/why-bitpulse', priority: '0.7', changefreq: 'monthly' },
+  // Field services: a direct-entry landing page, but it should still rank for
+  // local intent since some visitors search rather than type the URL.
+  { path: '/field', priority: '0.9', changefreq: 'monthly' },
   { path: '/contacts', priority: '0.6', changefreq: 'yearly' },
   { path: '/partner', priority: '0.6', changefreq: 'monthly' },
   { path: '/careers', priority: '0.6', changefreq: 'monthly' },

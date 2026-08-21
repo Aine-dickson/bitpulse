@@ -76,6 +76,16 @@ export const routes: RouteRecordRaw[] = [
         props: true,
     },
     {
+        // Standalone field-services landing page. Reached from business cards,
+        // stickers and shirts, never from the site nav. `standalone` tells
+        // App.vue to drop the studio header and footer: this visitor is here to
+        // call, and a nav full of R&D pages only gives them somewhere else to go.
+        path: '/field',
+        name: 'field',
+        component: () => import('@/views/field.vue'),
+        meta: { title: 'Field Services', requiresAuth: false, standalone: true },
+    },
+    {
         path: '/lab',
         name: 'lab',
         component: () => import('@/views/lab.vue'),
