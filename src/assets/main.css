@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Field-services pages (/field, /kits). Namespaced under .field. */
+@import "./field.css";
+
 /* ============================================================
    BITPULSE · "THE TRACE" design system
    Light-first. Dark is opt-in (data-theme="dark") and flips tokens.

@@ -1,0 +1,225 @@
+/* ============================================================
+   BITPULSE FIELD SERVICES — shared design system
+   Used by /field, /kits and /kits/:slug. Everything is namespaced
+   under .field so it can never leak into the studio pages, which
+   keep The Trace's plate/ink tokens.
+
+   Palette comes from the printed collateral so the site and the
+   business cards match.
+
+   Contrast, measured against the paper (#F4F3ED):
+     ink   #101A14  15.9:1  body copy
+     muted #58655C   5.5:1  captions and labels. Darkened from the
+                            collateral's #66736B, which lands at
+                            4.47:1 and misses AA for small text.
+     green #17803D   4.5:1  passes, but only just, so it is reserved
+                            for accents and button fills. Body text
+                            never uses it.
+     white on green  5.0:1  button labels.
+   ============================================================ */
+
+.field {
+  --f-green: #17803d;
+  --f-green-soft: #e4efe7;
+  --f-ink: #101a14;
+  --f-paper: #f4f3ed;
+  --f-card: #ffffff;
+  --f-muted: #58655c;
+  --f-rule: #cfd2c9;
+
+  /* The dark CTA panel needs its own colour rather than borrowing --f-ink.
+     Reusing --f-ink was a real bug: it flips to a light value in dark mode,
+     which turned the panel background near-white while its text stayed
+     near-white, making the whole section invisible. */
+  --f-panel: #101a14;
+  --f-panel-ink: #f4f3ed;
+  --f-panel-muted: #8b9990;
+  --f-panel-line: #3a4a41;
+}
+
+/* Field pages keep their OWN theme, stamped as data-field-theme on <html>,
+   rather than following the studio's data-theme. The two audiences are
+   different people: a head teacher arriving from a business card should not
+   inherit the dark mode an engineer set while reading the Lab. These pages
+   always open light, matching the printed collateral. */
+[data-field-theme='dark'] .field {
+  --f-green: #35a860;
+  --f-green-soft: #17251c;
+  --f-ink: #eaf0ea;
+  --f-paper: #141a16;
+  --f-card: #1c231e;
+  --f-muted: #8b9990;
+  --f-rule: #2b342d;
+
+  /* Panel stays dark; it just drops a shade so it still separates from the
+     dark page around it. */
+  --f-panel: #0b0f0c;
+  --f-panel-ink: #eaf0ea;
+  --f-panel-muted: #8b9990;
+  --f-panel-line: #2b342d;
+}
+
+.field .bg-paper { background: var(--f-paper); }
+.field .bg-card { background: var(--f-card); }
+.field .bg-green { background: var(--f-green); }
+.field .bg-panel { background: var(--f-panel); }
+.field .bg-greensoft { background: var(--f-green-soft); }
+.field .text-inkf { color: var(--f-ink); }
+.field .text-muted { color: var(--f-muted); }
+.field .text-green { color: var(--f-green); }
+.field .text-panel-ink { color: var(--f-panel-ink); }
+.field .text-panel-muted { color: var(--f-panel-muted); }
+.field .border-rule { border-color: var(--f-rule); }
+
+/* Phone numbers and money are the most important characters on these pages, so
+   they are set in the mono face with tabular figures: they should read as data,
+   not as prose, and columns of prices should line up. */
+.field .num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+/* 48px min height clears the 44px tap-target floor with room to spare. */
+.field .cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  min-height: 48px;
+  padding: 0 1.25rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.field .cta-primary {
+  background: var(--f-green);
+  color: #fff;
+  border: 0;
+}
+.field .cta-secondary {
+  background: var(--f-card);
+  color: var(--f-ink);
+  border: 1.5px solid var(--f-rule);
+}
+.field .cta-onink {
+  background: transparent;
+  color: var(--f-panel-ink);
+  border: 1.5px solid var(--f-panel-line);
+}
+.field .cta-bar {
+  padding: 0 0.75rem;
+  font-size: 0.95rem;
+}
+.field .cta:hover {
+  filter: brightness(0.96);
+}
+
+/* An explicit control, not an ornament: border, fill, and a word saying what
+   it does. A bare icon read as decoration and got missed. */
+.field .theme-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 999px;
+  color: var(--f-ink);
+  background: var(--f-card);
+  border: 1.5px solid var(--f-rule);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.field .theme-btn:hover {
+  border-color: var(--f-green);
+  color: var(--f-green);
+}
+
+/* ---------- configurator controls (used by /kits/:slug) ---------- */
+
+.field .fld {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 0.875rem;
+  border-radius: 0.5rem;
+  border: 1.5px solid var(--f-rule);
+  background: var(--f-card);
+  color: var(--f-ink);
+  font-size: 0.98rem;
+  font-family: inherit;
+}
+.field .fld:focus {
+  outline: none;
+  border-color: var(--f-green);
+}
+
+/* Quantity stepper: big targets, because this gets used one-handed on a phone
+   in someone's compound. */
+.field .step-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  border-radius: 0.5rem;
+  border: 1.5px solid var(--f-rule);
+  background: var(--f-card);
+  color: var(--f-ink);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.field .step-btn:hover:not(:disabled) {
+  border-color: var(--f-green);
+  color: var(--f-green);
+}
+.field .step-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Segmented choice: the primary way options are picked. Radio inputs stay in
+   the DOM for keyboard and screen-reader support; the label is the visual. */
+.field .seg {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.6rem 0.85rem;
+  border-radius: 0.5rem;
+  border: 1.5px solid var(--f-rule);
+  background: var(--f-card);
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+.field .seg:hover {
+  border-color: var(--f-green);
+}
+.field .seg-on {
+  border-color: var(--f-green);
+  background: var(--f-green-soft);
+}
+.field .seg input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.field .seg:focus-within {
+  outline: 2px solid var(--f-green);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field .cta,
+  .field .seg,
+  .field .step-btn {
+    transition: none;
+  }
+}

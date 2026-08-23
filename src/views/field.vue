@@ -210,6 +210,27 @@ useSeoMeta({
             <p class="mt-2 text-[0.96rem] leading-relaxed text-inkf">{{ s.body }}</p>
           </article>
         </div>
+
+        <!-- Straight into the priced kits: they have just read what we
+             install, so this is the moment they want a number. -->
+        <RouterLink
+          to="/kits"
+          class="mt-6 flex items-center gap-4 rounded-xl border border-rule bg-paper p-5 no-underline sm:p-6"
+        >
+          <span class="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-greensoft text-green">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="16" rx="2" />
+              <path d="M3 9h18M8 13h8M8 16.5h5" />
+            </svg>
+          </span>
+          <span class="flex-1">
+            <span class="block text-[1.05rem] font-bold text-inkf">Build a kit and see the price</span>
+            <span class="mt-1 block text-[0.9rem] leading-relaxed text-muted">
+              Pick your cameras, access points or lab seats and the total updates as you go.
+            </span>
+          </span>
+          <span class="shrink-0 text-[1.1rem] font-semibold text-green" aria-hidden="true">→</span>
+        </RouterLink>
       </div>
     </section>
 
@@ -385,163 +406,6 @@ useSeoMeta({
 </template>
 
 <style scoped>
-@reference "../assets/main.css";
-
-/*
- * Field-services palette, from the printed collateral so the page and the
- * business cards match. Scoped to .field: these deliberately do not leak into
- * the studio pages, which keep The Trace's plate/ink tokens.
- *
- * Contrast, measured against the paper (#F4F3ED):
- *   ink   #101A14  15.9:1  body copy
- *   muted #58655C   5.5:1  captions and labels. Darkened from the collateral's
- *                          #66736B, which lands at 4.47:1 and misses AA for
- *                          small text. The lighter tone is kept for the dark
- *                          surface, where it measures 5.9:1.
- *   green #17803D   4.5:1  passes, but only just, so it is reserved for
- *                          accents, the eyebrow and button fills. Body text
- *                          never uses it.
- *   white on green  5.0:1  button labels.
- */
-/*
- * Both token blocks are :global on purpose. Vue's scoped compiler rewrites
- * `:global([data-theme='dark']) .field` down to bare `[data-theme='dark']`,
- * which puts the dark values on <html> while `.field[data-v-x]` keeps
- * re-declaring the light ones on itself. An element's own declaration beats an
- * inherited one, so dark mode silently never applied. Declaring both globally
- * keeps them on the same element and lets specificity decide, which is what we
- * want. Only inert --f-* custom properties are global; every utility class
- * below stays scoped.
- */
-:global(.field) {
-  --f-green: #17803d;
-  /* The final CTA sits on a dark panel in BOTH themes, so it needs its own
-     colour rather than borrowing --f-ink. Reusing --f-ink was a real bug: it
-     flips to a light value in dark mode, which turned the panel background
-     near-white while its text stayed near-white. */
-  --f-panel: #101a14;
-  --f-panel-ink: #f4f3ed;
-  --f-panel-muted: #8b9990;
-  --f-panel-line: #3a4a41;
-  --f-green-soft: #e4efe7;
-  --f-ink: #101a14;
-  --f-paper: #f4f3ed;
-  --f-card: #ffffff;
-  --f-muted: #58655c;
-  --f-rule: #cfd2c9;
-  --f-onink: #f4f3ed;
-  --f-onink-muted: #8b9990;
-}
-
-/*
- * /field keeps its OWN theme, stamped as data-field-theme on <html>, rather
- * than following the studio's data-theme. The two audiences are different
- * people: a head teacher arriving from a business card should not inherit the
- * dark mode an engineer set while reading the Lab. This page always opens
- * light, matching the printed collateral, and the on-page toggle is the only
- * thing that changes it.
- *
- * Specificity (0,2,0) beats the light block's (0,1,0), so order cannot bite.
- */
-:global([data-field-theme='dark'] .field) {
-  --f-green: #35a860;
-  --f-green-soft: #17251c;
-  --f-ink: #eaf0ea;
-  --f-paper: #141a16;
-  --f-card: #1c231e;
-  --f-muted: #8b9990;
-  --f-rule: #2b342d;
-  --f-onink: #eaf0ea;
-  --f-onink-muted: #8b9990;
-  /* Panel stays dark; it just drops a shade so it still separates from the
-     dark page around it. */
-  --f-panel: #0b0f0c;
-  --f-panel-ink: #eaf0ea;
-  --f-panel-muted: #8b9990;
-  --f-panel-line: #2b342d;
-}
-
-.bg-paper { background: var(--f-paper); }
-.bg-card { background: var(--f-card); }
-.bg-green { background: var(--f-green); }
-.bg-panel { background: var(--f-panel); }
-.bg-greensoft { background: var(--f-green-soft); }
-.text-inkf { color: var(--f-ink); }
-.text-muted { color: var(--f-muted); }
-.text-green { color: var(--f-green); }
-.border-rule { border-color: var(--f-rule); }
-
-/* On the dark final-CTA panel the ink background stays dark in both themes,
-   so its text tokens are pinned rather than flipped. */
-.text-panel-ink { color: var(--f-panel-ink); }
-.text-panel-muted { color: var(--f-panel-muted); }
-
-/* Phone numbers are the most important characters here, so they are set in the
-   mono face with tabular figures: they should read as data, not as prose. */
-.num {
-  font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.01em;
-}
-
-/* 48px min height clears the 44px tap-target floor with room to spare. */
-.cta {
-  @apply inline-flex items-center justify-center gap-2.5 rounded-lg px-5 text-[1rem] font-semibold no-underline;
-  min-height: 48px;
-}
-.cta-primary {
-  background: var(--f-green);
-  color: #fff;
-}
-.cta-secondary {
-  background: var(--f-card);
-  color: var(--f-ink);
-  border: 1.5px solid var(--f-rule);
-}
-.cta-onink {
-  background: transparent;
-  color: var(--f-panel-ink);
-  border: 1.5px solid var(--f-panel-line);
-}
-/* A bare icon read as decoration and got missed, so this is an explicit
-   control: border, fill, and a word saying what it does. Still quiet enough
-   that it never competes with the two CTAs below it. */
-.theme-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  height: 44px;
-  padding: 0 14px;
-  border-radius: 999px;
-  color: var(--f-ink);
-  background: var(--f-card);
-  border: 1.5px solid var(--f-rule);
-  font-size: 0.82rem;
-  font-weight: 600;
-  line-height: 1;
-  cursor: pointer;
-  white-space: nowrap;
-}
-.theme-btn:hover {
-  border-color: var(--f-green);
-  color: var(--f-green);
-}
-
-.cta-bar {
-  @apply px-3 text-[0.95rem];
-}
-
-/* Calm by default: a single colour transition, and none at all for anyone who
-   has asked the OS to stop moving things. */
-.cta {
-  transition: background-color 0.15s ease, border-color 0.15s ease;
-}
-@media (prefers-reduced-motion: reduce) {
-  .cta {
-    transition: none;
-  }
-}
-.cta:hover {
-  filter: brightness(0.96);
-}
+/* The field design system now lives in src/assets/field.css, shared with the
+   /kits pages. Nothing page-specific is left here. */
 </style>

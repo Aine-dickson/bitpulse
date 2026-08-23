@@ -86,6 +86,21 @@ export const routes: RouteRecordRaw[] = [
         meta: { title: 'Field Services', requiresAuth: false, standalone: true },
     },
     {
+        // Configurable kit catalogue for the field business. Standalone like
+        // /field: same audience, same chrome, no studio nav.
+        path: '/kits',
+        name: 'kits',
+        component: () => import('@/views/kits.vue'),
+        meta: { title: 'Kits', requiresAuth: false, standalone: true },
+    },
+    {
+        path: '/kits/:slug',
+        name: 'kit_detail',
+        component: () => import('@/views/kitDetail.vue'),
+        props: true,
+        meta: { standalone: true },
+    },
+    {
         path: '/lab',
         name: 'lab',
         component: () => import('@/views/lab.vue'),

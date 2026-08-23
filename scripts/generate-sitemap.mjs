@@ -23,6 +23,7 @@ function slugsFrom(relPath) {
 const posts = JSON.parse(readFileSync(resolve(root, 'src/content/posts.json'), 'utf8'))
 const serviceSlugs = slugsFrom('src/data/services.ts')
 const sectorSlugs = slugsFrom('src/data/sectors.ts')
+const kitSlugs = slugsFrom('src/data/kits.ts')
 
 // Lab products: only the entries marked indexable belong in the sitemap.
 // Submitting a noindex URL is a contradiction Search Console reports as an error.
@@ -48,6 +49,8 @@ const entries = [
   // Field services: a direct-entry landing page, but it should still rank for
   // local intent since some visitors search rather than type the URL.
   { path: '/field', priority: '0.9', changefreq: 'monthly' },
+  { path: '/kits', priority: '0.8', changefreq: 'monthly' },
+  ...kitSlugs.map((slug) => ({ path: `/kits/${slug}`, priority: '0.7', changefreq: 'monthly' })),
   { path: '/contacts', priority: '0.6', changefreq: 'yearly' },
   { path: '/partner', priority: '0.6', changefreq: 'monthly' },
   { path: '/careers', priority: '0.6', changefreq: 'monthly' },
