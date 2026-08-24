@@ -19,22 +19,22 @@
    ============================================================ */
 
 .field {
-  --f-green: #17803d;
-  --f-green-soft: #e4efe7;
-  --f-ink: #101a14;
-  --f-paper: #f4f3ed;
-  --f-card: #ffffff;
-  --f-muted: #58655c;
-  --f-rule: #cfd2c9;
+    --f-green: #17803d;
+    --f-green-soft: #e4efe7;
+    --f-ink: #101a14;
+    --f-paper: #f4f3ed;
+    --f-card: #ffffff;
+    --f-muted: #58655c;
+    --f-rule: #cfd2c9;
 
-  /* The dark CTA panel needs its own colour rather than borrowing --f-ink.
+    /* The dark CTA panel needs its own colour rather than borrowing --f-ink.
      Reusing --f-ink was a real bug: it flips to a light value in dark mode,
      which turned the panel background near-white while its text stayed
      near-white, making the whole section invisible. */
-  --f-panel: #101a14;
-  --f-panel-ink: #f4f3ed;
-  --f-panel-muted: #8b9990;
-  --f-panel-line: #3a4a41;
+    --f-panel: #101a14;
+    --f-panel-ink: #f4f3ed;
+    --f-panel-muted: #8b9990;
+    --f-panel-line: #3a4a41;
 }
 
 /* Field pages keep their OWN theme, stamped as data-field-theme on <html>,
@@ -43,183 +43,301 @@
    inherit the dark mode an engineer set while reading the Lab. These pages
    always open light, matching the printed collateral. */
 [data-field-theme='dark'] .field {
-  --f-green: #35a860;
-  --f-green-soft: #17251c;
-  --f-ink: #eaf0ea;
-  --f-paper: #141a16;
-  --f-card: #1c231e;
-  --f-muted: #8b9990;
-  --f-rule: #2b342d;
+    --f-green: #35a860;
+    --f-green-soft: #17251c;
+    --f-ink: #eaf0ea;
+    --f-paper: #141a16;
+    --f-card: #1c231e;
+    --f-muted: #8b9990;
+    --f-rule: #2b342d;
 
-  /* Panel stays dark; it just drops a shade so it still separates from the
+    /* Panel stays dark; it just drops a shade so it still separates from the
      dark page around it. */
-  --f-panel: #0b0f0c;
-  --f-panel-ink: #eaf0ea;
-  --f-panel-muted: #8b9990;
-  --f-panel-line: #2b342d;
+    --f-panel: #0b0f0c;
+    --f-panel-ink: #eaf0ea;
+    --f-panel-muted: #8b9990;
+    --f-panel-line: #2b342d;
 }
 
-.field .bg-paper { background: var(--f-paper); }
-.field .bg-card { background: var(--f-card); }
-.field .bg-green { background: var(--f-green); }
-.field .bg-panel { background: var(--f-panel); }
-.field .bg-greensoft { background: var(--f-green-soft); }
-.field .text-inkf { color: var(--f-ink); }
-.field .text-muted { color: var(--f-muted); }
-.field .text-green { color: var(--f-green); }
-.field .text-panel-ink { color: var(--f-panel-ink); }
-.field .text-panel-muted { color: var(--f-panel-muted); }
-.field .border-rule { border-color: var(--f-rule); }
+.field .bg-paper {
+    background: var(--f-paper);
+}
+
+.field .bg-card {
+    background: var(--f-card);
+}
+
+.field .bg-green {
+    background: var(--f-green);
+}
+
+.field .bg-panel {
+    background: var(--f-panel);
+}
+
+.field .bg-greensoft {
+    background: var(--f-green-soft);
+}
+
+.field .text-inkf {
+    color: var(--f-ink);
+}
+
+.field .text-muted {
+    color: var(--f-muted);
+}
+
+.field .text-green {
+    color: var(--f-green);
+}
+
+.field .text-panel-ink {
+    color: var(--f-panel-ink);
+}
+
+.field .text-panel-muted {
+    color: var(--f-panel-muted);
+}
+
+.field .border-rule {
+    border-color: var(--f-rule);
+}
 
 /* Phone numbers and money are the most important characters on these pages, so
    they are set in the mono face with tabular figures: they should read as data,
    not as prose, and columns of prices should line up. */
 .field .num {
-  font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.01em;
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.01em;
 }
 
 /* 48px min height clears the 44px tap-target floor with room to spare. */
 .field .cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.625rem;
-  min-height: 48px;
-  padding: 0 1.25rem;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    min-height: 48px;
+    padding: 0 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
 }
+
 .field .cta-primary {
-  background: var(--f-green);
-  color: #fff;
-  border: 0;
+    background: var(--f-green);
+    color: #fff;
+    border: 0;
 }
+
 .field .cta-secondary {
-  background: var(--f-card);
-  color: var(--f-ink);
-  border: 1.5px solid var(--f-rule);
+    background: var(--f-card);
+    color: var(--f-ink);
+    border: 1.5px solid var(--f-rule);
 }
+
 .field .cta-onink {
-  background: transparent;
-  color: var(--f-panel-ink);
-  border: 1.5px solid var(--f-panel-line);
+    background: transparent;
+    color: var(--f-panel-ink);
+    border: 1.5px solid var(--f-panel-line);
 }
+
 .field .cta-bar {
-  padding: 0 0.75rem;
-  font-size: 0.95rem;
+    padding: 0 0.75rem;
+    font-size: 0.95rem;
 }
+
 .field .cta:hover {
-  filter: brightness(0.96);
+    filter: brightness(0.96);
 }
 
 /* An explicit control, not an ornament: border, fill, and a word saying what
    it does. A bare icon read as decoration and got missed. */
 .field .theme-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  height: 44px;
-  padding: 0 14px;
-  border-radius: 999px;
-  color: var(--f-ink);
-  background: var(--f-card);
-  border: 1.5px solid var(--f-rule);
-  font-size: 0.82rem;
-  font-weight: 600;
-  line-height: 1;
-  cursor: pointer;
-  white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    height: 44px;
+    padding: 0 14px;
+    border-radius: 999px;
+    color: var(--f-ink);
+    background: var(--f-card);
+    border: 1.5px solid var(--f-rule);
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    white-space: nowrap;
 }
+
 .field .theme-btn:hover {
-  border-color: var(--f-green);
-  color: var(--f-green);
+    border-color: var(--f-green);
+    color: var(--f-green);
 }
 
 /* ---------- configurator controls (used by /kits/:slug) ---------- */
 
 .field .fld {
-  width: 100%;
-  min-height: 48px;
-  padding: 0 0.875rem;
-  border-radius: 0.5rem;
-  border: 1.5px solid var(--f-rule);
-  background: var(--f-card);
-  color: var(--f-ink);
-  font-size: 0.98rem;
-  font-family: inherit;
+    width: 100%;
+    min-height: 48px;
+    padding: 0 0.875rem;
+    border-radius: 0.5rem;
+    border: 1.5px solid var(--f-rule);
+    background: var(--f-card);
+    color: var(--f-ink);
+    font-size: 0.98rem;
+    font-family: inherit;
 }
+
 .field .fld:focus {
-  outline: none;
-  border-color: var(--f-green);
+    outline: none;
+    border-color: var(--f-green);
 }
 
 /* Quantity stepper: big targets, because this gets used one-handed on a phone
    in someone's compound. */
 .field .step-btn {
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  flex: 0 0 auto;
-  border-radius: 0.5rem;
-  border: 1.5px solid var(--f-rule);
-  background: var(--f-card);
-  color: var(--f-ink);
-  font-size: 1.3rem;
-  line-height: 1;
-  cursor: pointer;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 auto;
+    border-radius: 0.5rem;
+    border: 1.5px solid var(--f-rule);
+    background: var(--f-card);
+    color: var(--f-ink);
+    font-size: 1.3rem;
+    line-height: 1;
+    cursor: pointer;
 }
+
 .field .step-btn:hover:not(:disabled) {
-  border-color: var(--f-green);
-  color: var(--f-green);
+    border-color: var(--f-green);
+    color: var(--f-green);
 }
+
 .field .step-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
+    opacity: 0.4;
+    cursor: not-allowed;
 }
 
 /* Segmented choice: the primary way options are picked. Radio inputs stay in
    the DOM for keyboard and screen-reader support; the label is the visual. */
 .field .seg {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  min-height: 48px;
-  padding: 0.6rem 0.85rem;
-  border-radius: 0.5rem;
-  border: 1.5px solid var(--f-rule);
-  background: var(--f-card);
-  cursor: pointer;
-  transition: border-color 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0.6rem 0.85rem;
+    border-radius: 0.5rem;
+    border: 1.5px solid var(--f-rule);
+    background: var(--f-card);
+    cursor: pointer;
+    transition: border-color 0.15s ease;
 }
+
 .field .seg:hover {
-  border-color: var(--f-green);
+    border-color: var(--f-green);
 }
+
 .field .seg-on {
-  border-color: var(--f-green);
-  background: var(--f-green-soft);
+    border-color: var(--f-green);
+    background: var(--f-green-soft);
 }
+
 .field .seg input {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
+
 .field .seg:focus-within {
-  outline: 2px solid var(--f-green);
-  outline-offset: 2px;
+    outline: 2px solid var(--f-green);
+    outline-offset: 2px;
+}
+
+/* ---------- configurator tabs ---------- */
+
+/* Horizontal and scrollable rather than wrapping: on a 360px screen a wrapping
+   bar pushes the controls down the page, which is the problem the tabs exist to
+   solve. Scrolling keeps the bar exactly one row tall at every width. */
+.field .tabs {
+    display: flex;
+    gap: 0.4rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 2px;
+}
+
+.field .tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.field .tab {
+    position: relative;
+    flex: 0 0 auto;
+    min-height: 44px;
+    /* padding-bottom: 0.95rem; */
+    margin-right: 0.95rem;
+    /* border-radius: 999px; */
+    border-bottom: 2px solid var(--f-rule);
+    background: var(--f-card);
+    color: var(--f-muted);
+    font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.field .tab:hover {
+    border-color: var(--f-green);
+    color: var(--f-green);
+}
+
+.field .tab-on {
+    /* background: var(--f-green); */
+    border-color: var(--f-green);
+    color: var(--f-green);
+}
+
+.field .tab-on:hover {
+    /* background: var(--f-green); */
+    border-color: var(--f-green);
+    color: var(--f-green);
+}
+
+/* A configuration problem can sit on a panel you are not looking at, so the
+   tab carries a dot until it is resolved. */
+.field .tab-flag::after {
+    content: '';
+    position: absolute;
+    top: 7px;
+    right: 8px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #c2410c;
+    box-shadow: 0 0 0 2px var(--f-card);
+}
+
+.field .tab-on.tab-flag::after {
+    box-shadow: 0 0 0 2px var(--f-green);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .field .cta,
-  .field .seg,
-  .field .step-btn {
-    transition: none;
-  }
+
+    .field .cta,
+    .field .seg,
+    .field .step-btn,
+    .field .tab {
+        transition: none;
+    }
 }

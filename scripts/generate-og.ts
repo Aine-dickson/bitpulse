@@ -31,28 +31,28 @@ const tmpDir = resolve(root, '.og-tmp')
 // Design tokens, mirrored from src/assets/main.css. Kept literal because this
 // renders outside the app and never sees the stylesheet.
 const T = {
-  plate0: '#F5F5F0',
-  plate2: '#E6E6DC',
-  surface: '#FBFBF8',
-  ink: '#1B241F',
-  ink2: '#4C554E',
-  ink3: '#7A827B',
-  line: '#DAD9CC',
-  accent: '#12924E',
-  accentDeep: '#0B6B39',
-  accentSoft: '#E2EFE7',
+    plate0: '#F5F5F0',
+    plate2: '#E6E6DC',
+    surface: '#FBFBF8',
+    ink: '#1B241F',
+    ink2: '#4C554E',
+    ink3: '#7A827B',
+    line: '#DAD9CC',
+    accent: '#12924E',
+    accentDeep: '#0B6B39',
+    accentSoft: '#E2EFE7',
 }
 
 /** Icon inner markup, mirrored from components/ui/CapIcon.vue. */
 const ICONS: Record<string, string> = {
-  chip: `<rect x="4" y="4" width="16" height="16" rx="1.5"/><circle cx="12" cy="12" r="3"/><path d="M9 1.5v2.5M15 1.5v2.5M9 20v2.5M15 20v2.5M1.5 9h2.5M1.5 15h2.5M20 9h2.5M20 15h2.5"/>`,
-  server: `<rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4"/>`,
-  flask: `<path d="M9 3h6M10 3v5l-4 9a2 2 0 0 0 2 3h8a2 2 0 0 0 2-3l-4-9V3"/><path d="M8 14h8"/>`,
-  code: `<path d="M8 9 4 12l4 3M16 9l4 3-4 3M14 5l-4 14"/>`,
-  layers: `<path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M2 8v5l10 5 10-5V8"/>`,
-  window: `<rect x="2" y="4" width="14" height="11" rx="1.5"/><path d="M2 7.5h14"/><path d="M4.5 5.75h.01M6.75 5.75h.01"/><path d="M6 18.5h5"/><rect x="15" y="11" width="7" height="10.5" rx="1.5"/><path d="M18.2 19.4h.01"/>`,
-  legacy: `<ellipse cx="8" cy="5.5" rx="5.5" ry="2.5"/><path d="M2.5 5.5v6c0 1.4 2.5 2.5 5.5 2.5"/><path d="M2.5 11.5v6c0 1.4 2.5 2.5 5.5 2.5"/><path d="M17 21v-8"/><path d="M13.5 16.5 17 13l3.5 3.5"/>`,
-  clock: `<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>`,
+    chip: `<rect x="4" y="4" width="16" height="16" rx="1.5"/><circle cx="12" cy="12" r="3"/><path d="M9 1.5v2.5M15 1.5v2.5M9 20v2.5M15 20v2.5M1.5 9h2.5M1.5 15h2.5M20 9h2.5M20 15h2.5"/>`,
+    server: `<rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4"/>`,
+    flask: `<path d="M9 3h6M10 3v5l-4 9a2 2 0 0 0 2 3h8a2 2 0 0 0 2-3l-4-9V3"/><path d="M8 14h8"/>`,
+    code: `<path d="M8 9 4 12l4 3M16 9l4 3-4 3M14 5l-4 14"/>`,
+    layers: `<path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M2 8v5l10 5 10-5V8"/>`,
+    window: `<rect x="2" y="4" width="14" height="11" rx="1.5"/><path d="M2 7.5h14"/><path d="M4.5 5.75h.01M6.75 5.75h.01"/><path d="M6 18.5h5"/><rect x="15" y="11" width="7" height="10.5" rx="1.5"/><path d="M18.2 19.4h.01"/>`,
+    legacy: `<ellipse cx="8" cy="5.5" rx="5.5" ry="2.5"/><path d="M2.5 5.5v6c0 1.4 2.5 2.5 5.5 2.5"/><path d="M2.5 11.5v6c0 1.4 2.5 2.5 5.5 2.5"/><path d="M17 21v-8"/><path d="M13.5 16.5 17 13l3.5 3.5"/>`,
+    clock: `<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>`,
 }
 
 /** The pulse-"p" monogram, from components/ui/BrandMark.vue. */
@@ -72,33 +72,33 @@ const MONOGRAM = `<svg height="44" viewBox="-4 -6 154 226" fill="none" xmlns="ht
  * perfectly. Poll until the size stops growing.
  */
 function waitForStablePng(path: string, timeoutMs = 20000): boolean {
-  const deadline = Date.now() + timeoutMs
-  let last = -1
-  let stable = 0
-  while (Date.now() < deadline) {
-    let size = -1
-    try {
-      size = statSync(path).size
-    } catch {
-      size = -1
+    const deadline = Date.now() + timeoutMs
+    let last = -1
+    let stable = 0
+    while (Date.now() < deadline) {
+        let size = -1
+        try {
+            size = statSync(path).size
+        } catch {
+            size = -1
+        }
+        if (size > 0 && size === last) {
+            if (++stable >= 3) return true
+        } else {
+            stable = 0
+        }
+        last = size
+        Bun.sleepSync(120)
     }
-    if (size > 0 && size === last) {
-      if (++stable >= 3) return true
-    } else {
-      stable = 0
-    }
-    last = size
-    Bun.sleepSync(120)
-  }
-  return false
+    return false
 }
 
 function escapeHtml(s: string): string {
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 }
 
 function card(s: (typeof services)[number]): string {
-  return `<!doctype html>
+    return `<!doctype html>
 <html><head><meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -172,8 +172,8 @@ function card(s: (typeof services)[number]): string {
  * turns to mush when scaled down.
  */
 function fieldCard(): string {
-  const F = { green: '#17803D', ink: '#101A14', paper: '#F4F3ED', rule: '#CFD2C9' }
-  return `<!doctype html>
+    const F = { green: '#17803D', ink: '#101A14', paper: '#F4F3ED', rule: '#CFD2C9' }
+    return `<!doctype html>
 <html><head><meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -209,17 +209,54 @@ function fieldCard(): string {
 </body></html>`
 }
 
+function kitsCard(): string {
+    const K = { green: '#17803D', ink: '#101A14', paper: '#F4F3ED', rule: '#CFD2C9', muted: '#526057' }
+    return `<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:1200px;height:630px;background:${K.paper};font-family:Archivo,system-ui,sans-serif;
+       color:${K.ink};overflow:hidden;display:flex;flex-direction:column}
+  .top{flex:1;padding:56px 64px 0;display:flex;flex-direction:column}
+  .brand{display:flex;align-items:center;gap:16px}
+  .brand b{font-size:38px;font-weight:900;letter-spacing:-.02em}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;
+           letter-spacing:.18em;text-transform:uppercase;color:${K.green};margin-top:38px}
+  h1{font-size:96px;font-weight:900;line-height:1.02;letter-spacing:-.03em;margin-top:20px}
+  .sub{font-size:30px;color:${K.muted};margin-top:26px;font-weight:600}
+  .bar{background:${K.green};color:#fff;padding:30px 64px;display:flex;align-items:center;
+       justify-content:space-between;gap:24px}
+  .kits{font-family:'IBM Plex Mono',monospace;font-size:25px;font-weight:600;letter-spacing:.01em}
+  .site{font-family:'IBM Plex Mono',monospace;font-size:26px;opacity:.92}
+</style></head>
+<body>
+  <div class="top">
+    <div class="brand">${MONOGRAM.replace('height="44"', 'height="58"')}<b>BitPulse</b></div>
+    <div class="eyebrow">Field Services &middot; Kampala</div>
+    <h1>Customize a kit.<br>See the price.</h1>
+    <div class="sub">CCTV, WiFi, hotspots and computer lab kits.</div>
+  </div>
+  <div class="bar">
+    <div class="kits">Configure online &middot; Get a written quote</div>
+    <div class="site">bitpulse.dev/kits</div>
+  </div>
+</body></html>`
+}
+
 // ------------------------------------------------------------------- render
 
 const EDGE_CANDIDATES = [
-  'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',
-  'C:/Program Files/Microsoft/Edge/Application/msedge.exe',
-  'C:/Program Files/Google/Chrome/Application/chrome.exe',
+    'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',
+    'C:/Program Files/Microsoft/Edge/Application/msedge.exe',
+    'C:/Program Files/Google/Chrome/Application/chrome.exe',
 ]
 const browser = EDGE_CANDIDATES.find((p) => existsSync(p))
 if (!browser) {
-  console.error('[og] No Edge/Chrome found. Add its path to EDGE_CANDIDATES.')
-  process.exit(1)
+    console.error('[og] No Edge/Chrome found. Add its path to EDGE_CANDIDATES.')
+    process.exit(1)
 }
 
 mkdirSync(outDir, { recursive: true })
@@ -228,42 +265,43 @@ mkdirSync(tmpDir, { recursive: true })
 
 /** One card: write the HTML, shoot it, confirm the PNG actually landed. */
 function render(id: string, html: string, png: string): boolean {
-  const htmlPath = resolve(tmpDir, `${id}.html`)
-  writeFileSync(htmlPath, html, 'utf8')
-  // Remove any previous card, so a failed render cannot pass as a fresh one.
-  if (existsSync(png)) unlinkSync(png)
+    const htmlPath = resolve(tmpDir, `${id}.html`)
+    writeFileSync(htmlPath, html, 'utf8')
+    // Remove any previous card, so a failed render cannot pass as a fresh one.
+    if (existsSync(png)) unlinkSync(png)
 
-  const res = spawnSync(
-    browser!,
-    [
-      '--headless=new',
-      '--disable-gpu',
-      '--no-sandbox',
-      '--hide-scrollbars',
-      '--force-device-scale-factor=1',
-      // A per-card profile: Edge keeps the previous one locked, which silently
-      // kills every launch after the first.
-      `--user-data-dir=${resolve(tmpDir, `profile-${id}`)}`,
-      // Give webfonts time to land, or the card renders in a fallback face.
-      '--virtual-time-budget=6000',
-      '--window-size=1200,630',
-      `--screenshot=${png}`,
-      `file:///${htmlPath.replace(/\\/g, '/')}`,
-    ],
-    { stdio: 'ignore' },
-  )
+    const res = spawnSync(
+        browser!,
+        [
+            '--headless=new',
+            '--disable-gpu',
+            '--no-sandbox',
+            '--hide-scrollbars',
+            '--force-device-scale-factor=1',
+            // A per-card profile: Edge keeps the previous one locked, which silently
+            // kills every launch after the first.
+            `--user-data-dir=${resolve(tmpDir, `profile-${id}`)}`,
+            // Give webfonts time to land, or the card renders in a fallback face.
+            '--virtual-time-budget=6000',
+            '--window-size=1200,630',
+            `--screenshot=${png}`,
+            `file:///${htmlPath.replace(/\\/g, '/')}`,
+        ],
+        { stdio: 'ignore' },
+    )
 
-  if (res.error || !waitForStablePng(png)) {
-    console.error(`[og] FAILED ${id}`, res.error ?? 'no screenshot written')
-    return false
-  }
-  console.log(`[og] ${id}.png  ${statSync(png).size} bytes`)
-  return true
+    if (res.error || !waitForStablePng(png)) {
+        console.error(`[og] FAILED ${id}`, res.error ?? 'no screenshot written')
+        return false
+    }
+    console.log(`[og] ${id}.png  ${statSync(png).size} bytes`)
+    return true
 }
 
 const jobs: { id: string; html: string; png: string }[] = [
-  ...services.map((s) => ({ id: s.slug, html: card(s), png: resolve(outDir, `${s.slug}.png`) })),
-  { id: 'field', html: fieldCard(), png: resolve(root, 'public/og/field.png') },
+    ...services.map((s) => ({ id: s.slug, html: card(s), png: resolve(outDir, `${s.slug}.png`) })),
+    { id: 'field', html: fieldCard(), png: resolve(root, 'public/og/field.png') },
+    { id: 'kits', html: kitsCard(), png: resolve(root, 'public/og/kits.png') },
 ]
 
 let made = 0
@@ -272,9 +310,9 @@ for (const j of jobs) if (render(j.id, j.html, j.png)) made++
 // Edge can still hold a lock on its profile dirs; a leftover temp folder is
 // not worth failing the run over.
 try {
-  rmSync(tmpDir, { recursive: true, force: true })
+    rmSync(tmpDir, { recursive: true, force: true })
 } catch {
-  console.warn('[og] could not remove .og-tmp (browser still holding it); safe to delete manually')
+    console.warn('[og] could not remove .og-tmp (browser still holding it); safe to delete manually')
 }
 console.log(`[og] wrote ${made}/${jobs.length} cards`)
 if (made !== jobs.length) process.exit(1)

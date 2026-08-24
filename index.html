@@ -1,65 +1,59 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Light-first, no-flash: apply the persisted theme before first paint.
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Light-first, no-flash: apply the persisted theme before first paint.
          Default is always light, even when the OS prefers dark. -->
-    <script>
-      (function () {
-        try {
-          var t = localStorage.getItem('bitpulse-theme')
-          document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light')
-          // /field carries its own theme, defaulting to light, so a visitor
-          // arriving from a business card never inherits the studio's dark mode.
-          var f = localStorage.getItem('bitpulse-field-theme')
-          document.documentElement.setAttribute('data-field-theme', f === 'dark' ? 'dark' : 'light')
-        } catch (e) {
-          document.documentElement.setAttribute('data-theme', 'light')
-          document.documentElement.setAttribute('data-field-theme', 'light')
-        }
-      })()
-    </script>
+        <script>
+            (function () {
+                try {
+                    var t = localStorage.getItem('bitpulse-theme')
+                    document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light')
+                    // /field carries its own theme, defaulting to light, so a visitor
+                    // arriving from a business card never inherits the studio's dark mode.
+                    var f = localStorage.getItem('bitpulse-field-theme')
+                    document.documentElement.setAttribute('data-field-theme', f === 'dark' ? 'dark' : 'light')
+                } catch (e) {
+                    document.documentElement.setAttribute('data-theme', 'light')
+                    document.documentElement.setAttribute('data-field-theme', 'light')
+                }
+            })()
+        </script>
 
-    <title>BitPulse | Embedded, Firmware & Systems Software</title>
-    <meta
-      name="description"
-      content="BitPulse is a product & R&D studio for embedded hardware, firmware and systems software, routing ideas from bare metal to working systems."
-    />
+        <title>BitPulse | Embedded, Firmware & Systems Software</title>
+        <meta name="description"
+            content="BitPulse is a product & R&D studio for embedded hardware, firmware and systems software, routing ideas from bare metal to working systems." />
 
-    <!-- Feed + crawl hints -->
-    <link rel="alternate" type="application/rss+xml" title="BitPulse Field Notes" href="/rss.xml" />
+        <!-- Feed + crawl hints -->
+        <link rel="alternate" type="application/rss+xml" title="BitPulse Field Notes" href="/rss.xml" />
 
-    <!-- Fonts: Archivo (display) + IBM Plex Mono (designators).
+        <!-- Fonts: Archivo (display) + IBM Plex Mono (designators).
          Loaded non-render-blocking: the stylesheet is fetched at `media="print"`
          (so it never blocks first paint) then flipped to `all` once it lands.
          LCP is a ranking input; a blocking Google Fonts request costs ~300ms. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preload" as="style"
+            href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+            rel="stylesheet" media="print" onload="this.media='all'" />
+        <noscript>
+            <link
+                href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+                rel="stylesheet" />
+        </noscript>
+    </head>
+
+    <body>
+        <div id="app"></div>
+        <script type="module" src="/src/main.ts"></script>
+    </body>
+
 </html>
