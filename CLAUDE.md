@@ -115,6 +115,68 @@ Footer is **always dark** regardless of theme (own footer-* tokens).
   bakes per-page title/canonical/og+twitter into the static HTML. `SITE_URL` in
   `src/config/seo.ts`.
 
+## Field services sub-site (`/field`, `/kits`) — a second audience
+
+BitPulse also runs a hands-on installation business: WiFi, CCTV, hotspot systems
+and computer labs around Kampala. It has its own pages, its own look and its own
+audience, and it must stay separate from the studio positioning.
+
+**Who it is for.** Head teachers, landlords, bar and hostel owners, facilities
+managers. They arrive from a business card, a sticker or a shirt, having already
+met Aine in person. They are checking the business is real before calling. They
+are not the studio's audience: land them on the R&D homepage and they either get
+confused or assume they cannot afford it.
+
+- **Standalone chrome.** Routes carry `meta: { standalone: true }`, and `App.vue`
+  drops `AppNav`/`AppFooter` on those routes. A studio nav on these pages only
+  gives a warm lead somewhere else to go. `/field` is deliberately kept out of
+  the main nav; it is reachable from the studio footer only.
+- **Own theme, light-first.** These pages read `data-field-theme` (key
+  `bitpulse-field-theme`), stamped before paint by the script in `index.html` and
+  toggled by `useFieldTheme` + `FieldThemeToggle.vue`. They never follow the
+  studio's `data-theme`: a head teacher should not inherit the dark mode an
+  engineer set while reading the Lab.
+- **Design system:** `src/assets/field.css`, imported by `main.css`, every rule
+  namespaced under `.field`. Palette comes from the printed collateral. Muted is
+  `#58655C`, darkened from the collateral's `#66736B` which misses AA at small
+  sizes; green `#17803D` is 4.5:1 so it is accents and button fills only, never
+  body copy.
+- **WhatsApp is the primary channel**, weighted at least equal to the phone.
+  Every CTA is a real `<a href>`; nothing essential sits behind JavaScript,
+  because these visitors are on mid-range Android over 3G.
+- **No contact form.** Forms go unanswered and lose to WhatsApp in this market.
+- **No pricing on `/field`.** Prices live on `/kits` only.
+- **No invented trust.** No testimonials, client logos or statistics anywhere.
+  This visitor has met Aine and can check every claim. Installation photos are
+  real jobs dropped into `public/field/` with `ready: true` flipped in
+  `src/data/field.ts`; until then the page draws labelled placeholders rather
+  than requesting a missing file.
+
+### Kits (`/kits`, `/kits/:slug`)
+
+Configurable, not fixed-price. Built as a cold-visit reference: set the numbers
+to match the site you just walked and read out a figure.
+
+- **Prices are owner-maintained** in `src/data/kits.ts`, plain numbers in UGX.
+  They are *indicative Kampala rates, not quotes*, and the owner adjusts them.
+  Never present them as verified or authoritative. Totals, per-unit lines and
+  the volume-discount ladder all recompute from those numbers.
+- Per-unit items scale with a count field, so cabling and labour track camera or
+  seat count. Capacity limits **warn** and never silently correct a choice.
+- **Config sections are tabbed** (`tab` on each field groups them). Count fields
+  are never tabbed: quantity sits above the bar and stays visible, because it is
+  the number people keep adjusting.
+- The WhatsApp link carries the kit name, the full configuration line by line and
+  the figure on screen, so the chat opens on a shared spec.
+
+### Share cards
+
+`scripts/generate-og.ts` renders every OG card via headless Edge: one per
+service, plus `/og/field.png` and `/og/kits.png`. Run manually with
+`bun scripts/generate-og.ts` (bun, so it can import the typed data directly);
+output is committed. Regenerate when a name, tag or summary changes. These URLs
+spread by being pasted into WhatsApp, so the cards matter more than usual.
+
 ## Working agreement
 
 - **Do not commit or push brand/subjective changes without explicit approval.**
@@ -126,7 +188,17 @@ Footer is **always dark** regardless of theme (own footer-* tokens).
 
 - Deploy the lead Worker: verify bitpulse.dev in Resend, `wrangler secret put
   RESEND_API_KEY`, add the `api.bitpulse.dev` DNS record, `wrangler deploy`.
-  Full steps in `worker/README.md`. Until then every form returns its fallback.
+  Full steps in `worker/README.md`. **Done and live**; rotate the key if it was
+  ever pasted somewhere public.
+- **Field photos.** `public/field/work-0[1-6].webp` are still placeholders. Drop
+  real installation photos in and flip `ready: true` in `src/data/field.ts`.
+  Instructions in `public/field/README.md`. This is the section that does the
+  convincing, so it is the highest-value outstanding item.
+- **Kit prices.** The figures in `src/data/kits.ts` are starting estimates and
+  need the owner's review against current supplier rates. Same for the discount
+  ladder (3/5/8/10% at 5M/12M/25M/50M UGX).
+- **LocalBusiness address/geo.** Left as commented TODOs in `src/views/field.vue`
+  rather than invented. Fill before submitting to Google Business Profile.
+- Swap placeholder Lab items in `src/data/projects.ts` for real ones.
 - Optionally set `VITE_SUPABASE_URL` / key and create `form_submissions` for the
   archive copy (blog comments use the same client).
-- Swap placeholder Lab items in `src/data/projects.ts` for real ones.
