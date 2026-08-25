@@ -319,17 +319,17 @@
 .field .tab-flag::after {
     content: '';
     position: absolute;
-    top: 7px;
-    right: 8px;
+    top: 6px;
+    /* Sits in the gutter that margin-right already reserves. The underline
+       tabs carry no horizontal padding, so a dot inside the box would land on
+       the label text, and padding it out would change the underline's width
+       whenever a flag appears. */
+    right: -9px;
     width: 7px;
     height: 7px;
     border-radius: 50%;
     background: #c2410c;
     box-shadow: 0 0 0 2px var(--f-card);
-}
-
-.field .tab-on.tab-flag::after {
-    box-shadow: 0 0 0 2px var(--f-green);
 }
 
 @media (prefers-reduced-motion: reduce) {

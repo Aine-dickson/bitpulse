@@ -102,7 +102,7 @@
             : undefined,
         canonical: kit.value ? `/kits/${kit.value.slug}` : '/kits',
         noindex: !kit.value,
-        image: '/og/field.png',
+        image: '/og/kits.png',
         jsonLd: kit.value
             ? [
                 {
@@ -204,7 +204,8 @@
                             </button>
                         </div>
 
-                        <div v-for="f in currentFields" :key="f.id" role="tabpanel">
+                        <div class="flex flex-col gap-7" role="tabpanel" :aria-label="activeTab">
+                        <div v-for="f in currentFields" :key="f.id">
                             <label class="block text-[1rem] font-bold text-inkf" :for="`f-${f.id}`">
                                 {{ f.label }}
                             </label>
@@ -241,6 +242,7 @@
                                     </span>
                                 </label>
                             </div>
+                        </div>
                         </div>
                     </div>
 
